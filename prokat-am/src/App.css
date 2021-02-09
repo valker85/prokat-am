@@ -1,0 +1,222 @@
+.container160{
+    margin-left: 8.334vw;
+    margin-right: 8.334vw;
+}
+.header .header-wrapper{
+    display: flex;
+    justify-content: space-between;
+}
+.header .header-wrapper .block{
+    display: flex;
+    align-items: flex-end;
+}
+.header .header-wrapper .block p{
+    color: #147EC2;
+    font-size: 1.146vw;
+    font-family: 'Arial';
+    font-weight: 700;
+    margin-left: 30px;
+}
+.header .header-wrapper .block ul{
+    display: flex;
+    list-style: none;
+}
+.header .header-wrapper .block ul li{
+    font-size: 18px;
+    font-family: 'Arial';
+}
+.header .header-wrapper .block ul li:not(:first-child){
+    margin-left: 2.9vw;
+}
+.header .header-wrapper .block ul li:last-child{
+    margin-left: 5.1vw;
+    color: #147EC2;
+    cursor: pointer;
+}
+.header .header-wrapper .block ul li a{
+    text-decoration: none;
+    color: #353535;
+    transition: 0.2s;
+}
+.header .header-wrapper .block ul li a:hover{
+    color: #147EC2;
+}
+.home .section1 h1{
+    margin-top: 170px;
+    font-size: 2.605vw;
+    font-family: 'Arial';
+    color: #147EC2;
+    line-height: 3.8vw;
+    margin-bottom: 50px;
+}
+.home .section1 .input{
+    width: 100%;
+    display: flex;
+    border-radius: 3px 0 0 3px;
+    border: 0.5px solid #C6C6C6;
+    border-right: none;
+    margin-bottom: 30px;
+}
+.home .section1 .input img{
+    margin-left: 22px;
+}
+.home .section1 .input input{
+    font-size: 20px;
+    padding: 36.5px 20px;
+    outline: none;
+    flex: 1;
+    border: none;
+}
+.home .section1 .input input::placeholder{
+    color: #C6C6C6;
+}
+.home .section1 .input button{
+    width: 26.042vw;
+    border-radius: 0 3px 3px 0;
+    border: none;
+    background: #147EC2;
+    cursor: pointer;
+    color: white;
+    font-family: 'Arial';
+    font-size: 24px;
+    font-weight: 700;
+    outline: none;
+    transition: 0.3s;
+}
+.home .section1 .input button:hover{
+    background: #114F9F;
+}
+.home .section1 .some_info{
+    font-family: 'Arial';
+    font-size: 20px;
+    color: #353535;
+}
+.home .section1 .some_info a{
+    text-decoration: none;
+    color: #147EC2;
+    transition: 0.3s;
+}
+.home .section1 .some_info a:hover{
+    color: #114F9F;
+}
+.home .section1{
+    padding-bottom: 140px;
+}
+.home .section2{
+    background: #EFF6FB;
+    padding-top: 90px;
+    padding-bottom: 100px;
+}
+.home .section2 .tabs{
+    display: flex;
+}
+.home .section2 .tabs h3{
+    font-family: 'Arial';
+    font-size: 1.46vw;
+    font-weight: 400;
+    color: #353535;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.home .section2 .tabs h3:first-child{
+    margin-right: 150px;
+}
+.home .section2 .tabs h3.active{
+    color: #147EC2;
+    padding-bottom: 18px;
+    font-weight: 700;
+    border-bottom: 3.5px solid #147EC2;
+}
+
+
+
+
+
+
+
+
+/* ///////////////// */
+.footer .social-wrapper{
+    position: fixed;
+    right: 30px;
+    bottom: 30px;
+}
+.footer .social-wrapper div{
+    width: 74px;
+    height: 74px;
+    border-radius: 100px;
+}
+.footer .social-wrapper a div{
+    margin-bottom: 15px;
+    align-items: center;
+    padding-top: 25%;
+}
+.footer .social-wrapper .whatsup{
+    background: #4ADF83;
+    box-shadow: 0px 4px 44px rgba(74, 223, 131, 0.45);
+}
+.footer .social-wrapper .viber{
+    background: #9069AE;
+    box-shadow: 0px 4px 44px rgba(144, 105, 174, 0.45);
+}
+.footer .social-wrapper .mess{
+    background: #2196F3;
+    box-shadow: 0px 4px 44px rgba(33, 150, 243, 0.45);    
+}
+.footer .social-wrapper a div img{
+    display: block;
+    margin: 0 auto;
+}
+
+
+
+
+
+
+
+
+
+/* 
+  3px - 0.157vw
+  5px - 0.261vw
+  6px - 0.313vw 
+  8px - 0.42vw
+  9px - 0.47vw
+  9.27px - 0.483vw
+  10px - 0.521vw 
+  11px - 0.573vw
+  12px - 0.625vw
+  13px - 0.68vw
+  14px - 0.73vw
+  15px - 0.782vw
+  16px - 0.834vw
+  18px - 0.938vw
+  20px - 1.042vw
+  22px - 1.146vw
+  25px - 1.303vw
+  28px - 1.46vw
+  29px - 1.511vw
+  32px - 1.67vw
+  34px - 1.771vw
+  35px - 1.825vw
+  36px - 1.876vw
+  40px - 2.084vw
+  45px - 2.344vw
+  48px - 2.5vw
+  50px - 2.605vw
+  60px - 3.126vw
+  70px - 3.65vw
+  79px - 4.115vw
+  84px - 4.375vw
+  90px - 4.69vw
+  100px - 5.209vw
+  112px - 5.834vw
+  115px - 5.99vw
+  120px - 6.25vw
+  136px - 7.084vw
+  160px - 8.334vw
+  192px - 10vw
+  214px - 11.15vw
+  260px - 13.542vw
+  277px - 14.43vw
+*/
