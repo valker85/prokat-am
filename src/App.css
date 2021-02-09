@@ -116,14 +116,14 @@
     font-weight: 400;
     color: #353535;
     cursor: pointer;
-    transition: 0.3s;
+    padding-bottom: 18px;
+    transition: 0.07s;
 }
 .home .section2 .tabs h3:first-child{
     margin-right: 150px;
 }
 .home .section2 .tabs h3.active{
     color: #147EC2;
-    padding-bottom: 18px;
     font-weight: 700;
     border-bottom: 3.5px solid #147EC2;
 }

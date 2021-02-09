@@ -16,7 +16,7 @@ export default class Header extends React.Component{
                     <div className='header-wrapper'>
                         <div className='block'>
                             <NavLink to='/'>
-                                <img src={Logo}></img>
+                                <img src={Logo} alt='logo'/>
                             </NavLink>
                             <p>(+374 99) 77 25 28</p>
                             <p>(+374 94) 77 25 28</p>    
@@ -31,7 +31,7 @@ export default class Header extends React.Component{
                                 <li><NavLink to='/'>Հետադարձ կապ</NavLink></li>
                                 <li>
                                     <NavLink to='/basket'>
-                                        <img src={Basket}></img>
+                                        <img src={Basket} alt='basket'/>
                                     </NavLink>
                                 </li>
                                 <li>En</li>
