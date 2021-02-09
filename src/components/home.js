@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { NavLink } from 'react-router-dom';
 
 // Componets
 import Header from './other-components/header'
@@ -8,7 +8,25 @@ import Footer from './other-components/footer'
 
 // images
 import Search from '../assets/img/home/search.svg'
-import { NavLink } from 'react-router-dom';
+
+import Prod1 from '../assets/img/home/products/prod1.png'
+import Prod2 from '../assets/img/home/products/prod2.png'
+import Prod3 from '../assets/img/home/products/prod3.png'
+import Prod4 from '../assets/img/home/products/prod4.png'
+import Prod5 from '../assets/img/home/products/prod5.png'
+import Prod6 from '../assets/img/home/products/prod6.png'
+import Prod7 from '../assets/img/home/products/prod7.png'
+import Prod8 from '../assets/img/home/products/prod8.png'
+import Prod9 from '../assets/img/home/products/prod9.png'
+
+import topProd1 from '../assets/img/home/top-prods/prod1.png'
+import topProd2 from '../assets/img/home/top-prods/prod2.png'
+import topProd3 from '../assets/img/home/top-prods/prod3.png'
+import topProd4 from '../assets/img/home/top-prods/prod4.png'
+import topProd5 from '../assets/img/home/top-prods/prod5.png'
+
+
+
 
 
 export default class Home extends React.Component{
@@ -16,8 +34,41 @@ export default class Home extends React.Component{
         super(props)
 
         this.state = {
-            tab: 1
-
+            tab: 1,
+            products:{
+                subjects:[
+                    {image: Prod1, name: 'Համակարգչային տեխնիկա'},
+                    {image: Prod2, name: 'Ամեն ինչ միջոցառումների համար'},
+                    {image: Prod3, name: 'Սպասք'},
+                    {image: Prod4, name: 'Գործիքներ'},
+                    {image: Prod5, name: 'Տուրիզմ'},
+                    {image: Prod6, name: 'Հագուստ'},
+                    {image: Prod7, name: 'Կապի միջոցներ'},
+                    {image: Prod8, name: 'Ժամանց'},
+                    {image: Prod9, name: 'Ձայնային և լուսային տեխնիկա'}
+                ],
+                services:[
+                    {image: Prod1, name: 'Something'},
+                    {image: Prod1, name: 'Something'},
+                    {image: Prod1, name: 'Something'},
+                    {image: Prod1, name: 'Something'},
+                    {image: Prod1, name: 'Something'},
+                    {image: Prod1, name: 'Something'},
+                    {image: Prod1, name: 'Something'},
+                    {image: Prod1, name: 'Something'},
+                    {image: Prod1, name: 'Something'}
+                ]
+            },
+            top_prods:[
+                {img: topProd1, type: 'Տեխնիկա', name: 'Պրոյեկտոր Benq', info: ['2700 Lumens', 'SVGA resolution', 'USB'], prise: 10000},
+                {img: topProd2, type: 'Ամեն ինչ միջոցառումների համար', name: 'Սպիտակ ծածկ', info: ['3x3 մ', 'ջրակայուն', 'թեթև '], prise: 24000},
+                {img: topProd3, type: 'Ամեն ինչ միջոցառումների համար', name: 'Ջուր եռացնելու էլեկտրական սարք', info: ['15 լիտր'], prise: 3000},
+                {img: topProd4, type: 'Տեխնիկա', name: 'Գրասենյակային աթոռ', info: ['մետաղ', 'գործվածք', 'սև'], prise: 1000},
+                {img: topProd5, type: 'Տեխնիկա', name: 'Պրոյեկտոր Benq', info: ['2700 Lumens', 'SVGA resolution', 'USB'], prise: 10000},
+                {img: topProd1, type: 'Ամեն ինչ միջոցառումների համար', name: 'Սպիտակ ծածկ', info: ['3x3 մ', 'ջրակայուն', 'թեթև '], prise: 24000},
+                {img: topProd2, type: 'Ամեն ինչ միջոցառումների համար', name: 'Ջուր եռացնելու էլեկտրական սարք', info: ['15 լիտր'], prise: 3000},
+                {img: topProd3, type: 'Տեխնիկա', name: 'Գրասենյակային աթոռ', info: ['մետաղ', 'գործվածք', 'սև'], prise: 1000}
+            ]
         }
 
         this.searchInput = React.createRef()
@@ -40,7 +91,7 @@ export default class Home extends React.Component{
         tabs[index].classList.add('active')
 
         this.setState({
-            tab:1
+            tab: index+1
         })
     }
 
@@ -48,19 +99,82 @@ export default class Home extends React.Component{
     tabFun = () =>{
         if(this.state.tab === 1){
             return(
-                <div>
-                    1
+                <div className='cards'>
+                    {
+                        this.state.products.subjects.map((card, idx)=>{
+                            return(
+                                <div className='card' key={idx}>
+                                    <div className='img-wrapper'>
+                                        <img src={card.image} alt='subject'/>
+                                    </div>
+                                    <div className='name-wrapper'>
+                                        <h1>{card.name}</h1>
+                                    </div>
+                                </div>
+                            )
+                        })
+                    }
                 </div>
             )
         } else if(this.state.tab === 2){
             return(
-                <div>
-                    2
+                <div className='cards'>
+                    {
+                        this.state.products.services.map((card, idx)=>{
+                            return(
+                                <div className='card' key={idx}>
+                                    <div className='img-wrapper'>
+                                        <img src={card.image} alt='subject'/>
+                                    </div>
+                                    <div className='name-wrapper'>
+                                        <h1>{card.name}</h1>
+                                    </div>
+                                </div>
+                            )
+                        })
+                    }
                 </div>
             )
         }
     }
 
+
+    topProds = () =>{
+        return(
+            <div className='top_prods'>
+                {
+                    this.state.top_prods.map((card, idx)=>{
+                        return(
+                            <div className='card' key={idx}>
+                                <div className='img-wrapper'>
+                                    <img src={card.img} alt='img'/>
+                                </div>
+                                <div className='content'>
+                                    <NavLink to='/' className='type'>{card.type}</NavLink>
+                                    <h1 className={card.name.length > 20 ? 'name long' : 'name'}>{card.name}</h1>
+
+                                    <ul className={card.name.length > 20 ? 'info long' : 'info'}>
+                                    {
+                                        card.info.map((param, idx)=>{
+                                            return(
+                                                <li key={idx}>{param}</li>
+                                            )
+                                        }) 
+                                    }
+                                    </ul>
+                                    <div className='line'></div>
+                                    <div className='prise-wrapper'>
+                                        <div className='prise'>{card.prise} <span>դր/օր</span></div>
+                                        <div className='rent'><NavLink to='/'>Վարձել</NavLink></div>
+                                    </div>
+                                </div>
+                            </div>
+                        )
+                    })
+                }
+            </div>
+        )
+    }
 
     render(){
         return(
@@ -68,7 +182,7 @@ export default class Home extends React.Component{
                 <Header/>
                 <div className='section1'>
                     <div className='container160'>
-                        <h1>Փնտրու՞մ եք վարձույթով տրվող ապրանքներ:<br/>Prokat.am-ը միշտ Ձեր կողքին է:</h1>
+                        <h1>Վարձույթով ապրանքներ միջոցառումների<br/> կազմակերպման համար</h1>
                         <div className='input'>
                             <img src={Search} alt='search'/>
                             <input ref={this.searchInput} onFocus={this.inputFocus} name='category'/>
@@ -87,6 +201,16 @@ export default class Home extends React.Component{
                             <h3 onClick={this.changeTab.bind(null, 1)}>Ծառայություններ</h3>
                         </div>
                         {this.tabFun()}
+                    </div>
+                </div>
+
+
+                <div className='section3'>
+                    <div className='container160'>
+                        <h1>Թոփ առաջարկներ</h1>
+                        {
+                            this.topProds()
+                        }
                     </div>
                 </div>
                 <Footer/>

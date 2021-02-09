@@ -2,9 +2,11 @@ import React from 'react';
 import {NavLink} from 'react-router-dom'
 
 // images
-
 import Logo from '../../assets/img/header/ProkatAm Logo.png'
 import Basket from '../../assets/img/basket.svg'
+
+
+
 
 export default class Header extends React.Component{
 
@@ -18,16 +20,13 @@ export default class Header extends React.Component{
                             <NavLink to='/'>
                                 <img src={Logo} alt='logo'/>
                             </NavLink>
-                            <p>(+374 99) 77 25 28</p>
-                            <p>(+374 94) 77 25 28</p>    
+                            <a href='tel:+37499772528'>(+374 99) 77 25 28</a>
+                            <a href='tel:+37494772528'>(+374 94) 77 25 28</a>
+                            <a href='tel:+37455772528'>(+374 55) 77 25 28</a>    
                         </div>
 
                         <div className='block'>
                             <ul className='menu'>
-                                <li>
-                                    <NavLink to='/about'>Մեր մասին</NavLink>
-                                </li>
-                                <li><NavLink to='/'>Պայմաններ</NavLink></li>
                                 <li><NavLink to='/'>Հետադարձ կապ</NavLink></li>
                                 <li>
                                     <NavLink to='/basket'>
