@@ -2,7 +2,7 @@ import Home from './components/home'
 import About from './components/about'
 import Basket from './components/basket'
 import Category from './components/category'
-
+import ConcretCategory from './components/concretCategory'
 
 
 
@@ -25,6 +25,11 @@ export default [
     {
         path: '/category',
         component: Category,
-        exact: false
+        exact: true
+    },
+    {
+        path: '/category/:url',
+        component: ConcretCategory,
+        exact: true
     }
 ]
