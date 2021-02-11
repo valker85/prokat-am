@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 // Componets
 import Header from './other-components/header'
@@ -36,27 +36,27 @@ export default class Home extends React.Component{
         this.state = {
             tab: 1,
             products:{
-                subjects:[
-                    {image: Prod1, name: 'Համակարգչային տեխնիկա'},
-                    {image: Prod2, name: 'Ամեն ինչ միջոցառումների համար'},
-                    {image: Prod3, name: 'Սպասք'},
-                    {image: Prod4, name: 'Գործիքներ'},
-                    {image: Prod5, name: 'Տուրիզմ'},
-                    {image: Prod6, name: 'Հագուստ'},
-                    {image: Prod7, name: 'Կապի միջոցներ'},
-                    {image: Prod8, name: 'Ժամանց'},
-                    {image: Prod9, name: 'Ձայնային և լուսային տեխնիկա'}
+                goods:[
+                    {image: Prod1, type:'goods', name: 'Համակարգչային տեխնիկա'},
+                    {image: Prod2, type:'goods', name: 'Ամեն ինչ միջոցառումների համար'},
+                    {image: Prod3, type:'goods', name: 'Սպասք'},
+                    {image: Prod4, type:'goods', name: 'Գործիքներ'},
+                    {image: Prod5, type:'goods', name: 'Տուրիզմ'},
+                    {image: Prod6, type:'goods', name: 'Հագուստ'},
+                    {image: Prod7, type:'goods', name: 'Կապի միջոցներ'},
+                    {image: Prod8, type:'goods', name: 'Ժամանց'},
+                    {image: Prod9, type:'goods', name: 'Ձայնային և լուսային տեխնիկա'}
                 ],
                 services:[
-                    {image: Prod1, name: 'Something'},
-                    {image: Prod1, name: 'Something'},
-                    {image: Prod1, name: 'Something'},
-                    {image: Prod1, name: 'Something'},
-                    {image: Prod1, name: 'Something'},
-                    {image: Prod1, name: 'Something'},
-                    {image: Prod1, name: 'Something'},
-                    {image: Prod1, name: 'Something'},
-                    {image: Prod1, name: 'Something'}
+                    {image: Prod1, type:'services', name: 'Something'},
+                    {image: Prod1, type:'services', name: 'Something'},
+                    {image: Prod1, type:'services', name: 'Something'},
+                    {image: Prod1, type:'services', name: 'Something'},
+                    {image: Prod1, type:'services', name: 'Something'},
+                    {image: Prod1, type:'services', name: 'Something'},
+                    {image: Prod1, type:'services', name: 'Something'},
+                    {image: Prod1, type:'services', name: 'Something'},
+                    {image: Prod1, type:'services', name: 'Something'}
                 ]
             },
             top_prods:[
@@ -101,16 +101,19 @@ export default class Home extends React.Component{
             return(
                 <div className='cards'>
                     {
-                        this.state.products.subjects.map((card, idx)=>{
+                        this.state.products.goods.map((card, idx)=>{
                             return(
-                                <div className='card' key={idx}>
+                                <Link to={{
+                                    pathname:`/category/${card.type}`,
+                                    product: card.name
+                                }} className='card' key={idx}>
                                     <div className='img-wrapper'>
                                         <img src={card.image} alt='subject'/>
                                     </div>
                                     <div className='name-wrapper'>
                                         <h1>{card.name}</h1>
                                     </div>
-                                </div>
+                                </Link>
                             )
                         })
                     }

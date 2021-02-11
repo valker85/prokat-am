@@ -2,7 +2,7 @@ import Home from './components/home'
 import About from './components/about'
 import Basket from './components/basket'
 import Category from './components/category'
-import ConcretCategory from './components/concretCategory'
+// import ConcretCategory from './components/concretCategory'
 
 
 
@@ -22,14 +22,19 @@ export default [
         component: Basket,
         exact: false
     },
+    // {
+    //     path: '/category',
+    //     component: Category,
+    //     exact: true
+    // },
     {
-        path: '/category',
+        path: '/:url',
         component: Category,
-        exact: true
+        exact: false
     },
     {
-        path: '/category/:url',
-        component: ConcretCategory,
+        path: '/:url/:category',
+        component: Category,
         exact: true
     }
 ]

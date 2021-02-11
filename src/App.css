@@ -153,6 +153,7 @@
     overflow: hidden;
     cursor: pointer;
     border-radius: 3px;
+    text-decoration: none;
 }
 
 .home .section2 .cards .card .img-wrapper{
@@ -424,9 +425,6 @@
     display: flex;
     justify-content: space-between;
 }
-.footer .content .bottom .info{
-
-}
 .footer .content .bottom .info p{
     display: inline-block;
     font-family: 'Arial';
@@ -515,6 +513,91 @@
     margin-bottom: 10px;
     color: #353535;
 }
+/* =========================== */
+/* /////  Custom Select  ///// */
+.select-box{
+    display: flex;
+    width: 400px;
+    flex-direction: column;
+    position: relative;
+    z-index: 1;
+}
+.select-box .option-container{
+    background: #FFFFFF;
+    box-shadow: 0px 4px 14px rgba(5, 58, 91, 0.14);
+    border-radius: 3px;
+    color: #353535;
+    max-height: 0;
+    width: 100%;
+    opacity: 0;
+    transition: all 0.3s;
+    overflow: hidden;
+    order: 1;
+    position: absolute;
+    z-index: 2;
+    top: 50px;
+}
+.selected{
+    background: white;
+    border: 0.5px solid #C6C6C6;
+    border-radius: 3px;
+    color: #353535;
+    position: relative;
+    padding: 15px 20px;
+    cursor: pointer;
+    order: 0;
+} 
+.selected::after{
+    content: "";
+    display: block;
+    border-color: #000 transparent transparent;
+    border-style: solid;
+    border-width: 5px 5px 0;
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transition: all .3s;
+}
+.select-box .option-container.active{
+    max-height: 250px;
+    opacity: 1;
+    overflow-y: scroll;
+}
+.select-box .option-container.active + .selected::after{
+    transform: rotate(180deg);
+}
+.select-box .option-container::-webkit-scrollbar{
+    width: 8px;
+    background: #e2e3e4;
+    border-radius: 0 3px 3px 0;
+}
+.select-box .option-container::-webkit-scrollbar-thumb{
+    background: #737577;
+    border-radius: 0 3px 3px 0;
+}
+.select-box .option{
+    padding: 15px 20px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.select-box .option:hover{
+    background: #147EC2;
+    color: white;
+}
+.select-box label{
+    cursor: pointer;
+}
+.select-box .option .radio{
+    display: none;
+}
+/* /////////////////////////// */
+/* =========================== */
+
+
+
+
+
+
 
 /* 
   3px - 0.157vw
