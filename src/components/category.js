@@ -8,7 +8,7 @@ import Path from './other-components/path'
 
 // images
 import Search from '../assets/img/home/search.svg'
-import { NavLink, withRouter } from 'react-router-dom';
+import { Link, NavLink, withRouter } from 'react-router-dom';
 
 import Prod1 from '../assets/img/home/top-prods/prod1.png'
 import Prod2 from '../assets/img/home/top-prods/prod2.png'
@@ -40,190 +40,210 @@ class Category extends React.Component{
             sections:[
                 {
                     secName:'Goods',
+                    url:'goods',
                     categories: [
                         {
                             name: 'Computer equipment', 
+                            url: 'computer-equipment',
                             types: [
-                                {typeName:'monitor1'},
-                                {typeName:'monitor2'},
-                                {typeName:'monitor3'},
-                                {typeName:'monitor4'},
-                                {typeName:'monitor5'}
+                                {typeName:'monitor1', url:'monitor1'},
+                                {typeName:'monitor2', url:'monitor2'},
+                                {typeName:'monitor3', url:'monitor3'},
+                                {typeName:'monitor4', url:'monitor4'},
+                                {typeName:'monitor5', url:'monitor5'}
                             ]
                         },
                         {
                             name: 'Everything for events', 
+                            url: 'for-events',
                             types: [
-                                {typeName:'for events1'},
-                                {typeName:'for events2'},
-                                {typeName:'for events3'},
-                                {typeName:'for events4'},
-                                {typeName:'for events5'}
+                                {typeName:'for events1', url:'for-events1'},
+                                {typeName:'for events2', url:'for-events2'},
+                                {typeName:'for events3', url:'for-events3'},
+                                {typeName:'for events4', url:'for-events4'},
+                                {typeName:'for events5', url:'for-events5'}
                             ]
                         },
                         {
                             name: 'Tableware', 
+                            url: 'tableware',
                             types: [
-                                {typeName:'tableware1'},
-                                {typeName:'tableware2'},
-                                {typeName:'tableware3'},
-                                {typeName:'tableware4'},
-                                {typeName:'tableware5'}
+                                {typeName:'tableware1', url:'tableware1'},
+                                {typeName:'tableware2', url:'tableware2'},
+                                {typeName:'tableware3', url:'tableware3'},
+                                {typeName:'tableware4', url:'tableware4'},
+                                {typeName:'tableware5', url:'tableware5'}
                             ]
                         },
                         {
-                            name: 'Tools', 
+                            name: 'Tools',
+                            url: 'tools',
                             types: [
-                                {typeName:'Tools1'},
-                                {typeName:'Tools2'},
-                                {typeName:'Tools3'},
-                                {typeName:'Tools4'},
-                                {typeName:'Tools5'}
+                                {typeName:'Tools1', url:'tools1'},
+                                {typeName:'Tools2', url:'tools2'},
+                                {typeName:'Tools3', url:'tools3'},
+                                {typeName:'Tools4', url:'tools4'},
+                                {typeName:'Tools5', url:'tools5'}
                             ]
                         },
                         {
                             name: 'Tourism', 
+                            url: 'tourism',
                             types: [
-                                {typeName:'Tourism1'},
-                                {typeName:'Tourism2'},
-                                {typeName:'Tourism3'},
-                                {typeName:'Tourism4'},
-                                {typeName:'Tourism5'}
+                                {typeName:'Tourism1', url:'tourism1'},
+                                {typeName:'Tourism2', url:'tourism2'},
+                                {typeName:'Tourism3', url:'tourism3'},
+                                {typeName:'Tourism4', url:'tourism4'},
+                                {typeName:'Tourism5', url:'tourism5'}
                             ]
                         },
                         {
                             name: 'Clothing', 
+                            url: 'clothing',
                             types: [
-                                {typeName:'clothing1'},
-                                {typeName:'clothing2'},
-                                {typeName:'clothing3'},
-                                {typeName:'clothing4'},
-                                {typeName:'clothing5'}
+                                {typeName:'clothing1', url:'clothing1'},
+                                {typeName:'clothing2', url:'clothing2'},
+                                {typeName:'clothing3', url:'clothing3'},
+                                {typeName:'clothing4', url:'clothing4'},
+                                {typeName:'clothing5', url:'clothing5'}
                             ]
                         },
                         {
                             name: 'Means of communication', 
+                            url: 'means-of-communication',
                             types: [
-                                {typeName:'communication1'},
-                                {typeName:'communication2'},
-                                {typeName:'communication3'},
-                                {typeName:'communication4'},
-                                {typeName:'communication5'}
+                                {typeName:'communication1', url:'communication1'},
+                                {typeName:'communication2', url:'communication2'},
+                                {typeName:'communication3', url:'communication3'},
+                                {typeName:'communication4', url:'communication4'},
+                                {typeName:'communication5', url:'communication5'}
                             ]
                         },
                         {
                             name: 'Fun', 
+                            url: 'fun',
                             types: [
-                                {typeName:'Fun1'},
-                                {typeName:'Fun2'},
-                                {typeName:'Fun3'},
-                                {typeName:'Fun4'},
-                                {typeName:'Fun5'}
+                                {typeName:'Fun1', url:'fun1'},
+                                {typeName:'Fun2', url:'fun2'},
+                                {typeName:'Fun3', url:'fun3'},
+                                {typeName:'Fun4', url:'fun4'},
+                                {typeName:'Fun5', url:'fun5'}
                             ]
                         },
                         {
                             name: 'Sound and light equipment', 
+                            url: 'sound-and-light-equipment',
                             types: [
-                                {typeName:'equipment1'},
-                                {typeName:'equipment2'},
-                                {typeName:'equipment3'},
-                                {typeName:'equipment4'},
-                                {typeName:'equipment5'}
+                                {typeName:'equipment1', url:'equipment1'},
+                                {typeName:'equipment2', url:'equipment2'},
+                                {typeName:'equipment3', url:'equipment3'},
+                                {typeName:'equipment4', url:'equipment4'},
+                                {typeName:'equipment5', url:'equipment5'}
                             ]
                         }
                     ]
                 },
                 {
                     secName:'Services',
+                    url:'services',
                     categories: [
                         {
                             name: 'Service1', 
+                            url:'service1',
                             types: [
-                                {typeName:'type1'},
-                                {typeName:'type2'},
-                                {typeName:'type3'},
-                                {typeName:'type4'},
-                                {typeName:'type5'}
+                                {typeName:'type1', url: 'type1'},
+                                {typeName:'type2', url: 'type2'},
+                                {typeName:'type3', url: 'type3'},
+                                {typeName:'type4', url: 'type4'},
+                                {typeName:'type5', url: 'type5'}
                             ]
                         },
                         {
                             name: 'Service2', 
+                            url:'service2',
                             types: [
-                                {typeName:'type1'},
-                                {typeName:'type2'},
-                                {typeName:'type3'},
-                                {typeName:'type4'},
-                                {typeName:'type5'}
+                                {typeName:'type1', url: 'type1'},
+                                {typeName:'type2', url: 'type2'},
+                                {typeName:'type3', url: 'type3'},
+                                {typeName:'type4', url: 'type4'},
+                                {typeName:'type5', url: 'type5'}
                             ]
                         },
                         {
                             name: 'Service3', 
+                            url:'service3',
                             types: [
-                                {typeName:'type1'},
-                                {typeName:'type2'},
-                                {typeName:'type3'},
-                                {typeName:'type4'},
-                                {typeName:'type5'}
+                                {typeName:'type1', url: 'type1'},
+                                {typeName:'type2', url: 'type2'},
+                                {typeName:'type3', url: 'type3'},
+                                {typeName:'type4', url: 'type4'},
+                                {typeName:'type5', url: 'type5'}
                             ]
                         },
                         {
                             name: 'Service4', 
+                            url:'service4',
                             types: [
-                                {typeName:'type1'},
-                                {typeName:'type2'},
-                                {typeName:'type3'},
-                                {typeName:'type4'},
-                                {typeName:'type5'}
+                                {typeName:'type1', url: 'type1'},
+                                {typeName:'type2', url: 'type2'},
+                                {typeName:'type3', url: 'type3'},
+                                {typeName:'type4', url: 'type4'},
+                                {typeName:'type5', url: 'type5'}
                             ]
                         },
                         {
                             name: 'Service5', 
+                            url:'service5',
                             types: [
-                                {typeName:'type1'},
-                                {typeName:'type2'},
-                                {typeName:'type3'},
-                                {typeName:'type4'},
-                                {typeName:'type5'}
+                                {typeName:'type1', url: 'type1'},
+                                {typeName:'type2', url: 'type2'},
+                                {typeName:'type3', url: 'type3'},
+                                {typeName:'type4', url: 'type4'},
+                                {typeName:'type5', url: 'type5'}
                             ]
                         },
                         {
                             name: 'Service6', 
+                            url:'service6',
                             types: [
-                                {typeName:'type1'},
-                                {typeName:'type2'},
-                                {typeName:'type3'},
-                                {typeName:'type4'},
-                                {typeName:'type5'}
+                                {typeName:'type1', url: 'type1'},
+                                {typeName:'type2', url: 'type2'},
+                                {typeName:'type3', url: 'type3'},
+                                {typeName:'type4', url: 'type4'},
+                                {typeName:'type5', url: 'type5'}
                             ]
                         },
                         {
-                            name: 'Service7', 
+                            name: 'Service7',
+                            url:'service7',
                             types: [
-                                {typeName:'type1'},
-                                {typeName:'type2'},
-                                {typeName:'type3'},
-                                {typeName:'type4'},
-                                {typeName:'type5'}
+                                {typeName:'type1', url: 'type1'},
+                                {typeName:'type2', url: 'type2'},
+                                {typeName:'type3', url: 'type3'},
+                                {typeName:'type4', url: 'type4'},
+                                {typeName:'type5', url: 'type5'}
                             ]
                         },
                         {
-                            name: 'Service8', 
+                            name: 'Service8',
+                            url:'service8',
                             types: [
-                                {typeName:'type1'},
-                                {typeName:'type2'},
-                                {typeName:'type3'},
-                                {typeName:'type4'},
-                                {typeName:'type5'}
+                                {typeName:'type1', url: 'type1'},
+                                {typeName:'type2', url: 'type2'},
+                                {typeName:'type3', url: 'type3'},
+                                {typeName:'type4', url: 'type4'},
+                                {typeName:'type5', url: 'type5'}
                             ]
                         },
                         {
-                            name: 'Service9', 
+                            name: 'Service9',
+                            url:'service9',
                             types: [
-                                {typeName:'type1'},
-                                {typeName:'type2'},
-                                {typeName:'type3'},
-                                {typeName:'type4'},
-                                {typeName:'type5'}
+                                {typeName:'type1', url: 'type1'},
+                                {typeName:'type2', url: 'type2'},
+                                {typeName:'type3', url: 'type3'},
+                                {typeName:'type4', url: 'type4'},
+                                {typeName:'type5', url: 'type5'}
                             ]
                         }
                     ]
@@ -233,21 +253,20 @@ class Category extends React.Component{
             option_container_classes_category:['option-container'],
             option_container_classes_type:['option-container'],
             actual_section: '',
-            actual_category: '',
-            actual_type: ''
+            actual_category: ''
 
         }
 
         this.option_container = React.createRef();
-
+        this.sec_path = ''
+        this.cat_path = ''
             
     }
 
 
     componentWillReceiveProps(newPr){   // во время клика
-        // let path = this.props.locations.pathname
-        console.log(newPr.location.pathname);
-    
+
+        console.log(newPr.location.pathname)
     }
 
     selectFun = (wichOne) =>{
@@ -312,25 +331,18 @@ class Category extends React.Component{
         //get actual
         if(filter === 'sections'){
             this.setState({actual_section: actual})
-            console.log(this.state.actual_section);
-
-
 
         } else if(filter === 'categories'){
             this.setState({actual_category: actual})
-            console.log(this.state.actual_category);
-
-
 
         } else if(filter === 'types'){
             this.setState({actual_type: actual})
-            console.log(this.state.actual_type);
         }
-
     }
 
 
     render(){
+
         return(
             <div className='category'>
                 <Header/>
@@ -361,7 +373,7 @@ class Category extends React.Component{
                                                 return(
                                                 <div className='option' key={idx} onClick={this.acceptOption.bind(null, 'sections', idx)}>
                                                     <input type="radio" className='radio' id={`section${idx}`} name="sections"/>
-                                                    <label htmlFor={`section${idx}`} onClick={this.acceptOption.bind(null, 'sections', idx)}>{section.secName}</label>
+                                                    <NavLink to={`/${section.url}`} htmlFor={`section${idx}`} onClick={this.acceptOption.bind(null, 'sections', idx)}>{section.secName}</NavLink>
                                                 </div>
                                                 )
                                             })
@@ -383,7 +395,7 @@ class Category extends React.Component{
                                                 return(
                                                 <div className='option' key={idx} onClick={this.acceptOption.bind(null, 'categories', idx)}>
                                                     <input type="radio" className='radio' id={`category${idx}`} name="categories"/>
-                                                    <NavLink to='/goods/tools' htmlFor={`category${idx}`} onClick={this.acceptOption.bind(null, 'categories', idx)}>{category.name}</NavLink>
+                                                    <Link to={`/${this.state.sections[this.state.actual_section].url}/${category.url}`} htmlFor={`category${idx}`} onClick={this.acceptOption.bind(null, 'categories', idx)}>{category.name}</Link>
                                                 </div>
                                                 )
                                             })
@@ -406,7 +418,12 @@ class Category extends React.Component{
                                                 return(
                                                 <div className='option' key={idx} onClick={this.acceptOption.bind(null, 'types', idx)}>
                                                     <input type="radio" className='radio' id={`type${idx}`} name="types"/>
-                                                    <label htmlFor={`type${idx}`} onClick={this.acceptOption.bind(null, 'types', idx)}>{type.typeName}</label>
+                                                    <Link 
+                                                        to={`/${this.state.sections[this.state.actual_section].url}/${this.state.sections[this.state.actual_section].categories[this.state.actual_category].url}/${type.url}`} 
+                                                        htmlFor={`type${idx}`} onClick={this.acceptOption.bind(null, 'types', idx)}
+                                                    >
+                                                        {type.typeName}
+                                                    </Link>
                                                 </div>
                                                 )
                                             }) : <p>Choose your category</p>
@@ -416,7 +433,7 @@ class Category extends React.Component{
                                 </div>
                             </div>
 
-                            <NavLink to='/category'>Մաքրել ֆիլտրը</NavLink>
+                            <NavLink to='/'>Մաքրել ֆիլտրը</NavLink>
                         </div>
 
                     </div>

@@ -35,6 +35,11 @@ export default [
     {
         path: '/:url/:category',
         component: Category,
+        exact: false
+    },
+    {
+        path: '/:url/:category/:type',
+        component: Category,
         exact: true
     }
 ]
