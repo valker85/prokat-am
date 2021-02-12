@@ -5,7 +5,7 @@ import Footer from './other-components/footer'
 import Path from './other-components/path'
 
 
-export default class ConcretCategory extends React.Component{
+export default class ProductPage extends React.Component{
     constructor(props){
         super(props)
 
@@ -20,7 +20,7 @@ export default class ConcretCategory extends React.Component{
 
                 <div className='container160'>
                     <Path/>
-                    <h1>Some</h1>
+                    <h1>Product Page</h1>
                 </div>
 
                 <Footer/>

@@ -253,21 +253,18 @@ class Category extends React.Component{
             option_container_classes_category:['option-container'],
             option_container_classes_type:['option-container'],
             actual_section: '',
-            actual_category: ''
+            actual_category: '',
+            actual_type: '',
+            actual_pathname: this.props.location.pathname,
+            history: this.props.match.params.url
 
         }
 
-        this.option_container = React.createRef();
-        this.sec_path = ''
-        this.cat_path = ''
-            
+
+        
     }
 
 
-    componentWillReceiveProps(newPr){   // во время клика
-
-        console.log(newPr.location.pathname)
-    }
 
     selectFun = (wichOne) =>{
         if(wichOne === 'sections'){
@@ -328,6 +325,11 @@ class Category extends React.Component{
             this.selectFun(filter)
         }
 
+        this.doActual(filter, actual)
+    }
+
+
+    doActual = (filter, actual) =>{
         //get actual
         if(filter === 'sections'){
             this.setState({actual_section: actual})
@@ -338,6 +340,55 @@ class Category extends React.Component{
         } else if(filter === 'types'){
             this.setState({actual_type: actual})
         }
+
+    }
+
+
+    componentDidMount(){
+        let sections = this.state.sections
+        let categories;
+        let types;
+        let pathname = this.state.actual_pathname
+
+
+        // all paths without '/'
+        let all_pats = pathname.split('/')
+        all_pats.splice(0, 1)
+
+
+        for (let i = 0; i < sections.length; i++) {
+            if(sections[i].url === all_pats[0]){
+                this.doActual('sections', i)
+                categories = this.state.sections[i].categories
+            }
+        }
+
+        if(all_pats.length >= 2){
+            for (let i = 0; i < categories.length; i++) {
+                if(categories[i].url === all_pats[1]){
+                    this.doActual('categories', i)
+                    types = categories[i].types
+                }
+            }
+        }
+
+        if(all_pats.length === 3){
+            for (let i = 0; i < types.length; i++) {
+                if(types[i].url === all_pats[2]){
+                    this.doActual('types', i)
+                }
+            }
+        }
+
+
+    }
+
+
+    componentWillReceiveProps(newPr){   // во время клика
+
+        this.setState({
+            actual_pathname: newPr.location.pathname
+        })
     }
 
 
@@ -367,42 +418,64 @@ class Category extends React.Component{
                                 <p>Բաժին</p>
 
                                 <div className='select-box' onClick={this.selectFun.bind(null, 'sections')}>
-                                    <div ref={this.option_container} className={this.state.option_container_classes.join(' ')}>
+                                    <div className={this.state.option_container_classes.join(' ')}>
                                         {
                                             this.state.sections.map((section, idx)=>{
                                                 return(
                                                 <div className='option' key={idx} onClick={this.acceptOption.bind(null, 'sections', idx)}>
                                                     <input type="radio" className='radio' id={`section${idx}`} name="sections"/>
-                                                    <NavLink to={`/${section.url}`} htmlFor={`section${idx}`} onClick={this.acceptOption.bind(null, 'sections', idx)}>{section.secName}</NavLink>
+                                                    <NavLink
+                                                        to={`/${section.url}`}
+                                                        htmlFor={`section${idx}`}
+                                                        onClick={this.acceptOption.bind(null, 'sections', idx)}
+                                                    >{section.secName}
+                                                    </NavLink>
                                                 </div>
                                                 )
                                             })
                                         }
                                     </div>
-                                    <div className='selected'>Select type</div>
+                                    <div className='selected'>
+                                    {
+                                        this.state.actual_section !== '' ?
+                                            this.state.sections[this.state.actual_section].secName
+                                        :   'Select type'
+                                    }
+                                    </div>
                                 </div>
-                            </div> 
+                            </div>
 
 
                             <div className='input'>
                                 <p>Կատեգորիա</p>
 
                                 <div className='select-box' onClick={this.selectFun.bind(null, 'categories')}>
-                                    <div ref={this.option_container} className={this.state.option_container_classes_category.join(' ')}>
+                                    <div className={this.state.option_container_classes_category.join(' ')}>
                                         {
                                             typeof(this.state.actual_section) == typeof(1) ?
                                             this.state.sections[this.state.actual_section].categories.map((category, idx)=>{
                                                 return(
                                                 <div className='option' key={idx} onClick={this.acceptOption.bind(null, 'categories', idx)}>
                                                     <input type="radio" className='radio' id={`category${idx}`} name="categories"/>
-                                                    <Link to={`/${this.state.sections[this.state.actual_section].url}/${category.url}`} htmlFor={`category${idx}`} onClick={this.acceptOption.bind(null, 'categories', idx)}>{category.name}</Link>
+
+                                                    <Link to={`/${this.state.sections[this.state.actual_section].url}/${category.url}`} 
+                                                        htmlFor={`category${idx}`} 
+                                                        onClick={this.acceptOption.bind(null, 'categories', idx)}
+                                                    >{category.name}</Link>
+
                                                 </div>
                                                 )
                                             })
                                             : <p>Choose your section</p>
                                         }
                                     </div>
-                                    <div className='selected'>Select type</div>
+                                    <div className='selected'>
+                                    {
+                                        this.state.actual_category !== '' ?
+                                            this.state.sections[this.state.actual_section].categories[this.state.actual_category].name
+                                        :   'Select category'
+                                    }
+                                    </div>
                                 </div>
                             </div>
 
@@ -411,7 +484,7 @@ class Category extends React.Component{
                                 <p>Տեսակ</p>
 
                                 <div className='select-box' onClick={this.selectFun.bind(null, 'types')}>
-                                    <div ref={this.option_container} className={this.state.option_container_classes_type.join(' ')}>
+                                    <div className={this.state.option_container_classes_type.join(' ')}>
                                         {
                                             typeof(this.state.actual_category) == typeof(1) ?
                                             this.state.sections[this.state.actual_section].categories[this.state.actual_category].types.map((type, idx)=>{
@@ -426,14 +499,21 @@ class Category extends React.Component{
                                                     </Link>
                                                 </div>
                                                 )
-                                            }) : <p>Choose your category</p>
+                                            }) 
+                                            : <p>Choose your category</p>
                                         }
                                     </div>
-                                    <div className='selected'>Select type</div>
+                                    <div className='selected'>
+                                    {
+                                        typeof(this.state.actual_type) === typeof(1) ?
+                                            this.state.sections[this.state.actual_section].categories[this.state.actual_category].types[this.state.actual_type].typeName
+                                        :   'Select type'
+                                    }
+                                    </div>
                                 </div>
                             </div>
 
-                            <NavLink to='/'>Մաքրել ֆիլտրը</NavLink>
+                            <NavLink to={`/${this.state.history}`}>Մաքրել ֆիլտրը</NavLink>
                         </div>
 
                     </div>

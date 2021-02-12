@@ -18,6 +18,9 @@
     margin-left: 32px;
     text-decoration: none;
 }
+.header .header-wrapper .block:first-child a:first-child{
+    margin-left: 0;
+}
 .header .header-wrapper .block:first-child a:nth-child(2){
     margin-left: 60px;
 }
@@ -488,7 +491,7 @@
     margin-bottom: 48px;
 }
 .category .filter{
-    padding: 40px 50px;
+    padding: 40px 0 50px;
     background: #F8F8F8;
     font-family: 'Arial';
 }
