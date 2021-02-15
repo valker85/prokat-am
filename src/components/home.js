@@ -37,26 +37,26 @@ export default class Home extends React.Component{
             tab: 1,
             products:{
                 goods:[
-                    {image: Prod1, type:'goods', name: 'Համակարգչային տեխնիկա'},
-                    {image: Prod2, type:'goods', name: 'Ամեն ինչ միջոցառումների համար'},
-                    {image: Prod3, type:'goods', name: 'Սպասք'},
-                    {image: Prod4, type:'goods', name: 'Գործիքներ'},
-                    {image: Prod5, type:'goods', name: 'Տուրիզմ'},
-                    {image: Prod6, type:'goods', name: 'Հագուստ'},
-                    {image: Prod7, type:'goods', name: 'Կապի միջոցներ'},
-                    {image: Prod8, type:'goods', name: 'Ժամանց'},
-                    {image: Prod9, type:'goods', name: 'Ձայնային և լուսային տեխնիկա'}
+                    {image: Prod1, section: 'goods', category: 'computer-equipment', name: 'Համակարգչային տեխնիկա'},
+                    {image: Prod2, section: 'goods', category: 'everything-for-events', name: 'Ամեն ինչ միջոցառումների համար'},
+                    {image: Prod3, section: 'goods', category: 'tableware', name: 'Սպասք'},
+                    {image: Prod4, section: 'goods', category: 'tools', name: 'Գործիքներ'},
+                    {image: Prod5, section: 'goods', category: 'tourism', name: 'Տուրիզմ'},
+                    {image: Prod6, section: 'goods', category: 'clothing', name: 'Հագուստ'},
+                    {image: Prod7, section: 'goods', category: 'means-of-communication', name: 'Կապի միջոցներ'},
+                    {image: Prod8, section: 'goods', category: 'fun', name: 'Ժամանց'},
+                    {image: Prod9, section: 'goods', category: 'sound-and-light-equipment', name: 'Ձայնային և լուսային տեխնիկա'}
                 ],
                 services:[
-                    {image: Prod1, type:'services', name: 'Something'},
-                    {image: Prod1, type:'services', name: 'Something'},
-                    {image: Prod1, type:'services', name: 'Something'},
-                    {image: Prod1, type:'services', name: 'Something'},
-                    {image: Prod1, type:'services', name: 'Something'},
-                    {image: Prod1, type:'services', name: 'Something'},
-                    {image: Prod1, type:'services', name: 'Something'},
-                    {image: Prod1, type:'services', name: 'Something'},
-                    {image: Prod1, type:'services', name: 'Something'}
+                    {image: Prod1, section: 'services', category: 'service1', name: 'Something'},
+                    {image: Prod1, section: 'services', category: 'service2', name: 'Something'},
+                    {image: Prod1, section: 'services', category: 'service3', name: 'Something'},
+                    {image: Prod1, section: 'services', category: 'service4', name: 'Something'},
+                    {image: Prod1, section: 'services', category: 'service5', name: 'Something'},
+                    {image: Prod1, section: 'services', category: 'service6', name: 'Something'},
+                    {image: Prod1, section: 'services', category: 'service7', name: 'Something'},
+                    {image: Prod1, section: 'services', category: 'service8', name: 'Something'},
+                    {image: Prod1, section: 'services', category: 'service9', name: 'Something'}
                 ]
             },
             top_prods:[
@@ -104,7 +104,7 @@ export default class Home extends React.Component{
                         this.state.products.goods.map((card, idx)=>{
                             return(
                                 <Link to={{
-                                    pathname:`/${card.type}`,
+                                    pathname:`/${card.section}/${card.category}`,
                                     product: card.type
                                 }} className='card' key={idx}>
                                     <div className='img-wrapper'>

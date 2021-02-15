@@ -579,12 +579,19 @@
     border-radius: 0 3px 3px 0;
 }
 .select-box .option{
+    width: 100%;
+    display: block;
     padding: 15px 20px;
     cursor: pointer;
     transition: 0.2s;
 }
 .select-box .option:hover{
     background: #147EC2;
+}
+.select-box .option a{
+    color: #353535;
+}
+.select-box .option:hover a{
     color: white;
 }
 .select-box label{
@@ -595,10 +602,6 @@
 }
 /* /////////////////////////// */
 /* =========================== */
-
-
-
-
 
 
 

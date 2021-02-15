@@ -55,7 +55,7 @@ class Category extends React.Component{
                         },
                         {
                             name: 'Everything for events', 
-                            url: 'for-events',
+                            url: 'everything-for-events',
                             types: [
                                 {typeName:'for events1', url:'for-events1'},
                                 {typeName:'for events2', url:'for-events2'},
@@ -301,29 +301,47 @@ class Category extends React.Component{
     }
 
 
-    acceptOption = (filter, actual, event) =>{
+    acceptOption = (filter, actual, option = '', event) =>{
+
+        console.log('filter: ', filter)
+        console.log('actual: ', actual)
+        console.log('option: ', option)
+        console.log('event: ', event)
+
+
         let selected;
         let label;
         let text;
 
-        // Take selected
-        event.target.className !== 'option' 
-        ? selected = event.target.parentNode.parentNode.parentNode.lastChild 
-        : selected = event.target.parentNode.parentNode.lastChild
+        if(event !== undefined){
+            // Take selected
+            event.target.className !== 'option' 
+            ? selected = event.target.parentNode.parentNode.parentNode.lastChild 
+            : selected = event.target.parentNode.parentNode.lastChild
 
-        // Take label
-        event.target.className !== 'option' 
-        ? event.target.className === 'label' ? label = event.target : label = event.target.nextSibling
-        : label = event.target.lastChild
+            // Take label
+            event.target.className !== 'option' 
+            ? event.target.className === 'label' ? label = event.target : label = event.target.nextSibling
+            : label = event.target.lastChild
 
-        if(label != null){
-            text = label.innerHTML  // Take text from label
+            if(label != null){
+                text = label.innerHTML  // Take text from label
+            }
+    
+            if(text !== undefined){
+                selected.innerHTML = text   // Change selected button on label text
+            }
+    
+            if(event.target.className !== 'option'){
+                this.selectFun(filter)
+            }
+
+            if(option.length !== 0){
+                this.props.history.push(option)
+            }
         }
-        selected.innerHTML = text   // Change selected button on label text
 
-        if(event.target.className !== 'option'){
-            this.selectFun(filter)
-        }
+
 
         this.doActual(filter, actual)
     }
@@ -379,8 +397,6 @@ class Category extends React.Component{
                 }
             }
         }
-
-
     }
 
 
@@ -422,10 +438,9 @@ class Category extends React.Component{
                                         {
                                             this.state.sections.map((section, idx)=>{
                                                 return(
-                                                <div className='option' key={idx} onClick={this.acceptOption.bind(null, 'sections', idx)}>
+                                                <div className='option' key={idx} onClick={this.acceptOption.bind(null, 'sections', idx, `/${section.url}`)}>
                                                     <input type="radio" className='radio' id={`section${idx}`} name="sections"/>
-                                                    <NavLink
-                                                        to={`/${section.url}`}
+                                                    <NavLink to={`/${section.url}`}
                                                         htmlFor={`section${idx}`}
                                                         onClick={this.acceptOption.bind(null, 'sections', idx)}
                                                     >{section.secName}
