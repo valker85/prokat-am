@@ -2,8 +2,6 @@ import React from 'react';
 
 
 // components
-import Header from './other-components/header'
-import Footer from './other-components/footer'
 import Path from './other-components/path'
 
 // images
@@ -256,7 +254,8 @@ class Category extends React.Component{
             actual_category: '',
             actual_type: '',
             actual_pathname: this.props.location.pathname,
-            history: this.props.match.params.url
+            history: this.props.match.params.url,
+            position: 0
 
         }
 
@@ -303,12 +302,6 @@ class Category extends React.Component{
 
     acceptOption = (filter, actual, option = '', event) =>{
 
-        console.log('filter: ', filter)
-        console.log('actual: ', actual)
-        console.log('option: ', option)
-        console.log('event: ', event)
-
-
         let selected;
         let label;
         let text;
@@ -342,7 +335,6 @@ class Category extends React.Component{
         }
 
 
-
         this.doActual(filter, actual)
     }
 
@@ -371,7 +363,7 @@ class Category extends React.Component{
 
         // all paths without '/'
         let all_pats = pathname.split('/')
-        all_pats.splice(0, 1)
+        all_pats.splice(0, 2)
 
 
         for (let i = 0; i < sections.length; i++) {
@@ -412,7 +404,6 @@ class Category extends React.Component{
 
         return(
             <div className='category'>
-                <Header/>
                 <Path/>
 
                 <div className='section1'>
@@ -438,13 +429,13 @@ class Category extends React.Component{
                                         {
                                             this.state.sections.map((section, idx)=>{
                                                 return(
-                                                <div className='option' key={idx} onClick={this.acceptOption.bind(null, 'sections', idx, `/${section.url}`)}>
+                                                <div className='option' key={idx} onClick={this.acceptOption.bind(null, 'sections', idx, `/filter/${section.url}`)}>
                                                     <input type="radio" className='radio' id={`section${idx}`} name="sections"/>
-                                                    <NavLink to={`/${section.url}`}
+                                                    <Link to={`/filter/${section.url}`}
                                                         htmlFor={`section${idx}`}
                                                         onClick={this.acceptOption.bind(null, 'sections', idx)}
                                                     >{section.secName}
-                                                    </NavLink>
+                                                    </Link>
                                                 </div>
                                                 )
                                             })
@@ -470,10 +461,10 @@ class Category extends React.Component{
                                             typeof(this.state.actual_section) == typeof(1) ?
                                             this.state.sections[this.state.actual_section].categories.map((category, idx)=>{
                                                 return(
-                                                <div className='option' key={idx} onClick={this.acceptOption.bind(null, 'categories', idx)}>
+                                                <div className='option' key={idx} onClick={this.acceptOption.bind(null, 'categories', idx, `/filter/${this.state.sections[this.state.actual_section].url}/${category.url}`)}>
                                                     <input type="radio" className='radio' id={`category${idx}`} name="categories"/>
 
-                                                    <Link to={`/${this.state.sections[this.state.actual_section].url}/${category.url}`} 
+                                                    <Link to={`/filter/${this.state.sections[this.state.actual_section].url}/${category.url}`} 
                                                         htmlFor={`category${idx}`} 
                                                         onClick={this.acceptOption.bind(null, 'categories', idx)}
                                                     >{category.name}</Link>
@@ -504,10 +495,10 @@ class Category extends React.Component{
                                             typeof(this.state.actual_category) == typeof(1) ?
                                             this.state.sections[this.state.actual_section].categories[this.state.actual_category].types.map((type, idx)=>{
                                                 return(
-                                                <div className='option' key={idx} onClick={this.acceptOption.bind(null, 'types', idx)}>
+                                                <div className='option' key={idx} onClick={this.acceptOption.bind(null, 'types', idx, `/filter/${this.state.sections[this.state.actual_section].url}/${this.state.sections[this.state.actual_section].categories[this.state.actual_category].url}/${type.url}`)}>
                                                     <input type="radio" className='radio' id={`type${idx}`} name="types"/>
                                                     <Link 
-                                                        to={`/${this.state.sections[this.state.actual_section].url}/${this.state.sections[this.state.actual_section].categories[this.state.actual_category].url}/${type.url}`} 
+                                                        to={`/filter/${this.state.sections[this.state.actual_section].url}/${this.state.sections[this.state.actual_section].categories[this.state.actual_category].url}/${type.url}`} 
                                                         htmlFor={`type${idx}`} onClick={this.acceptOption.bind(null, 'types', idx)}
                                                     >
                                                         {type.typeName}
@@ -528,7 +519,7 @@ class Category extends React.Component{
                                 </div>
                             </div>
 
-                            <NavLink to={`/${this.state.history}`}>Մաքրել ֆիլտրը</NavLink>
+                            <NavLink to={`/filter/${this.state.history}`}>Մաքրել ֆիլտրը</NavLink>
                         </div>
 
                     </div>
@@ -608,8 +599,6 @@ class Category extends React.Component{
                         </div>
                     </div>
                 </div>
-
-                <Footer/>
             </div>
         )
     }

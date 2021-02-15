@@ -2,8 +2,6 @@ import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
 
 // Componets
-import Header from './other-components/header'
-import Footer from './other-components/footer'
 
 
 // images
@@ -104,7 +102,7 @@ export default class Home extends React.Component{
                         this.state.products.goods.map((card, idx)=>{
                             return(
                                 <Link to={{
-                                    pathname:`/${card.section}/${card.category}`,
+                                    pathname:`/filter/${card.section}/${card.category}`,
                                     product: card.type
                                 }} className='card' key={idx}>
                                     <div className='img-wrapper'>
@@ -126,7 +124,7 @@ export default class Home extends React.Component{
                         this.state.products.services.map((card, idx)=>{
                             return(
                                 <Link to={{
-                                    pathname:`/${card.type}`,
+                                    pathname:`/filter/${card.section}/${card.category}`,
                                     product: card.type
                                 }} className='card' key={idx}>
                                     <div className='img-wrapper'>
@@ -185,7 +183,6 @@ export default class Home extends React.Component{
     render(){
         return(
             <div className='home'>
-                <Header/>
                 <div className='section1'>
                     <div className='container160'>
                         <h1>Վարձույթով ապրանքներ միջոցառումների<br/> կազմակերպման համար</h1>
@@ -214,12 +211,9 @@ export default class Home extends React.Component{
                 <div className='section3'>
                     <div className='container160'>
                         <h1>Թոփ առաջարկներ</h1>
-                        {
-                            this.topProds()
-                        }
+                        {this.topProds()}
                     </div>
                 </div>
-                <Footer/>
             </div>
         )
     }

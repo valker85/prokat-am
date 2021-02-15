@@ -5,7 +5,6 @@ import Category from './components/category'
 import ProductPage from './components/productPage'
 
 
-
 export default [
     {
         path: '/',
@@ -13,33 +12,28 @@ export default [
         exact: true
     },
     {
-        path: '/:url',
-        component: Category,
-        exact: true
-    },
-    {
-        path: '/:url/:category',
-        component: Category,
-        exact: true
-    },
-    {
-        path: '/:url/:category/:type',
-        component: Category,
-        exact: true
-    },
-    {
-        path: '/:url/:category/:type/:id',
-        component: ProductPage,
-        exact: true
-    },
-    {
         path: '/about',
         component: About,
+        exact: false
+    },
+    {
+        path: '/filter/:url',
+        component: Category,
+        exact: true
+    },
+    {
+        path: '/filter/:url/:category',
+        component: Category,
+        exact: true
+    },
+    {
+        path: '/filter/:url/:category/:type',
+        component: Category,
+        exact: true
+    },
+    {
+        path: '/filter/:url/:category/:type/:id',
+        component: ProductPage,
         exact: true
     }
-    // {
-    //     path: '/basket',
-    //     component: Basket,
-    //     exact: false
-    // },
 ]

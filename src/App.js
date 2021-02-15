@@ -5,12 +5,14 @@ import {Route, withRouter} from 'react-router-dom'
 
 
 import routes from './routes';
+import Header from './components/other-components/header';
+import Footer from './components/other-components/footer';
 
 
 class App extends React.Component {
-  constructor(props){
-    super(props)
-  }
+  // constructor(props){
+  //   super(props)
+  // }
 
   componentWillReceiveProps(nextProps){
     if(nextProps.location.pathname !== this.props.location.pathname){
@@ -21,6 +23,7 @@ class App extends React.Component {
   render(){
     return (
       <>
+        <Header/>
         {
           routes.map((route, i)=>{
             return(
@@ -28,6 +31,7 @@ class App extends React.Component {
             )
           })
         }
+        <Footer/>
       </>
     );
   }
