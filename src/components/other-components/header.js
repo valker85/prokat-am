@@ -9,11 +9,68 @@ import Basket from '../../assets/img/basket.svg'
 
 
 export default class Header extends React.Component{
+    constructor(props){
+        super(props)
+
+        this.state = {
+            modal_classes:['modal']
+        }
+
+        this.modal = React.createRef()
+        this.menu_flag = false
+    }
+
+
+
+    open_menu = (flag) => {
+        this.menu_flag = flag
+        let classes = this.state.modal_classes
+
+        if(this.menu_flag === true){
+            classes.push('open')
+            this.setState({
+                modal_classes: classes
+            })
+        }else{
+            classes.pop()
+            this.setState({
+                modal_classes: classes
+            })
+        }
+    }
 
 
     render(){
         return(
             <div className='header'>
+
+                <div
+                    onClick={this.open_menu.bind(null, false)} 
+                    className={this.state.modal_classes.join(' ')}
+                >
+                        
+                    <div className='hide_menu'>
+                        <ul>
+                            <li>Ապրանքներ</li>
+                            <li>Something</li>
+                            <li>Something</li>
+                            <li>Something</li>
+                        </ul>
+                        <ul>
+                            <li>Ծառայություններ</li>
+                            <li>Something</li>
+                            <li>Something</li>
+                            <li>Something</li>
+                        </ul>
+                        <ul>
+                            <li>Տրանսպորտ</li>
+                            <li>Something</li>
+                            <li>Something</li>
+                            <li>Something</li>
+                        </ul>
+                    </div>
+                </div>
+
                 <div className='container160'>
                     <div className='header-wrapper'>
                         <div className='block'>
@@ -27,7 +84,15 @@ export default class Header extends React.Component{
 
                         <div className='block'>
                             <ul className='menu'>
-                                <li><NavLink to='/'>Հետադարձ կապ</NavLink></li>
+                                <li>
+                                    <button onClick={this.open_menu.bind(null, true)}>
+                                        Մենյու
+                                        <div>
+                                            <span></span>
+                                            <span></span>
+                                        </div>
+                                    </button>
+                                </li>
                                 <li>
                                     <NavLink to='/basket'>
                                         <img src={Basket} alt='basket'/>

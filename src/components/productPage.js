@@ -1,6 +1,9 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
+import DayPicker, { DateUtils } from 'react-day-picker';
+import 'react-day-picker/lib/style.css';
+
 
 // Components
 import Path from './other-components/path'
@@ -18,9 +21,13 @@ import Calendar from '../assets/img/product-page/calendar.svg'
 
 
 export default class ProductPage extends React.Component{
+
     constructor(props){
         super(props)
-    
+
+        this.handleDayClick = this.handleDayClick.bind(this);
+        this.handleResetClick = this.handleResetClick.bind(this);
+
         this.state = {
             product: {
                 name: 'Toshiba Satellite c50',
@@ -43,13 +50,18 @@ export default class ProductPage extends React.Component{
             ],
             actual_image: 0,
             count: 1,
-            total_prise: 0
+            total_prise: 0,
+            from: undefined,
+            to: undefined
         }
-    
 
         this.images_blocks = React.createRef()
-        
+        this.dayPicker = React.createRef()
+
+        this.picker_open = false
+
     }
+
 
 
     chooseImg = (idx) => {
@@ -95,6 +107,30 @@ export default class ProductPage extends React.Component{
 
     }
 
+    open_calendar = () =>{
+        this.picker_open = !this.picker_open
+
+        if(this.picker_open === true){
+            this.dayPicker.current.dayPicker.style.display = 'block'
+        } else{
+            this.dayPicker.current.dayPicker.style.display = 'none'
+        }
+    }
+    // Day Picker ===================
+    handleDayClick(day) {
+        const range = DateUtils.addDayToRange(day, this.state);
+        this.setState(range);
+    }
+    
+    handleResetClick() {
+        this.setState({
+            from: undefined,
+            to: undefined,
+        });
+      }
+    // ==============================
+
+
     componentDidMount(){
 
         setTimeout(()=>{
@@ -106,6 +142,10 @@ export default class ProductPage extends React.Component{
     }
 
     render(){
+        const { from, to } = this.state;
+        const modifiers = { start: from, end: to };
+
+
         return(
             <div className='product-page'>
                 <Path/>
@@ -137,9 +177,29 @@ export default class ProductPage extends React.Component{
                             <div className='line'></div>
 
                             <form className='other-content'>
-                                <div className='input'>
-                                    <input placeholder='Վարձակալության օր*' />
-                                    <img src={Calendar} alt='calendar'/>
+
+                                <div className="RangeExample">
+                                    <p onClick={this.open_calendar}>
+                                    {!from && !to && 'Վարձակալության օր*.'}
+                                    {from && !to && 'Ընտրեք մինչև որ օր*.'}
+                                    {from &&
+                                        to &&
+                                        `${from.toLocaleDateString()} մինչև
+                                            ${to.toLocaleDateString()}`}{' '}
+                                    {from && to && (
+                                        <button className="link" onClick={this.handleResetClick}>Մաքրել</button>
+                                    )}
+                                        <img src={Calendar} alt='Calendar'/>
+                                    </p>
+
+                                    <DayPicker
+                                        ref={this.dayPicker}
+                                        className="Selectable"
+                                        numberOfMonths={1}
+                                        selectedDays={[from, { from, to }]}
+                                        modifiers={modifiers}
+                                        onDayClick={this.handleDayClick}
+                                    />
                                 </div>
 
                                 <div className='counter'>
@@ -247,13 +307,3 @@ export default class ProductPage extends React.Component{
         )
     }
 }
-
-
-// <div className='counter'>
-// <button
-//     disabled={this.state.count <= 1 ? true : false} 
-//     onClick={()=>{ this.setState({ count: --this.state.count }) }}>-</button>
-// <h1>{this.state.count}</h1>
-// <button onClick={()=>{ this.setState({ count: ++this.state.count }) }}>+</button>
-// </div>
-

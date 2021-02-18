@@ -256,7 +256,6 @@ class Category extends React.Component{
             actual_pathname: this.props.location.pathname,
             history: this.props.match.params.url,
             position: 0
-
         }
 
 
