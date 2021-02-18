@@ -13,60 +13,96 @@ export default class Header extends React.Component{
         super(props)
 
         this.state = {
-            modal_classes:['modal']
+            modal_classes:['modal'],
+            goods:[
+                {url: '/', name: 'Something'},
+                {url: '/', name: 'Something'},
+                {url: '/', name: 'Something'},
+                {url: '/', name: 'Something'}
+            ],
+            services:[
+                {url: '/', name: 'Something'},
+                {url: '/', name: 'Something'},
+                {url: '/', name: 'Something'},
+                {url: '/', name: 'Something'}
+            ],
+            transport:[
+                {url: '/', name: 'Something'},
+                {url: '/', name: 'Something'},
+                {url: '/', name: 'Something'},
+                {url: '/', name: 'Something'}
+            ],  
         }
 
-        this.modal = React.createRef()
+        this.hide_menu = React.createRef()
+        this.page_ref = React.createRef()
+
         this.menu_flag = false
     }
 
-
-
-    open_menu = (flag) => {
+    open_menu = (flag, event) => {
         this.menu_flag = flag
-        let classes = this.state.modal_classes
 
-        if(this.menu_flag === true){
-            classes.push('open')
-            this.setState({
-                modal_classes: classes
-            })
-        }else{
-            classes.pop()
-            this.setState({
-                modal_classes: classes
-            })
+        let classes = this.state.modal_classes
+        let root = this.page_ref.current.parentNode
+
+        if( event.target.className !== 'hide_menu' &&
+            event.target.tagName !== 'LI'          &&
+            event.target.tagName !== 'UL'          ){
+                
+            if(this.menu_flag === true){
+                classes.push('open')
+                this.setState({
+                    modal_classes: classes
+                })
+                root.style.height = '100vh'
+                root.style.overflow = 'hidden'
+            }else{
+                classes.pop()
+                this.setState({
+                    modal_classes: classes
+                })
+                root.style.height = 'auto'
+                root.style.overflow = 'auto'
+            }
         }
     }
 
+    open_lis = (num, close = false) => {
+        let uls = this.hide_menu.current.childNodes
+
+        uls[num].className === 'active' ? 
+        uls[num].classList.remove('active') :
+        uls[num].classList.add('active')
+    }
 
     render(){
         return(
-            <div className='header'>
+            <div ref={this.page_ref} className='header'>
 
                 <div
                     onClick={this.open_menu.bind(null, false)} 
-                    className={this.state.modal_classes.join(' ')}
-                >
-                        
-                    <div className='hide_menu'>
+                    className={this.state.modal_classes.join(' ')}>
+                    <div ref={this.hide_menu} className='hide_menu'>
                         <ul>
-                            <li>Ապրանքներ</li>
-                            <li>Something</li>
-                            <li>Something</li>
-                            <li>Something</li>
+                            <li onClick={this.open_lis.bind(null, 0)}>Ապրանքներ</li>
+                            {this.state.goods.map((li, idx)=>{
+                                return <li key={idx}><NavLink to={li.url}>{li.name}</NavLink></li>
+                            })}
                         </ul>
+
                         <ul>
-                            <li>Ծառայություններ</li>
-                            <li>Something</li>
-                            <li>Something</li>
-                            <li>Something</li>
+                            <li onClick={this.open_lis.bind(null, 1)}>Ծառայություններ</li>
+                            {this.state.services.map((li, idx)=>{
+                                return <li key={idx}><NavLink to={li.url}>{li.name}</NavLink></li>
+                            })}
                         </ul>
+
                         <ul>
-                            <li>Տրանսպորտ</li>
-                            <li>Something</li>
-                            <li>Something</li>
-                            <li>Something</li>
+                            <li onClick={this.open_lis.bind(null, 2)}>Տրանսպորտ</li>
+                            {this.state.transport.map((li, idx)=>{
+                                return <li key={idx}><NavLink to={li.url}>{li.name}</NavLink></li>
+                            })}
                         </ul>
                     </div>
                 </div>
@@ -85,7 +121,7 @@ export default class Header extends React.Component{
                         <div className='block'>
                             <ul className='menu'>
                                 <li>
-                                    <button onClick={this.open_menu.bind(null, true)}>
+                                    <button type='button' className='menu_btn' onClick={this.open_menu.bind(null, true)}>
                                         Մենյու
                                         <div>
                                             <span></span>

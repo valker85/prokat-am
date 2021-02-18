@@ -62,8 +62,6 @@ export default class ProductPage extends React.Component{
 
     }
 
-
-
     chooseImg = (idx) => {
         let img_blocks = this.images_blocks.current.childNodes
 
@@ -111,11 +109,37 @@ export default class ProductPage extends React.Component{
         this.picker_open = !this.picker_open
 
         if(this.picker_open === true){
-            this.dayPicker.current.dayPicker.style.display = 'block'
+            this.dayPicker.current.style.display = 'block'
         } else{
-            this.dayPicker.current.dayPicker.style.display = 'none'
+            this.dayPicker.current.style.display = 'none'
         }
     }
+
+    apply_btn = (event) =>{
+
+        this.picker_open = false
+        this.dayPicker.current.style.display = 'none'
+
+
+        let from = this.state.from
+        let to = this.state.to
+
+        let prod_price = this.state.product.prise
+        // let new_price = prod_price
+
+        let days = Math.floor((to.getTime() - from.getTime())/(1000*60*60*24))
+
+        console.log(days)
+
+        // for (let i = 1; i < days; i++) {
+        //     new_price += prod_price
+        // }
+
+        // this.setState({
+        //     total_prise: new_price
+        // })
+    }
+
     // Day Picker ===================
     handleDayClick(day) {
         const range = DateUtils.addDayToRange(day, this.state);
@@ -129,7 +153,6 @@ export default class ProductPage extends React.Component{
         });
       }
     // ==============================
-
 
     componentDidMount(){
 
@@ -185,21 +208,39 @@ export default class ProductPage extends React.Component{
                                     {from &&
                                         to &&
                                         `${from.toLocaleDateString()} մինչև
-                                            ${to.toLocaleDateString()}`}{' '}
-                                    {from && to && (
-                                        <button className="link" onClick={this.handleResetClick}>Մաքրել</button>
-                                    )}
+                                        ${to.toLocaleDateString()}`}{' '}
                                         <img src={Calendar} alt='Calendar'/>
                                     </p>
 
-                                    <DayPicker
-                                        ref={this.dayPicker}
-                                        className="Selectable"
-                                        numberOfMonths={1}
-                                        selectedDays={[from, { from, to }]}
-                                        modifiers={modifiers}
-                                        onDayClick={this.handleDayClick}
-                                    />
+                                    <div ref={this.dayPicker} className='daypick-wrapper'>
+                                        <DayPicker
+                                            className="Selectable"
+                                            numberOfMonths={1}
+                                            selectedDays={[from, { from, to }]}
+                                            modifiers={modifiers}
+                                            onDayClick={this.handleDayClick}
+                                        />
+
+                                        <div className='btns-wrapper'>
+                                            <button 
+                                                disabled={Boolean(from) !== true && Boolean(from) !== true ? true:false} 
+                                                className="link" 
+                                                onClick={this.handleResetClick}>
+
+                                                Մաքրել
+                                            </button>
+
+                                            <button 
+                                                type='button'
+                                                disabled={Boolean(from) !== true && Boolean(from) !== true ? true:false}
+                                                onClick={this.apply_btn}>
+                                                
+                                                Հաստատել
+                                            </button>
+                                        </div>
+
+
+                                    </div>
                                 </div>
 
                                 <div className='counter'>

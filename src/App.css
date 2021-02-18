@@ -85,16 +85,12 @@
 .header .header-wrapper .block:last-child button:hover{
     background: #114F9F;
 }
-
-
-
-
 .header .modal{
     position: absolute;
     right: 0;
     top: 0;
     bottom: 0;
-    background: #00000050;
+    background: #00000030;
     overflow: hidden;
     z-index: 1000;
 }
@@ -106,17 +102,74 @@
     position: absolute;
     right: 0;
     height: 100vh;
-    background: #147EC2;
+    transition: 0.2s;
+    background: white;
+    border: 0.5px solid #147EC2;
     box-shadow: 0px 14px 24px rgba(5, 58, 91, 0.17);
-    transition: 0.4s;
+    padding: 120px 0 0;
+    text-align: right;
+    overflow-y: auto;
+}
+.header .modal .hide_menu::-webkit-scrollbar{
+    width: 8px;
+    background: #cccccc;
+    border-radius: 0 3px 3px 0;
+}
+.header .modal .hide_menu::-webkit-scrollbar-thumb{
+    background: #a5a5a5;
+    border-radius: 0 3px 3px 0;
 }
 .header .modal.open .hide_menu{
-    width: 500px;
+    width: 580px;
 }
-
-
-
-
+.header .modal .hide_menu ul{
+    list-style: none;
+    font-family: 'Arial';
+    overflow: hidden;
+    max-height: 72px;
+    transition: 0.5s;
+}
+.header .modal .hide_menu ul.active{
+    max-height: fit-content;
+}
+.header .modal .hide_menu ul li{
+    padding: 0px 160px 0 35px;
+}
+.header .modal .hide_menu ul li:first-child{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    transition: 0.3s;
+    font-size: 28px;
+    font-weight: 700;
+    cursor: pointer;
+}
+.header .modal .hide_menu ul li:first-child:hover{
+    background: #E8F2F9;
+}
+.header .modal .hide_menu ul li:first-child::before{
+    content: '‹';
+    display: inline-block;
+    color: #147EC2;
+    float: left;
+    transform: rotate(-90deg);
+    font-size: 34px;
+    transition: 0.3s;
+}
+.header .modal .hide_menu ul.active li:first-child::before{
+    transform: rotate(90deg) translateY(-10px);
+}
+.header .modal .hide_menu ul li a{
+    text-decoration: none;
+    font-size: 22px;
+    font-weight: 400;
+    color: #353535;
+}
+.header .modal .hide_menu ul li:not(:first-child){
+    margin-top: 30px;
+}
+.header .modal .hide_menu ul li:last-child{
+    margin-bottom: 30px;
+}
 /* //////////////////////////////// */
 .home .section1 h1{
     margin-top: 170px;
@@ -970,7 +1023,8 @@
     display: inline-block;
     margin-right: 7px;
 }
-/* ////// Day Picker ////// */
+/* //////////////////////////////////// */
+/* //////////// Day Picker //////////// */
 .product-page .DayPicker-Day--selected:not(.DayPicker-Day--disabled):not(.DayPicker-Day--outside){
     outline: none;
 }
@@ -979,14 +1033,54 @@
     color: #4a90e2;
     outline: none;
 }
-.product-page .Selectable{
+.product-page .daypick-wrapper{
     position: absolute;
-    background: white;
-    left: -10vw;
-    box-shadow: 0px 0px 24px rgba(156, 181, 198, 0.24);
+    left: -260px;
+    bottom: 0;
     border-radius: 3px;
-    outline: none;
+    background: white;
+    box-shadow: 0px 0px 24px rgba(156, 181, 198, 0.24);
     display: none;
+}
+.product-page .daypick-wrapper .btns-wrapper{
+    margin: 0 23px 23px;
+    display: flex;
+}
+.product-page .daypick-wrapper .btns-wrapper button{
+    padding: 10px 0;
+    width: 50%;
+    transition: 0.3s;
+    text-align: center;
+    border-radius: 3px;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+.product-page .daypick-wrapper button:first-child{
+    background: #efefef;
+    color: #353535;
+    margin-right: 10px;
+}
+.product-page .daypick-wrapper button:last-child{
+    background: #147EC2;
+    color: white;
+}
+.product-page .daypick-wrapper button:disabled{
+    background: #F8F8F8;
+    color: #C6C6C6;
+    cursor: unset;
+}
+.product-page .daypick-wrapper button:last-child:disabled{
+    background: #147ec27d;
+    color: white;
+    cursor: unset;
+}
+.product-page .Selectable{
+    outline: none;
+}
+.product-page .Selectable .DayPicker-wrapper{
+    padding-top: 10px;
 }
 .product-page .Selectable::before{
     content: 'Ընտրեք վարձակալության սկիզբը';
@@ -996,6 +1090,7 @@
     font-family: 'Arial';
     font-weight: 700;
     padding: 12.5px 20px;
+    border-radius: 3px 3px 0 0;
 }
 .product-page .Selectable .DayPicker-Day {
     border-radius: 0 !important;
@@ -1010,6 +1105,7 @@
 }
 .product-page .DayPicker-NavBar span{
     outline: none;
+    margin-top: 10px;
 }
 .product-page .section1 .block .other-content .RangeExample p{
     padding: 21px 20px;
@@ -1028,7 +1124,10 @@
 .product-page .section1 .block .other-content .RangeExample p img{
     float: right;
 }
-/* //////////////////////// */
+/* //////////////////////////////////// */
+/* //////////////////////////////////// */
+
+
 
 
 
