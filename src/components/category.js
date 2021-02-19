@@ -21,19 +21,19 @@ class Category extends React.Component{
 
         this.state = {
             prods:[
-                {img: Prod1, type: 'Տեխնիկա', name: 'Պրոյեկտոր Benq', info: ['2700 Lumens', 'SVGA resolution', 'USB'], prise: 10000},
-                {img: Prod2, type: 'Ամեն ինչ միջոցառումների համար', name: 'Սպիտակ ծածկ', info: ['3x3 մ', 'ջրակայուն', 'թեթև '], prise: 24000},
-                {img: Prod3, type: 'Ամեն ինչ միջոցառումների համար', name: 'Ջուր եռացնելու էլեկտրական սարք', info: ['15 լիտր'], prise: 3000},
-                {img: Prod4, type: 'Տեխնիկա', name: 'Գրասենյակային աթոռ', info: ['մետաղ', 'գործվածք', 'սև'], prise: 1000},
-                {img: Prod5, type: 'Տեխնիկա', name: 'Պրոյեկտոր Benq', info: ['2700 Lumens', 'SVGA resolution', 'USB'], prise: 10000},
-                {img: Prod1, type: 'Ամեն ինչ միջոցառումների համար', name: 'Սպիտակ ծածկ', info: ['3x3 մ', 'ջրակայուն', 'թեթև '], prise: 24000},
-                {img: Prod2, type: 'Ամեն ինչ միջոցառումների համար', name: 'Ջուր եռացնելու էլեկտրական սարք', info: ['15 լիտր'], prise: 3000},
-                {img: Prod3, type: 'Տեխնիկա', name: 'Գրասենյակային աթոռ', info: ['մետաղ', 'գործվածք', 'սև'], prise: 1000}
+                {prod_url: '/filter/goods/computer-equipment/monitor1/toshiba-Satellite-c50', img: Prod1, type: 'Տեխնիկա',                       type_url: '/filter/goods/computer-equipment',    name: 'Պրոյեկտոր Benq',                 info: ['2700 Lumens', 'SVGA resolution', 'USB'], prise: 10000},
+                {prod_url: '/filter/goods/computer-equipment/monitor1/toshiba-Satellite-c50', img: Prod2, type: 'Ամեն ինչ միջոցառումների համար', type_url: '/filter/goods/everything-for-events', name: 'Սպիտակ ծածկ',                    info: ['3x3 մ', 'ջրակայուն', 'թեթև '],           prise: 24000},
+                {prod_url: '/filter/goods/computer-equipment/monitor1/toshiba-Satellite-c50', img: Prod3, type: 'Ամեն ինչ միջոցառումների համար', type_url: '/filter/goods/everything-for-events', name: 'Ջուր եռացնելու էլեկտրական սարք', info: ['15 լիտր'],                               prise: 3000},
+                {prod_url: '/filter/goods/computer-equipment/monitor1/toshiba-Satellite-c50', img: Prod4, type: 'Տեխնիկա',                       type_url: '/filter/goods/computer-equipment',    name: 'Գրասենյակային աթոռ',             info: ['մետաղ', 'գործվածք', 'սև'],               prise: 1000},
+                {prod_url: '/filter/goods/computer-equipment/monitor1/toshiba-Satellite-c50', img: Prod5, type: 'Տեխնիկա',                       type_url: '/filter/goods/computer-equipment',    name: 'Պրոյեկտոր Benq',                 info: ['2700 Lumens', 'SVGA resolution', 'USB'], prise: 10000},
+                {prod_url: '/filter/goods/computer-equipment/monitor1/toshiba-Satellite-c50', img: Prod1, type: 'Ամեն ինչ միջոցառումների համար', type_url: '/filter/goods/everything-for-events', name: 'Սպիտակ ծածկ',                    info: ['3x3 մ', 'ջրակայուն', 'թեթև '],           prise: 24000},
+                {prod_url: '/filter/goods/computer-equipment/monitor1/toshiba-Satellite-c50', img: Prod2, type: 'Ամեն ինչ միջոցառումների համար', type_url: '/filter/goods/everything-for-events', name: 'Ջուր եռացնելու էլեկտրական սարք', info: ['15 լիտր'],                               prise: 3000},
+                {prod_url: '/filter/goods/computer-equipment/monitor1/toshiba-Satellite-c50', img: Prod3, type: 'Տեխնիկա',                       type_url: '/filter/goods/computer-equipment',    name: 'Գրասենյակային աթոռ',             info: ['մետաղ', 'գործվածք', 'սև'],               prise: 1000}
             ],
             comparable_products:[
-                {img: Prod1, type: 'Տեխնիկա', name: 'Պրոյեկտոր Benq', info: ['2700 Lumens', 'SVGA resolution', 'USB'], prise: 10000},
-                {img: Prod2, type: 'Ամեն ինչ միջոցառումների համար', name: 'Սպիտակ ծածկ', info: ['3x3 մ', 'ջրակայուն', 'թեթև '], prise: 24000},
-                {img: Prod3, type: 'Ամեն ինչ միջոցառումների համար', name: 'Ջուր եռացնելու էլեկտրական սարք', info: ['15 լիտր'], prise: 3000}
+                {prod_url: '/filter/goods/computer-equipment/monitor1/toshiba-Satellite-c50', img: Prod1, type: 'Տեխնիկա',                       type_url: '/filter/goods/computer-equipment',    name: 'Պրոյեկտոր Benq',                 info: ['2700 Lumens', 'SVGA resolution', 'USB'], prise: 10000},
+                {prod_url: '/filter/goods/computer-equipment/monitor1/toshiba-Satellite-c50', img: Prod2, type: 'Ամեն ինչ միջոցառումների համար', type_url: '/filter/goods/everything-for-events', name: 'Սպիտակ ծածկ',                    info: ['3x3 մ', 'ջրակայուն', 'թեթև '],           prise: 24000},
+                {prod_url: '/filter/goods/computer-equipment/monitor1/toshiba-Satellite-c50', img: Prod3, type: 'Ամեն ինչ միջոցառումների համար', type_url: '/filter/goods/everything-for-events', name: 'Ջուր եռացնելու էլեկտրական սարք', info: ['15 լիտր'],                               prise: 3000},
             ],
             sections:[
                 {
@@ -146,103 +146,38 @@ class Category extends React.Component{
                     url:'services',
                     categories: [
                         {
-                            name: 'Service1', 
-                            url:'service1',
-                            types: [
-                                {typeName:'type1', url: 'type1'},
-                                {typeName:'type2', url: 'type2'},
-                                {typeName:'type3', url: 'type3'},
-                                {typeName:'type4', url: 'type4'},
-                                {typeName:'type5', url: 'type5'}
-                            ]
+                            name: 'Events', 
+                            url:'events',
+                            types:[]
                         },
                         {
-                            name: 'Service2', 
-                            url:'service2',
-                            types: [
-                                {typeName:'type1', url: 'type1'},
-                                {typeName:'type2', url: 'type2'},
-                                {typeName:'type3', url: 'type3'},
-                                {typeName:'type4', url: 'type4'},
-                                {typeName:'type5', url: 'type5'}
-                            ]
+                            name: 'Corporate events', 
+                            url:'corporate-events',
+                            types:[]
                         },
                         {
-                            name: 'Service3', 
-                            url:'service3',
-                            types: [
-                                {typeName:'type1', url: 'type1'},
-                                {typeName:'type2', url: 'type2'},
-                                {typeName:'type3', url: 'type3'},
-                                {typeName:'type4', url: 'type4'},
-                                {typeName:'type5', url: 'type5'}
-                            ]
+                            name: 'Catering services', 
+                            url:'сatering-services'
                         },
                         {
-                            name: 'Service4', 
-                            url:'service4',
-                            types: [
-                                {typeName:'type1', url: 'type1'},
-                                {typeName:'type2', url: 'type2'},
-                                {typeName:'type3', url: 'type3'},
-                                {typeName:'type4', url: 'type4'},
-                                {typeName:'type5', url: 'type5'}
-                            ]
+                            name: 'Childrens services', 
+                            url:'сhildrens-services'
                         },
                         {
-                            name: 'Service5', 
-                            url:'service5',
-                            types: [
-                                {typeName:'type1', url: 'type1'},
-                                {typeName:'type2', url: 'type2'},
-                                {typeName:'type3', url: 'type3'},
-                                {typeName:'type4', url: 'type4'},
-                                {typeName:'type5', url: 'type5'}
-                            ]
+                            name: 'Service staff', 
+                            url:'service-staff'
                         },
                         {
-                            name: 'Service6', 
-                            url:'service6',
-                            types: [
-                                {typeName:'type1', url: 'type1'},
-                                {typeName:'type2', url: 'type2'},
-                                {typeName:'type3', url: 'type3'},
-                                {typeName:'type4', url: 'type4'},
-                                {typeName:'type5', url: 'type5'}
-                            ]
+                            name: 'Casting services', 
+                            url:'casting-services'
                         },
                         {
-                            name: 'Service7',
-                            url:'service7',
-                            types: [
-                                {typeName:'type1', url: 'type1'},
-                                {typeName:'type2', url: 'type2'},
-                                {typeName:'type3', url: 'type3'},
-                                {typeName:'type4', url: 'type4'},
-                                {typeName:'type5', url: 'type5'}
-                            ]
+                            name: 'Special effects',
+                            url:'special-effects'
                         },
                         {
-                            name: 'Service8',
-                            url:'service8',
-                            types: [
-                                {typeName:'type1', url: 'type1'},
-                                {typeName:'type2', url: 'type2'},
-                                {typeName:'type3', url: 'type3'},
-                                {typeName:'type4', url: 'type4'},
-                                {typeName:'type5', url: 'type5'}
-                            ]
-                        },
-                        {
-                            name: 'Service9',
-                            url:'service9',
-                            types: [
-                                {typeName:'type1', url: 'type1'},
-                                {typeName:'type2', url: 'type2'},
-                                {typeName:'type3', url: 'type3'},
-                                {typeName:'type4', url: 'type4'},
-                                {typeName:'type5', url: 'type5'}
-                            ]
+                            name: 'Cleaning services',
+                            url:'cleaning-services'
                         }
                     ]
                 }
@@ -255,11 +190,11 @@ class Category extends React.Component{
             actual_type: '',
             actual_pathname: this.props.location.pathname,
             history: this.props.match.params.url,
-            position: 0
+            position: 0,
+            close_types: false
         }
 
 
-        
     }
 
 
@@ -392,6 +327,25 @@ class Category extends React.Component{
 
 
     componentWillReceiveProps(newPr){   // во время клика
+        let url = newPr.location.pathname.split('/')
+        url.splice(0, 1)
+
+        console.log(url)
+
+        if(newPr.location.pathname === "/filter/services/events"){
+            // this.setState({
+            //     prods:[
+            //         {prod_url: '/filter/goods/computer-equipment/monitor1/toshiba-Satellite-c50', img: Prod1, type: 'serv', type_url: '/filter/goods/computer-equipment',    name: 'Services', info: ['2700 Lumens', 'SVGA resolution', 'USB'], prise: 10000},
+            //         {prod_url: '/filter/goods/computer-equipment/monitor1/toshiba-Satellite-c50', img: Prod2, type: 'serv', type_url: '/filter/goods/everything-for-events', name: 'Services', info: ['3x3 մ', 'ջրակայուն', 'թեթև '],           prise: 24000},
+            //         {prod_url: '/filter/goods/computer-equipment/monitor1/toshiba-Satellite-c50', img: Prod3, type: 'serv', type_url: '/filter/goods/everything-for-events', name: 'Services', info: ['15 լիտր'],                               prise: 3000},
+            //         {prod_url: '/filter/goods/computer-equipment/monitor1/toshiba-Satellite-c50', img: Prod4, type: 'serv', type_url: '/filter/goods/computer-equipment',    name: 'Services', info: ['մետաղ', 'գործվածք', 'սև'],               prise: 1000},
+            //         {prod_url: '/filter/goods/computer-equipment/monitor1/toshiba-Satellite-c50', img: Prod5, type: 'serv', type_url: '/filter/goods/computer-equipment',    name: 'Services', info: ['2700 Lumens', 'SVGA resolution', 'USB'], prise: 10000},
+            //         {prod_url: '/filter/goods/computer-equipment/monitor1/toshiba-Satellite-c50', img: Prod1, type: 'serv', type_url: '/filter/goods/everything-for-events', name: 'Services', info: ['3x3 մ', 'ջրակայուն', 'թեթև '],           prise: 24000},
+            //         {prod_url: '/filter/goods/computer-equipment/monitor1/toshiba-Satellite-c50', img: Prod2, type: 'serv', type_url: '/filter/goods/everything-for-events', name: 'Services', info: ['15 լիտր'],                               prise: 3000},
+            //         {prod_url: '/filter/goods/computer-equipment/monitor1/toshiba-Satellite-c50', img: Prod3, type: 'serv', type_url: '/filter/goods/computer-equipment',    name: 'Services', info: ['մետաղ', 'գործվածք', 'սև'],               prise: 1000}
+            //     ],
+            // })
+        }
 
         this.setState({
             actual_pathname: newPr.location.pathname
@@ -485,12 +439,13 @@ class Category extends React.Component{
                             </div>
 
 
-                            <div className='input'>
-                                <p>Տեսակ</p>
 
+                            <div style={{display: this.state.close_types === true ? 'none':'inline-block'}} className='input'>
+                                <p>Տեսակ</p>
                                 <div className='select-box' onClick={this.selectFun.bind(null, 'types')}>
                                     <div className={this.state.option_container_classes_type.join(' ')}>
-                                        {
+                                        
+                                        {  
                                             typeof(this.state.actual_category) == typeof(1) ?
                                             this.state.sections[this.state.actual_section].categories[this.state.actual_category].types.map((type, idx)=>{
                                                 return(
@@ -510,14 +465,16 @@ class Category extends React.Component{
                                     </div>
                                     <div className='selected'>
                                     {
-                                        typeof(this.state.actual_type) === typeof(1) ?
-                                            this.state.sections[this.state.actual_section].categories[this.state.actual_category].types[this.state.actual_type].typeName
+                                        typeof(this.state.actual_type) === typeof(1) 
+                                        ?   this.state.sections[this.state.actual_section].categories[this.state.actual_category].types[this.state.actual_type].typeName
                                         :   'Select type'
                                     }
                                     </div>
                                 </div>
                             </div>
 
+
+                
                             <NavLink to={`/filter/${this.state.history}`}>Մաքրել ֆիլտրը</NavLink>
                         </div>
 

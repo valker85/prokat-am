@@ -35,5 +35,10 @@ export default [
         path: '/filter/:url/:category/:type/:id',
         component: ProductPage,
         exact: true
+    },
+    {
+        path: '/filter/services/:category/:id',
+        component: ProductPage,
+        exact: true
     }
 ]

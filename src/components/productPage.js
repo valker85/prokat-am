@@ -62,6 +62,7 @@ export default class ProductPage extends React.Component{
         this.picker_open = false
     }
 
+
     chooseImg = (idx) => {
         let img_blocks = this.images_blocks.current.childNodes
 
@@ -88,22 +89,37 @@ export default class ProductPage extends React.Component{
     counter = (sign) =>{
         let count = this.state.count
         let prise = this.state.product.prise
+        let new_prise = 0
+
         let new_total_prise = this.state.total_prise
+        let days = this.state.days
+
 
         if(sign === '+'){
-            new_total_prise += prise
-            this.setState({ count: ++count })
+            if(days > 1){
+                new_prise = prise*days
+
+                new_total_prise += new_prise
+                this.setState({ count: ++count })
+            } else{
+                new_total_prise += prise
+                this.setState({ count: ++count })
+            }
         } else{
-            new_total_prise -= prise
-            this.setState({ count: --count })
+            if(days > 1){
+                new_prise = prise*days
+
+                new_total_prise -= new_prise
+                this.setState({ count: --count })
+            } else{
+                new_total_prise -= prise
+                this.setState({ count: --count })
+            }
         }
         
         this.setState({
             total_prise: new_total_prise
         })
-
-
-
     }
 
     open_calendar = () =>{
@@ -113,12 +129,15 @@ export default class ProductPage extends React.Component{
             this.dayPicker.current.style.display = 'block'
         } else{
             this.dayPicker.current.style.display = 'none'
+            this.apply_btn(true)
         }
     }
 
-    apply_btn = () =>{
-        this.picker_open = false
-        this.dayPicker.current.style.display = 'none'
+    apply_btn = (close) =>{
+        if(close === true){
+            this.picker_open = false
+            this.dayPicker.current.style.display = 'none'
+        }
 
         // Устанавливается цена в зависимости от кол-ва продуктов.
         let count = this.state.count
@@ -129,6 +148,7 @@ export default class ProductPage extends React.Component{
 
         new_prise = prod_prise*count
 
+        // Функция money_counter срабатывает быстрее, чем обновляется state
         async function name() {
             await here.setState({
                 total_prise: new_prise
@@ -145,19 +165,27 @@ export default class ProductPage extends React.Component{
         // Подсчет выбранных дней и получение общей суммы. 
         let from = this.state.from
         let to = this.state.to
-        let days = Math.floor((to.getTime() - from.getTime())/(1000*60*60*24))+1
+        let days
+
+        if(to === undefined || to === null){
+            to = from
+            this.setState({
+                to: to
+            })
+        }
+
+        if(from !== null && to !== null){
+            days = Math.floor((to.getTime() - from.getTime())/(1000*60*60*24))+1
+        }
 
         let total_prise = this.state.total_prise
         let new_total_prise = total_prise
 
         new_total_prise *= days
 
-
-        console.log('Total prise: ', total_prise)
-        console.log('All prise with days: ', new_total_prise)
-
         this.setState({
-            total_prise: new_total_prise
+            total_prise: new_total_prise,
+            days: days
         })
     }
 
@@ -165,6 +193,15 @@ export default class ProductPage extends React.Component{
     handleDayClick(day) {
         const range = DateUtils.addDayToRange(day, this.state);
         this.setState(range);
+
+        if(range.from !== undefined && range.to !== undefined){
+            this.setState({
+                from: range.from,
+                to: range.to
+            })
+
+            this.apply_btn(false)
+        }
     }
     
     handleResetClick() {
@@ -172,7 +209,7 @@ export default class ProductPage extends React.Component{
             from: undefined,
             to: undefined,
         });
-      }
+    }
     // ==============================
 
     componentDidMount(){
@@ -254,7 +291,7 @@ export default class ProductPage extends React.Component{
                                             <button 
                                                 type='button'
                                                 disabled={Boolean(from) !== true && Boolean(from) !== true ? true:false}
-                                                onClick={this.apply_btn}>
+                                                onClick={this.apply_btn.bind(null, true)}>
                                                 
                                                 Հաստատել
                                             </button>

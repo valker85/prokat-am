@@ -17,6 +17,15 @@ import Prod7 from '../assets/img/home/products/prod7.png'
 import Prod8 from '../assets/img/home/products/prod8.png'
 import Prod9 from '../assets/img/home/products/prod9.png'
 
+import Serv1 from '../assets/img/home/services/serv1.png'
+import Serv2 from '../assets/img/home/services/serv2.png'
+import Serv3 from '../assets/img/home/services/serv3.png'
+import Serv4 from '../assets/img/home/services/serv4.png'
+import Serv5 from '../assets/img/home/services/serv5.png'
+import Serv6 from '../assets/img/home/services/serv6.png'
+import Serv7 from '../assets/img/home/services/serv7.png'
+import Serv8 from '../assets/img/home/services/serv8.png'
+
 import topProd1 from '../assets/img/home/top-prods/prod1.png'
 import topProd2 from '../assets/img/home/top-prods/prod2.png'
 import topProd3 from '../assets/img/home/top-prods/prod3.png'
@@ -46,26 +55,25 @@ export default class Home extends React.Component{
                     {image: Prod9, section: 'goods', category: 'sound-and-light-equipment', name: 'Ձայնային և լուսային տեխնիկա'}
                 ],
                 services:[
-                    {image: Prod1, section: 'services', category: 'service1', name: 'Something'},
-                    {image: Prod1, section: 'services', category: 'service2', name: 'Something'},
-                    {image: Prod1, section: 'services', category: 'service3', name: 'Something'},
-                    {image: Prod1, section: 'services', category: 'service4', name: 'Something'},
-                    {image: Prod1, section: 'services', category: 'service5', name: 'Something'},
-                    {image: Prod1, section: 'services', category: 'service6', name: 'Something'},
-                    {image: Prod1, section: 'services', category: 'service7', name: 'Something'},
-                    {image: Prod1, section: 'services', category: 'service8', name: 'Something'},
-                    {image: Prod1, section: 'services', category: 'service9', name: 'Something'}
+                    {image: Serv1, section: 'services', category: 'events', name: 'Միջոցառումներ'},
+                    {image: Serv2, section: 'services', category: 'corporate-events', name: 'Կորպորատիվ միջոցառումներ'},
+                    {image: Serv3, section: 'services', category: 'сatering-services', name: 'Ֆուրշետների կազմակերպում'},
+                    {image: Serv4, section: 'services', category: 'сhildrens-services', name: 'Մանկական ծառայություններ'},
+                    {image: Serv5, section: 'services', category: 'service-staff', name: 'Սպասարկող անձնակազմ'},
+                    {image: Serv6, section: 'services', category: 'casting-services', name: 'Ձևավորման ծառայություններ'},
+                    {image: Serv7, section: 'services', category: 'special-effects', name: 'Հատուկ էֆֆեկտներ'},
+                    {image: Serv8, section: 'services', category: 'cleaning-services', name: 'Մաքրման ծառայություններ'}
                 ]
             },
             top_prods:[
-                {img: topProd1, type: 'Տեխնիկա', name: 'Պրոյեկտոր Benq', info: ['2700 Lumens', 'SVGA resolution', 'USB'], prise: 10000},
-                {img: topProd2, type: 'Ամեն ինչ միջոցառումների համար', name: 'Սպիտակ ծածկ', info: ['3x3 մ', 'ջրակայուն', 'թեթև '], prise: 24000},
-                {img: topProd3, type: 'Ամեն ինչ միջոցառումների համար', name: 'Ջուր եռացնելու էլեկտրական սարք', info: ['15 լիտր'], prise: 3000},
-                {img: topProd4, type: 'Տեխնիկա', name: 'Գրասենյակային աթոռ', info: ['մետաղ', 'գործվածք', 'սև'], prise: 1000},
-                {img: topProd5, type: 'Տեխնիկա', name: 'Պրոյեկտոր Benq', info: ['2700 Lumens', 'SVGA resolution', 'USB'], prise: 10000},
-                {img: topProd1, type: 'Ամեն ինչ միջոցառումների համար', name: 'Սպիտակ ծածկ', info: ['3x3 մ', 'ջրակայուն', 'թեթև '], prise: 24000},
-                {img: topProd2, type: 'Ամեն ինչ միջոցառումների համար', name: 'Ջուր եռացնելու էլեկտրական սարք', info: ['15 լիտր'], prise: 3000},
-                {img: topProd3, type: 'Տեխնիկա', name: 'Գրասենյակային աթոռ', info: ['մետաղ', 'գործվածք', 'սև'], prise: 1000}
+                {prod_url: '/filter/goods/computer-equipment/monitor1/toshiba-Satellite-c50', img: topProd1, type: 'Տեխնիկա',                       type_url: '/filter/goods/computer-equipment',    name: 'Պրոյեկտոր Benq',                 info: ['2700 Lumens', 'SVGA resolution', 'USB'], prise: 10000},
+                {prod_url: '/filter/goods/computer-equipment/monitor1/toshiba-Satellite-c50', img: topProd2, type: 'Ամեն ինչ միջոցառումների համար', type_url: '/filter/goods/everything-for-events', name: 'Սպիտակ ծածկ',                    info: ['3x3 մ', 'ջրակայուն', 'թեթև '],           prise: 24000},
+                {prod_url: '/filter/goods/computer-equipment/monitor1/toshiba-Satellite-c50', img: topProd3, type: 'Ամեն ինչ միջոցառումների համար', type_url: '/filter/goods/everything-for-events', name: 'Ջուր եռացնելու էլեկտրական սարք', info: ['15 լիտր'],                               prise: 3000},
+                {prod_url: '/filter/goods/computer-equipment/monitor1/toshiba-Satellite-c50', img: topProd4, type: 'Տեխնիկա',                       type_url: '/filter/goods/computer-equipment',    name: 'Գրասենյակային աթոռ',             info: ['մետաղ', 'գործվածք', 'սև'],               prise: 1000},
+                {prod_url: '/filter/goods/computer-equipment/monitor1/toshiba-Satellite-c50', img: topProd5, type: 'Տեխնիկա',                       type_url: '/filter/goods/computer-equipment',    name: 'Պրոյեկտոր Benq',                 info: ['2700 Lumens', 'SVGA resolution', 'USB'], prise: 10000},
+                {prod_url: '/filter/goods/computer-equipment/monitor1/toshiba-Satellite-c50', img: topProd1, type: 'Ամեն ինչ միջոցառումների համար', type_url: '/filter/goods/everything-for-events', name: 'Սպիտակ ծածկ',                    info: ['3x3 մ', 'ջրակայուն', 'թեթև '],           prise: 24000},
+                {prod_url: '/filter/goods/computer-equipment/monitor1/toshiba-Satellite-c50', img: topProd2, type: 'Ամեն ինչ միջոցառումների համար', type_url: '/filter/goods/everything-for-events', name: 'Ջուր եռացնելու էլեկտրական սարք', info: ['15 լիտր'],                               prise: 3000},
+                {prod_url: '/filter/goods/computer-equipment/monitor1/toshiba-Satellite-c50', img: topProd3, type: 'Տեխնիկա',                       type_url: '/filter/goods/computer-equipment',    name: 'Գրասենյակային աթոռ',             info: ['մետաղ', 'գործվածք', 'սև'],               prise: 1000}
             ]
         }
 
@@ -143,7 +151,7 @@ export default class Home extends React.Component{
     }
 
 
-    topProds = () =>{
+    topProds = () => {
         return(
             <div className='top_prods'>
                 {
@@ -154,8 +162,12 @@ export default class Home extends React.Component{
                                     <img src={card.img} alt='img'/>
                                 </div>
                                 <div className='content'>
-                                    <NavLink to='/' className='type'>{card.type}</NavLink>
-                                    <h1 className={card.name.length > 20 ? 'name long' : 'name'}>{card.name}</h1>
+                                    <NavLink to={card.type_url} className='type'>{card.type}</NavLink>
+                                    
+                                    <h1 onClick={()=>{this.props.history.push(card.prod_url)}} 
+                                        className={card.name.length > 20 ? 'name long' : 'name'}>
+                                        {card.name}
+                                    </h1>
 
                                     <ul className={card.name.length > 20 ? 'info long' : 'info'}>
                                     {
@@ -169,7 +181,7 @@ export default class Home extends React.Component{
                                     <div className='line'></div>
                                     <div className='prise-wrapper'>
                                         <div className='prise'>{card.prise} <span>դր/օր</span></div>
-                                        <div className='rent'><NavLink to='/'>Վարձել</NavLink></div>
+                                        <div className='rent'><NavLink to={card.prod_url}>Վարձել</NavLink></div>
                                     </div>
                                 </div>
                             </div>
@@ -179,6 +191,8 @@ export default class Home extends React.Component{
             </div>
         )
     }
+
+
 
     render(){
         return(
