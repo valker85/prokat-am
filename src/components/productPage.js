@@ -51,6 +51,7 @@ export default class ProductPage extends React.Component{
             actual_image: 0,
             count: 1,
             total_prise: 0,
+            days: 1,
             from: undefined,
             to: undefined
         }
@@ -59,7 +60,6 @@ export default class ProductPage extends React.Component{
         this.dayPicker = React.createRef()
 
         this.picker_open = false
-
     }
 
     chooseImg = (idx) => {
@@ -90,7 +90,6 @@ export default class ProductPage extends React.Component{
         let prise = this.state.product.prise
         let new_total_prise = this.state.total_prise
 
-
         if(sign === '+'){
             new_total_prise += prise
             this.setState({ count: ++count })
@@ -102,6 +101,8 @@ export default class ProductPage extends React.Component{
         this.setState({
             total_prise: new_total_prise
         })
+
+
 
     }
 
@@ -115,29 +116,49 @@ export default class ProductPage extends React.Component{
         }
     }
 
-    apply_btn = (event) =>{
-
+    apply_btn = () =>{
         this.picker_open = false
         this.dayPicker.current.style.display = 'none'
 
+        // Устанавливается цена в зависимости от кол-ва продуктов.
+        let count = this.state.count
+        let prod_prise = this.state.product.prise
+        let new_prise = prod_prise
 
+        let here = this
+
+        new_prise = prod_prise*count
+
+        async function name() {
+            await here.setState({
+                total_prise: new_prise
+            })
+
+            here.money_counter()
+        }
+
+        name()
+    }
+
+    money_counter = () =>{
+    
+        // Подсчет выбранных дней и получение общей суммы. 
         let from = this.state.from
         let to = this.state.to
+        let days = Math.floor((to.getTime() - from.getTime())/(1000*60*60*24))+1
 
-        let prod_price = this.state.product.prise
-        // let new_price = prod_price
+        let total_prise = this.state.total_prise
+        let new_total_prise = total_prise
 
-        let days = Math.floor((to.getTime() - from.getTime())/(1000*60*60*24))
+        new_total_prise *= days
 
-        console.log(days)
 
-        // for (let i = 1; i < days; i++) {
-        //     new_price += prod_price
-        // }
+        console.log('Total prise: ', total_prise)
+        console.log('All prise with days: ', new_total_prise)
 
-        // this.setState({
-        //     total_prise: new_price
-        // })
+        this.setState({
+            total_prise: new_total_prise
+        })
     }
 
     // Day Picker ===================
