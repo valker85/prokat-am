@@ -1,8 +1,9 @@
 import Home from './components/home'
 import About from './components/about'
-// import Basket from './components/basket'
 import Category from './components/category'
 import ProductPage from './components/productPage'
+import Terms from './components/terms'
+import ShoppingCart from './components/shopping-cart'
 
 
 export default [
@@ -14,6 +15,16 @@ export default [
     {
         path: '/about',
         component: About,
+        exact: false
+    },
+    {
+        path: '/terms',
+        component: Terms,
+        exact: false
+    },
+    {
+        path: '/shopping-cart',
+        component: ShoppingCart,
         exact: false
     },
     {
