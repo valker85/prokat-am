@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 import DayPicker, { DateUtils } from 'react-day-picker';
 import 'react-day-picker/lib/style.css';
@@ -7,7 +7,7 @@ import 'react-day-picker/lib/style.css';
 
 // Components
 import Path from './other-components/path'
-
+import ShoppingCart from './shopping-cart'
 
 // Images
 import topProd1 from '../assets/img/home/top-prods/prod1.png'
@@ -53,7 +53,8 @@ export default class ProductPage extends React.Component{
             total_prise: 0,
             days: 1,
             from: undefined,
-            to: undefined
+            to: undefined,
+            order: {}
         }
 
         this.images_blocks = React.createRef()
@@ -189,6 +190,20 @@ export default class ProductPage extends React.Component{
         })
     }
 
+    orderFun = () =>{
+        let new_order = {}
+        new_order.total_prise = this.state.total_prise
+        new_order.days = this.state.days
+        new_order.from = this.state.from
+        new_order.to = this.state.to
+        new_order.count = this.state.count
+
+
+        this.setState({
+            order: new_order
+        })
+    }
+
     // Day Picker ===================
     handleDayClick(day) {
         const range = DateUtils.addDayToRange(day, this.state);
@@ -310,9 +325,17 @@ export default class ProductPage extends React.Component{
                                     <button type='button' onClick={this.counter.bind(null, '+')}>+</button>
                                 </div>
 
-                                <button className='order' type='submit'>Պատվիրել` {this.state.total_prise} ֏</button>
+                                <Link   to={{ pathname: '/shopping-cart', 
+                                              order: this.state.order }} 
+                                        onClick={this.orderFun} 
+                                        className='order' 
+                                        type='submit'>
+
+                                        Պատվիրել` {this.state.total_prise} ֏
+                                </Link>
                                 <p>Երկարաժամկետ վարձակալության դեպքում կգործեն զեղչեր</p>
                             </form>
+                            
                         </div>
                     </div>
             

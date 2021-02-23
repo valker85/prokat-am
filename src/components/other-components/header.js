@@ -130,7 +130,7 @@ export default class Header extends React.Component{
                                     </button>
                                 </li>
                                 <li>
-                                    <NavLink to='/basket'>
+                                    <NavLink to='/shopping-cart'>
                                         <img src={Basket} alt='basket'/>
                                     </NavLink>
                                 </li>

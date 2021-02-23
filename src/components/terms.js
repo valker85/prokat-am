@@ -36,7 +36,7 @@ export default class Terms extends React.Component{
 
                             <div className='last_block'>
                                 <p>Մենք անհատական մոտեցում ենք ցուցաբերում մեր յուրաքանչյուր հաճախորդի և մեծ սիրով իրականացնում ցանկացած մասշտաբի պատվեր։</p>
-                                <p>Կապվեք մեզ հետ Ձեզ հարմար եղանակով՝ կայքով, <a href='https://www.instagram.com/' target='_blank'>ֆեյսբուքի</a> կամ <a href='https://www.facebook.com/' target='_blank'>ինստագրամի</a> միջոցով կամ պարզապես հեռախոսազանգով և մեր աշխատակիցները սիրով կպատասխանեն Ձեր բոլոր հարցերին։</p>
+                                <p>Կապվեք մեզ հետ Ձեզ հարմար եղանակով՝ կայքով, <a href='https://www.instagram.com/' target='_blank' rel="noopener noreferrer">ֆեյսբուքի</a> կամ <a href='https://www.facebook.com/' target='_blank' rel="noopener noreferrer">ինստագրամի</a> միջոցով կամ պարզապես հեռախոսազանգով և մեր աշխատակիցները սիրով կպատասխանեն Ձեր բոլոր հարցերին։</p>
                             </div>
                         </div>
 
