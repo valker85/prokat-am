@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 import DayPicker, { DateUtils } from 'react-day-picker';
 import 'react-day-picker/lib/style.css';
@@ -7,7 +7,12 @@ import 'react-day-picker/lib/style.css';
 
 // Components
 import Path from './other-components/path'
-import ShoppingCart from './shopping-cart'
+
+
+// Products
+import Products from './orderen_prods'
+
+
 
 // Images
 import topProd1 from '../assets/img/home/top-prods/prod1.png'
@@ -35,7 +40,8 @@ export default class ProductPage extends React.Component{
                 description:[
                     'Processor Intel Core i3-3120M','Processor clock speed 2.5GHz','Memory 4.00GB','Memory slots 2','Memory slots free 1','Maximum memory 16GB','Size 32x380x240mm','Weight 2.3kg','Sound Realtek HD Audio','Pointing device touchpad','Display','Viewable size 15.6 in','Native resolution 1,366x768','Graphics Processor Intel HD Graphics 4000','Graphics/video ports HDMI, VGA','Graphics Memory 256MB','Storage','Total storage capacity 1,024GB','Optical drive type DVD+/-RW +/-DL','Ports and Expansion','USB ports 3','Bluetooth yes','Wired network ports 1x 10/100','Wireless networking support 802.11n','PC Card slots none','Supported memory cards SDXC, MMC','Other ports 1x USB3, headphone, microphone','Miscellaneous','Carrying case No','Operating system Windows 8','Operating system restore option restore partition','Software included none','Optional extras none'
                 ],
-                images:[Toshiba, topProd1, Toshiba, Toshiba, Toshiba]
+                images:[Toshiba, topProd1, Toshiba, Toshiba, Toshiba],
+                img_for_busket: Toshiba
             },
             similar_suggestions:[
                 {img: topProd1, type: 'Տեխնիկա', name: 'Պրոյեկտոր Benq', info: ['2700 Lumens', 'SVGA resolution', 'USB'], prise: 10000},
@@ -54,13 +60,17 @@ export default class ProductPage extends React.Component{
             days: 1,
             from: undefined,
             to: undefined,
-            order: {}
+            order: {},
+            redirect: true
         }
 
+        this.myStorage = window.localStorage
         this.images_blocks = React.createRef()
         this.dayPicker = React.createRef()
 
         this.picker_open = false
+        this.redirect = true
+
     }
 
 
@@ -175,33 +185,70 @@ export default class ProductPage extends React.Component{
             })
         }
 
-        if(from !== null && to !== null){
+        if(from !== null && to !== null && from !== undefined && to !== undefined){
             days = Math.floor((to.getTime() - from.getTime())/(1000*60*60*24))+1
+        
+            let total_prise = this.state.total_prise
+            let new_total_prise = total_prise
+    
+            new_total_prise *= days
+    
+            this.setState({
+                total_prise: new_total_prise,
+                days: days
+            })
         }
 
-        let total_prise = this.state.total_prise
-        let new_total_prise = total_prise
-
-        new_total_prise *= days
-
-        this.setState({
-            total_prise: new_total_prise,
-            days: days
-        })
     }
 
     orderFun = () =>{
         let new_order = {}
-        new_order.total_prise = this.state.total_prise
+        new_order.img = this.state.product.img_for_busket
+        new_order.name = this.state.product.name
         new_order.days = this.state.days
-        new_order.from = this.state.from
-        new_order.to = this.state.to
+        new_order.from = this.state.from === undefined ? undefined : this.state.from.toLocaleDateString()
+        new_order.to = this.state.to === undefined ? undefined : this.state.to.toLocaleDateString()
         new_order.count = this.state.count
+        new_order.prod_prise = this.state.product.prise
+        new_order.total_prise = this.state.total_prise
+
+        if(new_order.from === undefined){
+            this.setState({
+                redirect: false
+            })
+            this.redirect = false
+        } else{
+            this.setState({
+                redirect: true
+            })
+            this.redirect = true
+        }
 
 
-        this.setState({
-            order: new_order
-        })
+        if(this.redirect === true){
+            // this.myStorage.removeItem('products')
+
+            let storage_prods = JSON.parse(this.myStorage.getItem('products'))
+
+            if(storage_prods === null){   //Storage haven't products
+
+                Products.push(new_order)
+                this.myStorage.setItem('products', JSON.stringify(Products))
+                
+            } else{     // Storage have products
+
+                Products.splice(0)
+
+                for (let i = 0; i < storage_prods.length; i++) {
+                    Products.push(storage_prods[i])
+                }
+                
+                Products.push(new_order)
+                this.myStorage.setItem('products', JSON.stringify(Products))
+            }
+
+            this.props.history.push('/shopping-cart')
+        }
     }
 
     // Day Picker ===================
@@ -223,6 +270,7 @@ export default class ProductPage extends React.Component{
         this.setState({
             from: undefined,
             to: undefined,
+            total_prise: this.state.product.prise
         });
     }
     // ==============================
@@ -275,7 +323,8 @@ export default class ProductPage extends React.Component{
                             <form className='other-content'>
 
                                 <div className="RangeExample">
-                                    <p onClick={this.open_calendar}>
+                                    <p className={this.state.redirect ? 'redirect':'error_date'} 
+                                    onClick={this.open_calendar}>
                                     {!from && !to && 'Վարձակալության օր*.'}
                                     {from && !to && 'Ընտրեք մինչև որ օր*.'}
                                     {from &&
@@ -284,6 +333,11 @@ export default class ProductPage extends React.Component{
                                         ${to.toLocaleDateString()}`}{' '}
                                         <img src={Calendar} alt='Calendar'/>
                                     </p>
+
+                                    {/* {
+                                        this.state.redirect === true ? null :
+                                        <span>Ընտրեք օրեր</span> 
+                                    } */}
 
                                     <div ref={this.dayPicker} className='daypick-wrapper'>
                                         <DayPicker
@@ -325,14 +379,9 @@ export default class ProductPage extends React.Component{
                                     <button type='button' onClick={this.counter.bind(null, '+')}>+</button>
                                 </div>
 
-                                <Link   to={{ pathname: '/shopping-cart', 
-                                              order: this.state.order }} 
-                                        onClick={this.orderFun} 
-                                        className='order' 
-                                        type='submit'>
-
-                                        Պատվիրել` {this.state.total_prise} ֏
-                                </Link>
+                                <button onClick={this.orderFun} className='order' type='button'>
+                                    Պատվիրել` {this.state.total_prise} ֏ 
+                                </button>
                                 <p>Երկարաժամկետ վարձակալության դեպքում կգործեն զեղչեր</p>
                             </form>
                             

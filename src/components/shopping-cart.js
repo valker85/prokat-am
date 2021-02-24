@@ -4,6 +4,9 @@ import InputFiles from 'react-input-files';
 // Components
 import Path from '../components/other-components/path'
 
+// Products
+import Products from './orderen_prods'
+
 
 // Images
 import Surface from '../assets/img/shopping-cart/surface.svg'
@@ -19,13 +22,13 @@ export default class ShoppingCart extends React.Component{
         this.state = {
             img: {},
             bigFile: false,
-            products:{
-
-            }
+            products:[],
+            total_prise: '6 960'
         }
 
         this.file_input_p = React.createRef()
 
+        this.myStorage = window.localStorage;
 
     }
 
@@ -52,7 +55,13 @@ export default class ShoppingCart extends React.Component{
     }
 
     componentDidMount(){
-        console.log(this.props.location.order);
+        let prods = JSON.parse(this.myStorage.getItem('products'))
+
+        setTimeout(()=>{
+            this.setState({
+                products: prods
+            })
+        })
     }
 
 
@@ -116,8 +125,49 @@ export default class ShoppingCart extends React.Component{
                         <div className='block'>
                             <h1>Ձեր պատվերը</h1>
 
+                            {
+                                this.state.products.map((prod, idx)=>{
+                                    return(
+                                        <div key={idx} className='prod_card'>
+                                            <div className='line'></div>
+                                            <div className='content'>
+                                                <div className='block'>
+                                                    <div className='img_block'>
+                                                        <img src={prod.img} alt='product img' />
+                                                    </div>
+                                                </div>
+                                                <div className='block'>
+                                                    <h1>{prod.name}</h1>
+                                                    <p>{prod.to} - {prod.from}</p>
+                                                    <div className='counter'>
+                                                        <button>—</button>
+                                                        <h2>{prod.count}</h2>
+                                                        <button>+</button>
+                                                    </div>
+                                                </div>
+                                                <div className='block'>
+                                                    <h3 className='prise'>{prod.total_prise} <span>դր</span></h3>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    )
+                                })
+                            }
+                            <div className='line'></div>
+                            
+                            <div className='promo'>
+                                <h4>Ստանալ զեչղ՝</h4>
+                                <form>
+                                    <input placeholder='Կտրոնի համարը'/>
+                                    <button type='submit'>Հաստատել</button>
+                                </form>
+                            </div>
 
+                            <div className='total_prise'>
+                                <h2>Ընդամենը`</h2>
 
+                                <h3>{this.state.total_prise} <span>դր</span></h3>
+                            </div>
                         </div>
                     </div>
                 </div>

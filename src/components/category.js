@@ -332,20 +332,7 @@ class Category extends React.Component{
 
         console.log(url)
 
-        if(newPr.location.pathname === "/filter/services/events"){
-            // this.setState({
-            //     prods:[
-            //         {prod_url: '/filter/goods/computer-equipment/monitor1/toshiba-Satellite-c50', img: Prod1, type: 'serv', type_url: '/filter/goods/computer-equipment',    name: 'Services', info: ['2700 Lumens', 'SVGA resolution', 'USB'], prise: 10000},
-            //         {prod_url: '/filter/goods/computer-equipment/monitor1/toshiba-Satellite-c50', img: Prod2, type: 'serv', type_url: '/filter/goods/everything-for-events', name: 'Services', info: ['3x3 մ', 'ջրակայուն', 'թեթև '],           prise: 24000},
-            //         {prod_url: '/filter/goods/computer-equipment/monitor1/toshiba-Satellite-c50', img: Prod3, type: 'serv', type_url: '/filter/goods/everything-for-events', name: 'Services', info: ['15 լիտր'],                               prise: 3000},
-            //         {prod_url: '/filter/goods/computer-equipment/monitor1/toshiba-Satellite-c50', img: Prod4, type: 'serv', type_url: '/filter/goods/computer-equipment',    name: 'Services', info: ['մետաղ', 'գործվածք', 'սև'],               prise: 1000},
-            //         {prod_url: '/filter/goods/computer-equipment/monitor1/toshiba-Satellite-c50', img: Prod5, type: 'serv', type_url: '/filter/goods/computer-equipment',    name: 'Services', info: ['2700 Lumens', 'SVGA resolution', 'USB'], prise: 10000},
-            //         {prod_url: '/filter/goods/computer-equipment/monitor1/toshiba-Satellite-c50', img: Prod1, type: 'serv', type_url: '/filter/goods/everything-for-events', name: 'Services', info: ['3x3 մ', 'ջրակայուն', 'թեթև '],           prise: 24000},
-            //         {prod_url: '/filter/goods/computer-equipment/monitor1/toshiba-Satellite-c50', img: Prod2, type: 'serv', type_url: '/filter/goods/everything-for-events', name: 'Services', info: ['15 լիտր'],                               prise: 3000},
-            //         {prod_url: '/filter/goods/computer-equipment/monitor1/toshiba-Satellite-c50', img: Prod3, type: 'serv', type_url: '/filter/goods/computer-equipment',    name: 'Services', info: ['մետաղ', 'գործվածք', 'սև'],               prise: 1000}
-            //     ],
-            // })
-        }
+    
 
         this.setState({
             actual_pathname: newPr.location.pathname

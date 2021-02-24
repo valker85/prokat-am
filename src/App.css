@@ -1127,6 +1127,17 @@
     border-radius: 3px;
     cursor: pointer;
 }
+.product-page .section1 .block .other-content .RangeExample span{
+    color: #ff0000;
+    display: block;
+    font-size: 14px;
+    font-family: 'Arial';
+    text-align: left;
+    margin-top: 10px;
+}
+.product-page .section1 .block .other-content .RangeExample p.error_date{
+    border: 1px solid #ff0000;
+}
 .product-page .section1 .block .other-content .RangeExample p img{
     float: right;
 }
@@ -1310,7 +1321,161 @@
 }
 .shopping-cart .section .block:last-child{
     padding-bottom: 40px;
+    background: #EFF6FB;
 }
+.shopping-cart .section .block:last-child h1{
+    margin-left: 40px;
+}
+.shopping-cart .section .block:last-child .line{
+    width: 100%;
+    border: 0.5px dashed #C6C6C6;
+    height: 0;
+}
+.shopping-cart .section .block:last-child .prod_card .content{
+    padding: 30px 2.084vw 40px;
+    display: flex;
+}
+.shopping-cart .section .block:last-child .prod_card .content .block{
+    padding: 0;
+    margin: 0;
+}
+.shopping-cart .section .block:last-child .prod_card .content .block:first-child{
+    margin-right: 2.084vw;
+}
+.shopping-cart .section .block:last-child .prod_card .content .block:last-child{
+    margin-left: 1.042vw;
+}
+.shopping-cart .section .block:last-child .prod_card .content .block .img_block{
+    width: 11.459vw;
+    height: 220px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+.shopping-cart .section .block:last-child .prod_card .content .img_block img{
+    width: 120%;
+    margin-left: -10%;
+}
+.shopping-cart .section .block:last-child .prod_card .content h1{
+    font-size: 1.25vw;
+    font-weight: 700;
+    color: #353535;
+    margin: 0;
+}
+.shopping-cart .section .block:last-child .prod_card .content p{
+    width: 100%;
+    padding: 21px 20px;
+    border-radius: 3px;
+    border: 0.5px solid #C6C6C6;
+    color: #353535;
+    background: white;
+    font-size: 18px;
+    margin-top: 30px;
+}
+.shopping-cart .section .block:last-child .prod_card .content .counter{
+    width: 13.542vw;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+
+    border-radius: 3px;
+    overflow: hidden;
+    border: 0.5px solid #C6C6C6;
+}
+.shopping-cart .section .block:last-child .prod_card .content .counter button{
+    flex: 1 1;
+    font-size: 22px;
+    font-weight: 400;
+    cursor: pointer;
+    border: none;
+    border-right: 0.5px solid #C6C6C6;
+    background: #F8F8F8;
+    outline: none;
+    color: #5C5C5C;
+}
+.shopping-cart .section .block:last-child .prod_card .content .counter button:last-child {
+    font-size: 30px;
+    font-weight: 100;
+    border-right: none;
+    border-left: 0.5px solid #C6C6C6;
+}
+.shopping-cart .section .block:last-child .prod_card .content .counter h2{
+    flex: 1.4 1;
+    padding: 19.5px 0;
+    font-size: 22px;
+    background: white;
+    text-align: center;
+    color: #353535;
+}
+.shopping-cart .section .block:last-child .prod_card .content .prise{
+    text-align: right;
+    color: #353535;
+    font-weight: 700;
+    font-size: 1.5vw;
+}
+.shopping-cart .section .block:last-child .prod_card .content .prise span{
+    font-size: 14px;
+}
+.shopping-cart .section .block:last-child .promo{
+    padding: 30px 40px 55px;
+    color: #353535;
+}
+.shopping-cart .section .block:last-child .promo h4{
+    margin-bottom: 22px;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+}
+.shopping-cart .section .block:last-child .promo form{
+    display: flex;
+}
+.shopping-cart .section .block:last-child .promo form input{
+    margin-right: 20px;
+    width: 100%;
+    padding: 21px 19px;
+    font-size: 18px;
+    border-radius: 3px;
+    outline: none;
+    border: 0.5px solid #C6C6C6;
+}
+.shopping-cart .section .block:last-child .promo form button{
+    width: 13vw;
+    min-width: 13vw;
+    text-align: center;
+    color: white;
+    background: #147EC2;
+    border-radius: 3px;
+    outline: none;
+    cursor: pointer;
+    font-size: 1.25vw;
+    font-weight: 700;
+    border: none;
+    transition: 0.3s;
+}
+.shopping-cart .section .block:last-child .promo form button:hover{
+    background: #114F9F;
+}
+.shopping-cart .section .block:last-child .total_prise{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 40px 0;
+}
+.shopping-cart .section .block:last-child .total_prise h2{
+    color: #114F9F;
+    font-size: 28px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+.shopping-cart .section .block:last-child .total_prise h3{
+    font-size: 32px;
+    font-weight: 700;
+    color: #114F9F;
+}
+.shopping-cart .section .block:last-child .total_prise span{
+    font-weight: 400;
+    font-size: 14px;
+}
+
 
 /* 
   3px - 0.157vw
@@ -1329,6 +1494,7 @@
   18px - 0.938vw
   20px - 1.042vw
   22px - 1.146vw
+  24px - 1.25vw
   25px - 1.303vw
   28px - 1.46vw
   29px - 1.511vw
