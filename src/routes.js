@@ -38,12 +38,12 @@ export default [
         exact: true
     },
     {
-        path: '/filter/:url/:category/:type',
+        path: '/filter/goods/:category/:type',
         component: Category,
         exact: true
     },
     {
-        path: '/filter/:url/:category/:type/:id',
+        path: '/filter/goods/:category/:type/:id',
         component: ProductPage,
         exact: true
     },

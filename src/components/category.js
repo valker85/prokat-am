@@ -147,13 +147,11 @@ class Category extends React.Component{
                     categories: [
                         {
                             name: 'Events', 
-                            url:'events',
-                            types:[]
+                            url:'events'
                         },
                         {
                             name: 'Corporate events', 
-                            url:'corporate-events',
-                            types:[]
+                            url:'corporate-events'
                         },
                         {
                             name: 'Catering services', 
@@ -323,6 +321,16 @@ class Category extends React.Component{
                 }
             }
         }
+
+        if(all_pats[0] === "services"){
+            this.setState({
+                close_types: true
+            })
+        } else{
+            this.setState({
+                close_types: true
+            })
+        }
     }
 
 
@@ -391,7 +399,6 @@ class Category extends React.Component{
                                 </div>
                             </div>
 
-
                             <div className='input'>
                                 <p>Կատեգորիա</p>
 
@@ -425,8 +432,8 @@ class Category extends React.Component{
                                 </div>
                             </div>
 
-
-
+                            {
+                            this.state.close_types === true ? null :
                             <div style={{display: this.state.close_types === true ? 'none':'inline-block'}} className='input'>
                                 <p>Տեսակ</p>
                                 <div className='select-box' onClick={this.selectFun.bind(null, 'types')}>
@@ -459,9 +466,8 @@ class Category extends React.Component{
                                     </div>
                                 </div>
                             </div>
+                            }
 
-
-                
                             <NavLink to={`/filter/${this.state.history}`}>Մաքրել ֆիլտրը</NavLink>
                         </div>
 
