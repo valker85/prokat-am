@@ -3,16 +3,12 @@ import InputFiles from 'react-input-files';
 
 // Components
 import Path from '../components/other-components/path'
-
-// Products
-import Products from './orderen_prods'
+import ShoppingCartProducts from './other-components/shopping-cart-products'
 
 
 // Images
 import Surface from '../assets/img/shopping-cart/surface.svg'
 import Calendar from '../assets/img/shopping-cart/calendar.svg'
-
-
 
 
 export default class ShoppingCart extends React.Component{
@@ -27,11 +23,23 @@ export default class ShoppingCart extends React.Component{
         }
 
         this.file_input_p = React.createRef()
+        this.dayPicker = React.createRef()
 
-        this.myStorage = window.localStorage;
+        this.myStorage = window.localStorage
 
     }
 
+
+    open_calendar = () =>{
+        this.picker_open = !this.picker_open
+
+        if(this.picker_open === true){
+            this.dayPicker.current.style.display = 'block'
+        } else{
+            this.dayPicker.current.style.display = 'none'
+            this.apply_btn(true)
+        }
+    }
     
     fileFun = (files) => {
         if(files[0] !== undefined){
@@ -54,6 +62,40 @@ export default class ShoppingCart extends React.Component{
         }
     }
 
+    deleteProduct = (product) =>{
+        let all_products = JSON.parse(window.localStorage.getItem('products'))
+
+        for (let i = 0; i < all_products.length; i++) {
+            if(all_products[i].id === product.id){
+                all_products.splice(i, 1)
+            }
+        }
+
+        // if(all_products.length === 0){
+        //     this.setState({
+        //         products: null
+        //     })
+        // } else{
+            this.setState({
+                products: all_products
+            })
+        // }
+
+        // window.localStorage.setItem('products', JSON.stringify(all_products))
+    }
+
+    updateStorage(product) {
+        let all_products = JSON.parse(window.localStorage.getItem('products'))
+
+        for (let i = 0; i < all_products.length; i++) {
+            if(all_products[i].id === product.id){
+                all_products[i] = product
+            }
+        }
+
+        window.localStorage.setItem('products', JSON.stringify(all_products))
+    }
+
     componentDidMount(){
         let prods = JSON.parse(this.myStorage.getItem('products'))
 
@@ -63,6 +105,7 @@ export default class ShoppingCart extends React.Component{
             })
         })
     }
+
 
 
     render(){
@@ -126,30 +169,16 @@ export default class ShoppingCart extends React.Component{
                             <h1>Ձեր պատվերը</h1>
 
                             {
+                                this.state.products === null ? 
+                                <h1 className='havent_prods'>Ձեր զամբյուղում ոչ մի ապրանք չկա:</h1> :
                                 this.state.products.map((prod, idx)=>{
                                     return(
-                                        <div key={idx} className='prod_card'>
-                                            <div className='line'></div>
-                                            <div className='content'>
-                                                <div className='block'>
-                                                    <div className='img_block'>
-                                                        <img src={prod.img} alt='product img' />
-                                                    </div>
-                                                </div>
-                                                <div className='block'>
-                                                    <h1>{prod.name}</h1>
-                                                    <p>{prod.to} - {prod.from}</p>
-                                                    <div className='counter'>
-                                                        <button>—</button>
-                                                        <h2>{prod.count}</h2>
-                                                        <button>+</button>
-                                                    </div>
-                                                </div>
-                                                <div className='block'>
-                                                    <h3 className='prise'>{prod.total_prise} <span>դր</span></h3>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        <ShoppingCartProducts 
+                                            deleteProduct={this.deleteProduct}
+                                            update={this.updateStorage} 
+                                            prod={prod} 
+                                            key={idx} 
+                                        />
                                     )
                                 })
                             }
@@ -159,7 +188,7 @@ export default class ShoppingCart extends React.Component{
                                 <h4>Ստանալ զեչղ՝</h4>
                                 <form>
                                     <input placeholder='Կտրոնի համարը'/>
-                                    <button type='submit'>Հաստատել</button>
+                                    <button onClick={()=>{this.myStorage.removeItem('products')}} type='submit'>Հաստատել</button>
                                 </form>
                             </div>
 

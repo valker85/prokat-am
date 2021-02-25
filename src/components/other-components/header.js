@@ -5,6 +5,7 @@ import {NavLink} from 'react-router-dom'
 import Logo from '../../assets/img/header/ProkatAm Logo.png'
 import Basket from '../../assets/img/basket.svg'
 
+// Componets
 
 
 
@@ -31,7 +32,7 @@ export default class Header extends React.Component{
                 {url: '/', name: 'Something'},
                 {url: '/', name: 'Something'},
                 {url: '/', name: 'Something'}
-            ],  
+            ]
         }
 
         this.hide_menu = React.createRef()
@@ -77,6 +78,7 @@ export default class Header extends React.Component{
     }
 
     render(){
+
         return(
             <div ref={this.page_ref} className='header'>
 
@@ -129,9 +131,13 @@ export default class Header extends React.Component{
                                         </div>
                                     </button>
                                 </li>
-                                <li>
+                                <li className='busket'>
                                     <NavLink to='/shopping-cart'>
                                         <img src={Basket} alt='basket'/>
+                                        {/* {
+                                            this.state.empty === true ? null :
+                                            <span className='empty'></span>
+                                        } */}
                                     </NavLink>
                                 </li>
                                 <li>En</li>

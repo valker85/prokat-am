@@ -46,6 +46,19 @@
     color: #353535;
     transition: 0.2s;
 }
+.header .header-wrapper .block ul li.busket{
+    position: relative;
+}
+.header .header-wrapper .block ul li.busket a span.empty{
+    width: 9.5px;
+    height: 9.5px;
+    display: block;
+    border-radius: 100px;
+    background: #147EC2;
+    position: absolute;
+    right: 0;
+    bottom: 3px;
+}
 .header .header-wrapper .block ul li a:hover{
     color: #147EC2;
 }
@@ -1141,6 +1154,29 @@
 .product-page .section1 .block .other-content .RangeExample p img{
     float: right;
 }
+.product-page .errorBlock{
+    border-radius: 3px;
+    background: tomato;
+    border: 1px solid rgb(255 221 215);
+    padding: 15px 20px;
+    width: fit-content;
+    position: fixed;
+    right: 10px;
+    top: 10px;
+    z-index: 100000;
+    animation: error_anim;
+    animation-duration: 1s;
+    cursor: pointer;
+}
+@keyframes error_anim {
+    from {top: -500px}
+    to {top: 10px}
+}
+.product-page .errorBlock h2{
+    color: rgb(255 221 215);
+    font-family: 'Arial';
+    white-space: nowrap;
+}
 /* //////////////////////////////////// */
 /* //////////////////////////////////// */
 .terms .section .block:last-child{
@@ -1322,6 +1358,7 @@
 .shopping-cart .section .block:last-child{
     padding-bottom: 40px;
     background: #EFF6FB;
+    height: fit-content;
 }
 .shopping-cart .section .block:last-child h1{
     margin-left: 40px;
@@ -1364,7 +1401,7 @@
 }
 .shopping-cart .section .block:last-child .prod_card .content p{
     width: 100%;
-    padding: 21px 20px;
+    padding: 21px 12px;
     border-radius: 3px;
     border: 0.5px solid #C6C6C6;
     color: #353535;
@@ -1474,6 +1511,18 @@
 .shopping-cart .section .block:last-child .total_prise span{
     font-weight: 400;
     font-size: 14px;
+}
+.shopping-cart .section .block:last-child .havent_prods{
+    color: #353535;
+    font-size: 1.876vw;
+    margin-top: 100px;
+    margin-bottom: 70px;
+    margin-left: 0;
+    text-align: center;
+}
+.shopping-cart .section .block:last-child .prod_card .content .counter button.delete_btn{
+    color: #C95153;
+    font-size: 34px;
 }
 
 

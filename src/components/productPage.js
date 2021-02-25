@@ -10,7 +10,7 @@ import Path from './other-components/path'
 
 
 // Products
-import Products from './orderen_prods'
+import Products from './other-components/ordered_prods'
 
 
 
@@ -41,7 +41,8 @@ export default class ProductPage extends React.Component{
                     'Processor Intel Core i3-3120M','Processor clock speed 2.5GHz','Memory 4.00GB','Memory slots 2','Memory slots free 1','Maximum memory 16GB','Size 32x380x240mm','Weight 2.3kg','Sound Realtek HD Audio','Pointing device touchpad','Display','Viewable size 15.6 in','Native resolution 1,366x768','Graphics Processor Intel HD Graphics 4000','Graphics/video ports HDMI, VGA','Graphics Memory 256MB','Storage','Total storage capacity 1,024GB','Optical drive type DVD+/-RW +/-DL','Ports and Expansion','USB ports 3','Bluetooth yes','Wired network ports 1x 10/100','Wireless networking support 802.11n','PC Card slots none','Supported memory cards SDXC, MMC','Other ports 1x USB3, headphone, microphone','Miscellaneous','Carrying case No','Operating system Windows 8','Operating system restore option restore partition','Software included none','Optional extras none'
                 ],
                 images:[Toshiba, topProd1, Toshiba, Toshiba, Toshiba],
-                img_for_busket: Toshiba
+                img_for_busket: Toshiba,
+                id:0
             },
             similar_suggestions:[
                 {img: topProd1, type: 'Տեխնիկա', name: 'Պրոյեկտոր Benq', info: ['2700 Lumens', 'SVGA resolution', 'USB'], prise: 10000},
@@ -61,7 +62,8 @@ export default class ProductPage extends React.Component{
             from: undefined,
             to: undefined,
             order: {},
-            redirect: true
+            redirect: true,
+            product_is_in_stock: false
         }
 
         this.myStorage = window.localStorage
@@ -211,6 +213,7 @@ export default class ProductPage extends React.Component{
         new_order.count = this.state.count
         new_order.prod_prise = this.state.product.prise
         new_order.total_prise = this.state.total_prise
+        new_order.id = this.state.product.id
 
         if(new_order.from === undefined){
             this.setState({
@@ -229,6 +232,7 @@ export default class ProductPage extends React.Component{
             // this.myStorage.removeItem('products')
 
             let storage_prods = JSON.parse(this.myStorage.getItem('products'))
+            let redirect = true
 
             if(storage_prods === null){   //Storage haven't products
 
@@ -243,12 +247,41 @@ export default class ProductPage extends React.Component{
                     Products.push(storage_prods[i])
                 }
                 
-                Products.push(new_order)
-                this.myStorage.setItem('products', JSON.stringify(Products))
+                for (let i = 0; i < Products.length; i++) {
+                    if(Products[i].id !== new_order.id){
+                        this.setState({
+                            product_is_in_stock: false
+                        })
+
+                        Products.push(new_order)
+                        this.myStorage.setItem('products', JSON.stringify(Products))
+                        redirect = true
+
+                        // console.log(this.props.history)
+
+                    } else{
+                        redirect = false
+                        this.setState({
+                            product_is_in_stock: true
+                        })     
+                        this.error_fun()
+                    }
+                }
             }
 
-            this.props.history.push('/shopping-cart')
+            if(redirect === true){
+                this.props.history.push('/shopping-cart')
+            }
+
         }
+    }
+
+    error_fun = () =>{
+        setTimeout(() => {
+            this.setState({
+                product_is_in_stock: false
+            })             
+        }, 5000)
     }
 
     // Day Picker ===================
@@ -293,6 +326,15 @@ export default class ProductPage extends React.Component{
         return(
             <div className='product-page'>
                 <Path/>
+
+                {
+                    this.state.product_is_in_stock === false ? null :
+                    <div onClick={()=>{ this.setState({product_is_in_stock: false}) }} className='errorBlock'>
+                        <h2>Այս ապրանքը արդեն զամբյուղի մեջ է</h2>
+                    </div>
+                }
+
+
                 <div className='container160'>
                     <div className='section1'>
                         <div className='block'>
@@ -371,7 +413,7 @@ export default class ProductPage extends React.Component{
                                 </div>
 
                                 <div className='counter'>
-                                    <button
+                                    <button 
                                         type='button'
                                         disabled={this.state.count <= 1 ? true : false} 
                                         onClick={this.counter}>—</button>
