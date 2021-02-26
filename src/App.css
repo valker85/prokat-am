@@ -1047,28 +1047,42 @@
 }
 /* //////////////////////////////////// */
 /* //////////// Day Picker //////////// */
-.product-page .DayPicker-Day--selected:not(.DayPicker-Day--disabled):not(.DayPicker-Day--outside){
+.product-page .DayPicker-Day--selected:not(.DayPicker-Day--disabled):not(.DayPicker-Day--outside),
+.prod_card .DayPicker-Day--selected:not(.DayPicker-Day--disabled):not(.DayPicker-Day--outside){
     outline: none;
 }
-.product-page .Selectable .DayPicker-Day--selected:not(.DayPicker-Day--start):not(.DayPicker-Day--end):not(.DayPicker-Day--outside) {
+.product-page .Selectable .DayPicker-Day--selected:not(.DayPicker-Day--start):not(.DayPicker-Day--end):not(.DayPicker-Day--outside),
+.prod_card .Selectable .DayPicker-Day--selected:not(.DayPicker-Day--start):not(.DayPicker-Day--end):not(.DayPicker-Day--outside){
     background-color: #f0f8ff !important;
     color: #4a90e2;
     outline: none;
 }
-.product-page .daypick-wrapper{
+.shopping-cart .section .block:last-child .prod_card .block:nth-child(2){
+    position: relative;
+}
+.product-page .daypick-wrapper,
+.prod_card .daypick-wrapper{
     position: absolute;
-    left: -260px;
-    bottom: 0;
     border-radius: 3px;
     background: white;
     box-shadow: 0px 0px 24px rgba(156, 181, 198, 0.24);
     display: none;
 }
-.product-page .daypick-wrapper .btns-wrapper{
+.product-page .daypick-wrapper{
+    left: -260px;
+    bottom: 0;
+}
+.prod_card .daypick-wrapper{
+    left: -290px;
+    top: -30px;
+}
+.product-page .daypick-wrapper .btns-wrapper,
+.prod_card .daypick-wrapper .btns-wrapper{
     margin: 0 23px 23px;
     display: flex;
 }
-.product-page .daypick-wrapper .btns-wrapper button{
+.product-page .daypick-wrapper .btns-wrapper button,
+.prod_card .daypick-wrapper .btns-wrapper button{
     padding: 10px 0;
     width: 50%;
     transition: 0.3s;
@@ -1079,32 +1093,39 @@
     outline: none;
     cursor: pointer;
 }
-.product-page .daypick-wrapper button:first-child{
+.product-page .daypick-wrapper button:first-child,
+.prod_card .daypick-wrapper button:first-child{
     background: #efefef;
     color: #353535;
     margin-right: 10px;
 }
-.product-page .daypick-wrapper button:last-child{
+.product-page .daypick-wrapper button:last-child,
+.prod_card .daypick-wrapper button:last-child{
     background: #147EC2;
     color: white;
 }
-.product-page .daypick-wrapper button:disabled{
+.product-page .daypick-wrapper button:disabled,
+.prod_card .daypick-wrapper button:disabled{
     background: #F8F8F8;
     color: #C6C6C6;
     cursor: unset;
 }
-.product-page .daypick-wrapper button:last-child:disabled{
+.product-page .daypick-wrapper button:last-child:disabled,
+.prod_card .daypick-wrapper button:last-child:disabled{
     background: #147ec27d;
     color: white;
     cursor: unset;
 }
-.product-page .Selectable{
+.product-page .Selectable,
+.prod_card .Selectable{
     outline: none;
 }
-.product-page .Selectable .DayPicker-wrapper{
+.product-page .Selectable .DayPicker-wrapper,
+.prod_card .Selectable .DayPicker-wrapper{
     padding-top: 10px;
 }
-.product-page .Selectable::before{
+.product-page .Selectable::before,
+.prod_card .Selectable::before{
     content: 'Ընտրեք վարձակալության սկիզբը';
     color: white;
     background: #147EC2;
@@ -1114,22 +1135,27 @@
     padding: 12.5px 20px;
     border-radius: 3px 3px 0 0;
 }
-.product-page .Selectable .DayPicker-Day {
+.product-page .Selectable .DayPicker-Day,
+.prod_card .Selectable .DayPicker-Day{
     border-radius: 0 !important;
 }
-.product-page .Selectable .DayPicker-Day--start {
+.product-page .Selectable .DayPicker-Day--start,
+.prod_card .Selectable .DayPicker-Day--start{
     border-top-left-radius: 50% !important;
     border-bottom-left-radius: 50% !important;
 }
-.product-page .Selectable .DayPicker-Day--end {
+.product-page .Selectable .DayPicker-Day--end,
+.prod_card .Selectable .DayPicker-Day--end{
     border-top-right-radius: 50% !important;
     border-bottom-right-radius: 50% !important;
 }
-.product-page .DayPicker-NavBar span{
+.product-page .DayPicker-NavBar span,
+.prod_card .DayPicker-NavBar span{
     outline: none;
     margin-top: 10px;
 }
-.product-page .section1 .block .other-content .RangeExample p{
+.product-page .section1 .block .other-content .RangeExample p,
+.prod_card .RangeExample p{
     padding: 21px 20px;
     background: white;
     color: #353535;
@@ -1149,9 +1175,11 @@
     margin-top: 10px;
 }
 .product-page .section1 .block .other-content .RangeExample p.error_date{
-    border: 1px solid #ff0000;
+    border: 1px solid #C95153;
+    color: #C95153;
 }
-.product-page .section1 .block .other-content .RangeExample p img{
+.product-page .section1 .block .other-content .RangeExample p img,
+.prod_card .RangeExample p img{
     float: right;
 }
 .product-page .errorBlock{

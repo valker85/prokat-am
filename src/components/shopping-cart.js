@@ -19,7 +19,8 @@ export default class ShoppingCart extends React.Component{
             img: {},
             bigFile: false,
             products:[],
-            total_prise: '6 960'
+            total_prise: 0,
+            here: this
         }
 
         this.file_input_p = React.createRef()
@@ -28,7 +29,6 @@ export default class ShoppingCart extends React.Component{
         this.myStorage = window.localStorage
 
     }
-
 
     open_calendar = () =>{
         this.picker_open = !this.picker_open
@@ -64,6 +64,7 @@ export default class ShoppingCart extends React.Component{
 
     deleteProduct = (product) =>{
         let all_products = JSON.parse(window.localStorage.getItem('products'))
+        let here = this
 
         for (let i = 0; i < all_products.length; i++) {
             if(all_products[i].id === product.id){
@@ -71,42 +72,63 @@ export default class ShoppingCart extends React.Component{
             }
         }
 
-        // if(all_products.length === 0){
-        //     this.setState({
-        //         products: null
-        //     })
-        // } else{
-            this.setState({
-                products: all_products
-            })
-        // }
+        async function name() {
+            if(all_products.length === 0){
+                here.setState({
+                    products: null
+                })
+                window.localStorage.removeItem('products')
 
-        // window.localStorage.setItem('products', JSON.stringify(all_products))
+            } else {
+
+                here.setState({
+                    products: all_products
+                })
+                window.localStorage.setItem('products', JSON.stringify(all_products))
+            }
+        }
+        name()
     }
 
     updateStorage(product) {
+        // console.log(product.total_prise)
+
         let all_products = JSON.parse(window.localStorage.getItem('products'))
+        let total_prise = 0
 
         for (let i = 0; i < all_products.length; i++) {
             if(all_products[i].id === product.id){
                 all_products[i] = product
             }
+
+            total_prise += all_products[i].total_prise
         }
+
+        this.setState({
+            total_prise: total_prise
+        })
+
 
         window.localStorage.setItem('products', JSON.stringify(all_products))
     }
 
     componentDidMount(){
         let prods = JSON.parse(this.myStorage.getItem('products'))
+        let total_prise = 0
+
+        if(prods !== null){
+            for (let i = 0; i < prods.length; i++) {
+                total_prise += prods[i].total_prise
+            }
+        }
 
         setTimeout(()=>{
             this.setState({
-                products: prods
+                products: prods,
+                total_prise: total_prise
             })
         })
     }
-
-
 
     render(){
         return(
@@ -175,7 +197,7 @@ export default class ShoppingCart extends React.Component{
                                     return(
                                         <ShoppingCartProducts 
                                             deleteProduct={this.deleteProduct}
-                                            update={this.updateStorage} 
+                                            update={this} 
                                             prod={prod} 
                                             key={idx} 
                                         />
