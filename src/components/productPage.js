@@ -13,7 +13,6 @@ import Path from './other-components/path'
 import Products from './other-components/ordered_prods'
 
 
-
 // Images
 import topProd1 from '../assets/img/home/top-prods/prod1.png'
 import topProd2 from '../assets/img/home/top-prods/prod2.png'
@@ -208,12 +207,14 @@ export default class ProductPage extends React.Component{
         new_order.img = this.state.product.img_for_busket
         new_order.name = this.state.product.name
         new_order.days = this.state.days
-        new_order.from = this.state.from === undefined ? undefined : this.state.from.toLocaleDateString()
-        new_order.to = this.state.to === undefined ? undefined : this.state.to.toLocaleDateString()
+        new_order.from = this.state.from === undefined ? undefined : this.state.from
+        new_order.to = this.state.to === undefined ? undefined : this.state.to
         new_order.count = this.state.count
         new_order.prod_prise = this.state.product.prise
         new_order.total_prise = this.state.total_prise
         new_order.id = this.state.product.id
+        // new_order.id = 1
+
 
         if(new_order.from === undefined){
             this.setState({
@@ -241,30 +242,29 @@ export default class ProductPage extends React.Component{
                 
             } else{     // Storage have products
 
-                Products.splice(0)
+                let prods = storage_prods
+                let prod_length = prods.length
 
-                for (let i = 0; i < storage_prods.length; i++) {
-                    Products.push(storage_prods[i])
-                }
-                
-                for (let i = 0; i < Products.length; i++) {
-                    if(Products[i].id !== new_order.id){
-                        this.setState({
-                            product_is_in_stock: false
-                        })
+                for (let i = 0; i < prod_length; i++) {
+                    if (prods[i].id === new_order.id){
 
-                        Products.push(new_order)
-                        this.myStorage.setItem('products', JSON.stringify(Products))
-                        redirect = true
-
-                        // console.log(this.props.history)
-
-                    } else{
+                        console.log('You have this prod!')
                         redirect = false
                         this.setState({
                             product_is_in_stock: true
                         })     
                         this.error_fun()
+
+                    } else if(prods[i].id !== new_order.id){
+                        
+                        console.log('Add prod!')
+                        this.setState({
+                            product_is_in_stock: false
+                        })
+
+                        prods.push(new_order)
+                        this.myStorage.setItem('products', JSON.stringify(prods))
+                        redirect = true
                     }
                 }
             }
@@ -294,6 +294,9 @@ export default class ProductPage extends React.Component{
                 from: range.from,
                 to: range.to
             })
+
+            // console.log(range.from)
+            // console.log(range.to)
 
             this.apply_btn(false)
         }
