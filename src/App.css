@@ -1,3 +1,9 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial;
+}
 .container160{
     margin-left: 8.334vw;
     margin-right: 8.334vw;
@@ -1551,6 +1557,49 @@
 .shopping-cart .section .block:last-child .prod_card .content .counter button.delete_btn{
     color: #C95153;
     font-size: 34px;
+}
+/* ========================= */
+.portfolio .sec-name{
+    margin-top: 76px;
+    margin-bottom: 87px;
+    font-weight: 700;
+    font-size: 50px;
+    color: #147EC2;
+}
+.portfolio .posts-wrapper{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 2.922vw;
+    grid-row-gap: 2.922vw;
+    margin-bottom: 150px;
+}  
+.portfolio .posts-wrapper .post{
+    position: relative;
+    cursor: pointer;
+    border-radius: 3px;
+    overflow: hidden;
+}   
+.portfolio .posts-wrapper .post img{
+    width: 100%;
+}  
+.portfolio .posts-wrapper .post div{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    text-align: center;
+    padding: 28px 0 26px;
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+    margin-bottom: 4px;
+    transition: 0.3s;
+}  
+.portfolio .posts-wrapper .post div h2{
+    color: white;
+    font-size: 1.25vw;
+}  
+.portfolio .posts-wrapper .post:hover div{
+    background: #147EC2;
 }
 
 

@@ -4,6 +4,8 @@ import Category from './components/category'
 import ProductPage from './components/productPage'
 import Terms from './components/terms'
 import ShoppingCart from './components/shopping-cart'
+import Portfolio from './components/portfolio'
+import PortfolioPost from './components/portfolio-post'
 
 
 export default [
@@ -26,6 +28,16 @@ export default [
         path: '/shopping-cart',
         component: ShoppingCart,
         exact: false
+    },
+    {
+        path: '/portfolio',
+        component: Portfolio,
+        exact: true
+    },
+    {
+        path: '/portfolio/:post',
+        component: PortfolioPost,
+        exact: true
     },
     {
         path: '/filter/:url',
