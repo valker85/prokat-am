@@ -57,6 +57,3 @@ export default class Terms extends React.Component{
         )
     }
 }
-
-
-

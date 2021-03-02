@@ -14,7 +14,9 @@
     "react-dom": "^16.14.0",
     "react-input-files": "^1.2.0",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "^3.4.4"
+    "react-scripts": "^3.4.4",
+    "react-slick": "^0.28.0",
+    "slick-carousel": "^1.8.1"
   },
   "scripts": {
     "start": "react-scripts start",

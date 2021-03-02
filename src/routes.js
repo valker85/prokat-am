@@ -6,6 +6,8 @@ import Terms from './components/terms'
 import ShoppingCart from './components/shopping-cart'
 import Portfolio from './components/portfolio'
 import PortfolioPost from './components/portfolio-post'
+import Festivals from './components/festivals'
+import FestivalPage from './components/festival-page'
 
 
 export default [
@@ -62,6 +64,16 @@ export default [
     {
         path: '/filter/services/:category/:id',
         component: ProductPage,
+        exact: true
+    },
+    {
+        path: '/festivals',
+        component: Festivals,
+        exact: true
+    },
+    {
+        path: '/festivals/:fest',
+        component: FestivalPage,
         exact: true
     }
 ]
