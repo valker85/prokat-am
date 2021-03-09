@@ -93,40 +93,9 @@ class PortfolioPost extends React.Component{
         this.modal_flag = false
     }
 
-
-    // leave_comment = () =>{
-    //     if(this.state.login === false){
-    //         this.setState({
-    //             view_modal: true
-    //         })
-    //         this.modal.current.style.display = 'block'
-
-    //         this.prodRef.current.style.height = '100vh'
-    //         this.prodRef.current.style.overflow = 'hidden'
-
-    //     } else if(this.state.login === true){
-
-    //         this.setState({
-    //             view_modal: false
-    //         })
-    //     }
-    // }
-
-
-    // modal_close=(event) =>{
-    //     if(event.target === this.modal.current){
-    //         this.modal.current.style.display = 'none'
-
-
-    //     }
-    // }
-
-
     modal_fun = (todo) =>{
         this.modal_flag = todo
-        // this.setState({
-        //     modal_flag: todo
-        // })
+
         let root = this.pp_ref.current.parentNode
 
         if(this.modal_flag === false){
@@ -143,7 +112,6 @@ class PortfolioPost extends React.Component{
 
         }
 
-        console.log(root);
     }
 
 
