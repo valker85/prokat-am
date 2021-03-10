@@ -20,7 +20,9 @@ export default class ShoppingCart extends React.Component{
             bigFile: false,
             products:[],
             total_prise: 0,
-            here: this
+            here: this,
+            fromFest: false,
+            secForRedirect: 5
         }
 
         this.file_input_p = React.createRef()
@@ -112,6 +114,33 @@ export default class ShoppingCart extends React.Component{
         window.localStorage.setItem('products', JSON.stringify(all_products))
     }
 
+    gotoShoppingCart(){
+        let seconds = this.state.secForRedirect
+
+        let int = setInterval(()=>{ 
+            seconds = seconds-1
+
+            if(seconds < 0){
+                clearInterval(int)
+                // console.log('Go to shopping cart!');
+                this.setState({
+                    fromFest: false
+                })
+
+            } else if(seconds >= 0){
+                this.setState({
+                    secForRedirect: seconds
+                })
+            }
+        }, 1000);
+    }
+
+    viewProds = () =>{
+        // this.myStorage.removeItem('products')
+
+        console.log(this.state.products)
+    }
+
     componentDidMount(){
         let prods = JSON.parse(this.myStorage.getItem('products'))
         let total_prise = 0
@@ -122,6 +151,23 @@ export default class ShoppingCart extends React.Component{
             }
         }
 
+        if(this.props.location.state){
+            if(this.props.location.state.from === 'fest-page'){
+                setTimeout(()=>{
+                    this.setState({
+                        fromFest: true
+                    })
+                })
+                this.gotoShoppingCart()
+            }
+        } else{
+            setTimeout(()=>{
+                this.setState({
+                    fromFest: false
+                })
+            })
+        }
+
         setTimeout(()=>{
             this.setState({
                 products: prods,
@@ -130,98 +176,108 @@ export default class ShoppingCart extends React.Component{
         })
     }
 
+
+
     render(){
         return(
             <div className='shopping-cart'>
                 <Path/>
-
-                <div className='container160'>
-                    <div className='section'>
-                        <div className='block'>
-                            <form>
-                                <h1>Պատվերի ձևակերպում</h1>
-                                <div className='inps'>
-                                    <input placeholder='Անուն*' />
-                                    <input placeholder='Email*' />
-                                </div>
-
-                                <div className='inps'>
-                                    <input placeholder='Հեռախոս*' />
-                                    <div className='input_div'>
-                                        <input placeholder='Առաքման օր և ժամ' />
-                                        <img src={Calendar} alt='calendar' />
-                                    </div>
-                                </div>
-                                <input placeholder='Առաքման հասցե*' />
-
-                                <label>
-                                    <input type='checkbox' />
-                                    Առաքում և սպասարկում (վճարովի ծառայություն)
-                                </label>
-
-                                <textarea placeholder='Այլ նշումներ'></textarea>
-
-                                <InputFiles style={{display: 'block', outline: 'none'}} 
-                                className='InputFiles' onChange={(files) => { this.fileFun(files) }}>
-                                    <div className='id_card'>
-                                        <div>
-                                            <img src={Surface} alt='logo' />
-                                            <p ref={this.file_input_p}>{
-                                                this.state.img.name === undefined ? 
-                                                'Կցել անձնագիրը կամ ID քարտը*' :
-                                                this.state.img.name 
-                                            }</p>
-                                        </div>
-                                        <div>
-                                            <p>10 MB մաքս․</p>
-                                        </div>
-                                    </div>
-                                </InputFiles>
-                                {
-                                    this.state.bigFile ? 
-                                    <span className='big_file'>Մաքսիմալ չափը չպետք է գեչազանցի 10 MB</span> :
-                                    null
-                                }
-                                <p className='info'>Հարգելի հաճախորդ, պատվերի նախնական գրանցումից հետո մեր օպերատորը կզանգահարի Ձեզ՝ պատվերի վերջնական հաստատման համար:</p>
-                                <button className='submit' type='submit'>Պատվիրել</button>
-                            </form>
-                        </div>
-
-                        <div className='block'>
-                            <h1>Ձեր պատվերը</h1>
-
-                            {
-                                this.state.products === null ? 
-                                <h1 className='havent_prods'>Ձեր զամբյուղում ոչ մի ապրանք չկա:</h1> :
-                                this.state.products.map((prod, idx)=>{
-                                    return(
-                                        <ShoppingCartProducts 
-                                            deleteProduct={this.deleteProduct}
-                                            update={this} 
-                                            prod={prod} 
-                                            key={idx} 
-                                        />
-                                    )
-                                })
-                            }
-                            <div className='line'></div>
-                            
-                            <div className='promo'>
-                                <h4>Ստանալ զեչղ՝</h4>
+                {
+                    this.state.fromFest === true 
+                    ? 
+                    <div className='container160'>
+                        <p className='from-fest-info'>Հարգելի հաճախորդ, մեր օպերատորը կզանգահարի Ձեզ:</p>
+                        <h3 className='go-to-shopping-cart'>Go to shopping cart in {this.state.secForRedirect} seconds...</h3>
+                    </div>
+                    :     
+                    <div className='container160'>
+                        <div className='section'>
+                            <div className='block'>
                                 <form>
-                                    <input placeholder='Կտրոնի համարը'/>
-                                    <button onClick={()=>{this.myStorage.removeItem('products')}} type='submit'>Հաստատել</button>
+                                    <h1>Պատվերի ձևակերպում</h1>
+                                    <div className='inps'>
+                                        <input placeholder='Անուն*' />
+                                        <input placeholder='Email*' />
+                                    </div>
+
+                                    <div className='inps'>
+                                        <input placeholder='Հեռախոս*' />
+                                        <div className='input_div'>
+                                            <input placeholder='Առաքման օր և ժամ' />
+                                            <img src={Calendar} alt='calendar' />
+                                        </div>
+                                    </div>
+                                    <input placeholder='Առաքման հասցե*' />
+
+                                    <label>
+                                        <input type='checkbox' />
+                                        Առաքում և սպասարկում (վճարովի ծառայություն)
+                                    </label>
+
+                                    <textarea placeholder='Այլ նշումներ'></textarea>
+
+                                    <InputFiles accept=".png .pdf .jpeg .jpg" style={{display: 'block', outline: 'none'}} 
+                                    className='InputFiles' onChange={(files) => { this.fileFun(files) }}>
+                                        <div className='id_card'>
+                                            <div>
+                                                <img src={Surface} alt='logo' />
+                                                <p ref={this.file_input_p}>{
+                                                    this.state.img.name === undefined ? 
+                                                    'Կցել անձնագիրը կամ ID քարտը*' :
+                                                    this.state.img.name 
+                                                }</p>
+                                            </div>
+                                            <div>
+                                                <p>10 MB մաքս․</p>
+                                            </div>
+                                        </div>
+                                    </InputFiles>
+                                    {
+                                        this.state.bigFile ? 
+                                        <span className='big_file'>Մաքսիմալ չափը չպետք է գեչազանցի 10 MB</span> :
+                                        null
+                                    }
+                                    <p className='info'>Հարգելի հաճախորդ, պատվերի նախնական գրանցումից հետո մեր օպերատորը կզանգահարի Ձեզ՝ պատվերի վերջնական հաստատման համար:</p>
+                                    <button className='submit' type='submit'>Պատվիրել</button>
                                 </form>
                             </div>
 
-                            <div className='total_prise'>
-                                <h2>Ընդամենը`</h2>
+                            <div className='block'>
+                                <h1>Ձեր պատվերը</h1>
 
-                                <h3>{this.state.total_prise} <span>դր</span></h3>
+                                {
+                                    this.state.products === null ? 
+                                    <h1 className='havent_prods'>Ձեր զամբյուղում ոչ մի ապրանք չկա:</h1> :
+                                    this.state.products.map((prod, idx)=>{
+                                        return(
+                                            <ShoppingCartProducts 
+                                                deleteProduct={this.deleteProduct}
+                                                update={this} 
+                                                prod={prod} 
+                                                key={idx} 
+                                            />
+                                        )
+                                    })
+                                }
+                                <div className='line'></div>
+                                
+                                <div className='promo'>
+                                    <h4>Ստանալ զեչղ՝</h4>
+                                    <form>
+                                        <input placeholder='Կտրոնի համարը'/>
+                                        <button onClick={this.viewProds} type='button'>Հաստատել</button>
+                                    </form>
+                                </div>
+
+                                <div className='total_prise'>
+                                    <h2>Ընդամենը`</h2>
+
+                                    <h3>{this.state.total_prise} <span>դր</span></h3>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                }
             </div>
         )
     }

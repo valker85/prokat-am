@@ -1,5 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router';
+import { NavLink } from 'react-router-dom';
 
 
 // React-slick (slider)
@@ -10,6 +11,7 @@ import "slick-carousel/slick/slick-theme.css";
 
 // Components
 import Path from '../components/other-components/path'
+import Products from './other-components/ordered_prods'
 
 
 // Images
@@ -26,6 +28,8 @@ import topProd3 from '../assets/img/home/top-prods/prod3.png'
 import topProd4 from '../assets/img/home/top-prods/prod4.png'
 import topProd5 from '../assets/img/home/top-prods/prod5.png'
 
+import Toshiba from '../assets/img/product-page/toshiba.png'
+
 
 // Video
 import Video from '../assets/video/portfolio-post/video.mp4'
@@ -41,11 +45,73 @@ class FestivalPage extends React.Component{
                 name: 'Խորովածի փառատոն',
                 info1: 'Ախթալայի խորովածի փառատոն, խորովածի համահայկական ամենամյա փառատոն, որը 2009 թվականից ավանդաբար անց է կացվում Ախթալա քաղաքում, Սուրբ Աստվածածին եկեղեցու բակում։ 2018 թվականից փառատոնը անց է կցվում Ախթալայի մարզադաշտում: Փառատոնը կազմակերպում են «Հայ խոհարարական ավանդույթների զարգացման և պահպանման» հասարակական կազմակերպությունը, Ախթալայի քաղաքապետարանը և Լոռու մարզպետարանը։',
                 info2: 'Փառատոնն առաջին անգամ անց է կացվել 2009 թվականին։ Նպատակը հայ խոհարարական ավանդույթների զարգացումը և Ախթալայի ու տարածաշրջանի զբոսաշրջության խթանումն է։ Խորովածի տոնին մասնակցում են հասարակական կազմակերպությունների, ուսումնական հաստատությունների, ռեստորանների և սրճարանների ներկայացուցիչներ, ինչպես նաև անհատ խոհարարներ Հայաստանից և աշխարհի տարբեր երկրներից։ 2017 թվականին կազմակերպիչներն Ախթալան հռչակեցին խորովածի համաշխարհային մայրաքաղաք։',
-                when: '19.20.2021, 13:00 — 17:00',
+                when: '06.26.2021, 13:00 — 17:00',
                 where: 'Դիլիջանի եսիմ որ հյուրանոցի բակում',
                 price: 'Մուտքը ազատ',
                 notes: ['Դեմքի դիմակը պարտադիր է:', 'Ֆիզիկական հեռավորությունը պետք է հարգել:'],
-                necessary: ['աթոռ', 'տուրիստական սեղան', 'տենտ', 'վրան'],
+                necessary: [
+                    {
+                        name: 'աթոռ',
+                        product: {
+                            name: 'աթոռ',
+                            prise: 1000,
+                            count: 1,
+                            days: 1,
+                            total_prise: 1000,
+                            description:[
+                                'Processor Intel Core i3-3120M','Processor clock speed 2.5GHz','Memory 4.00GB','Memory slots 2','Memory slots free 1','Maximum memory 16GB','Size 32x380x240mm','Weight 2.3kg','Sound Realtek HD Audio','Pointing device touchpad','Display','Viewable size 15.6 in','Native resolution 1,366x768','Graphics Processor Intel HD Graphics 4000','Graphics/video ports HDMI, VGA','Graphics Memory 256MB','Storage','Total storage capacity 1,024GB','Optical drive type DVD+/-RW +/-DL','Ports and Expansion','USB ports 3','Bluetooth yes','Wired network ports 1x 10/100','Wireless networking support 802.11n','PC Card slots none','Supported memory cards SDXC, MMC','Other ports 1x USB3, headphone, microphone','Miscellaneous','Carrying case No','Operating system Windows 8','Operating system restore option restore partition','Software included none','Optional extras none'
+                            ],
+                            images:[Toshiba, topProd1, Toshiba, Toshiba, Toshiba],
+                            img_for_busket: Toshiba,
+                            id:1
+                        }
+                    }, 
+                    {
+                        name: 'տուրիստական սեղան',
+                        product: {
+                            name: 'տուրիստական սեղան',
+                            prise: 2000,
+                            count: 1,
+                            days: 1,
+                            description:[
+                                'Processor Intel Core i3-3120M','Processor clock speed 2.5GHz','Memory 4.00GB','Memory slots 2','Memory slots free 1','Maximum memory 16GB','Size 32x380x240mm','Weight 2.3kg','Sound Realtek HD Audio','Pointing device touchpad','Display','Viewable size 15.6 in','Native resolution 1,366x768','Graphics Processor Intel HD Graphics 4000','Graphics/video ports HDMI, VGA','Graphics Memory 256MB','Storage','Total storage capacity 1,024GB','Optical drive type DVD+/-RW +/-DL','Ports and Expansion','USB ports 3','Bluetooth yes','Wired network ports 1x 10/100','Wireless networking support 802.11n','PC Card slots none','Supported memory cards SDXC, MMC','Other ports 1x USB3, headphone, microphone','Miscellaneous','Carrying case No','Operating system Windows 8','Operating system restore option restore partition','Software included none','Optional extras none'
+                            ],
+                            images:[Toshiba, topProd1, Toshiba, Toshiba, Toshiba],
+                            img_for_busket: Toshiba,
+                            id:2
+                        }
+                    }, 
+                    {
+                        name: 'տենտ',
+                        product: {
+                            name: 'տենտ',
+                            prise: 3000,
+                            count: 1,
+                            days: 1,
+                            description:[
+                                'Processor Intel Core i3-3120M','Processor clock speed 2.5GHz','Memory 4.00GB','Memory slots 2','Memory slots free 1','Maximum memory 16GB','Size 32x380x240mm','Weight 2.3kg','Sound Realtek HD Audio','Pointing device touchpad','Display','Viewable size 15.6 in','Native resolution 1,366x768','Graphics Processor Intel HD Graphics 4000','Graphics/video ports HDMI, VGA','Graphics Memory 256MB','Storage','Total storage capacity 1,024GB','Optical drive type DVD+/-RW +/-DL','Ports and Expansion','USB ports 3','Bluetooth yes','Wired network ports 1x 10/100','Wireless networking support 802.11n','PC Card slots none','Supported memory cards SDXC, MMC','Other ports 1x USB3, headphone, microphone','Miscellaneous','Carrying case No','Operating system Windows 8','Operating system restore option restore partition','Software included none','Optional extras none'
+                            ],
+                            images:[Toshiba, topProd1, Toshiba, Toshiba, Toshiba],
+                            img_for_busket: Toshiba,
+                            id:3
+                        }
+                    },
+                    {
+                        name: 'վրան',
+                        product: {
+                            name: 'վրան',
+                            prise: 4000,
+                            count: 1,
+                            days: 1,
+                            description:[
+                                'Processor Intel Core i3-3120M','Processor clock speed 2.5GHz','Memory 4.00GB','Memory slots 2','Memory slots free 1','Maximum memory 16GB','Size 32x380x240mm','Weight 2.3kg','Sound Realtek HD Audio','Pointing device touchpad','Display','Viewable size 15.6 in','Native resolution 1,366x768','Graphics Processor Intel HD Graphics 4000','Graphics/video ports HDMI, VGA','Graphics Memory 256MB','Storage','Total storage capacity 1,024GB','Optical drive type DVD+/-RW +/-DL','Ports and Expansion','USB ports 3','Bluetooth yes','Wired network ports 1x 10/100','Wireless networking support 802.11n','PC Card slots none','Supported memory cards SDXC, MMC','Other ports 1x USB3, headphone, microphone','Miscellaneous','Carrying case No','Operating system Windows 8','Operating system restore option restore partition','Software included none','Optional extras none'
+                            ],
+                            images:[Toshiba, topProd1, Toshiba, Toshiba, Toshiba],
+                            img_for_busket: Toshiba,
+                            id:4
+                        }
+                    }
+            ],
                 pictures:[
                     {src: Video, type: 'video', poster: Poster},
                     {src: Img1, type: 'img'},
@@ -71,15 +137,162 @@ class FestivalPage extends React.Component{
                 {prod_url: '/filter/goods/computer-equipment/monitor1/toshiba-Satellite-c50', img: topProd1, type: 'Ամեն ինչ միջոցառումների համար', type_url: '/filter/goods/everything-for-events', name: 'Սպիտակ ծածկ',                    info: ['3x3 մ', 'ջրակայուն', 'թեթև '],           prise: 24000},
                 {prod_url: '/filter/goods/computer-equipment/monitor1/toshiba-Satellite-c50', img: topProd2, type: 'Ամեն ինչ միջոցառումների համար', type_url: '/filter/goods/everything-for-events', name: 'Ջուր եռացնելու էլեկտրական սարք', info: ['15 լիտր'],                               prise: 3000},
                 {prod_url: '/filter/goods/computer-equipment/monitor1/toshiba-Satellite-c50', img: topProd3, type: 'Տեխնիկա',                       type_url: '/filter/goods/computer-equipment',    name: 'Գրասենյակային աթոռ',             info: ['մետաղ', 'գործվածք', 'սև'],               prise: 1000}
-            ]
+            ],
+            needed_products: []
         }
 
+        this.myStorage = window.localStorage
 
         this.modal_window = React.createRef()
         this.pp_ref = React.createRef()
 
         this.modal_flag = false
+        this.redirect = true
 
+    }
+
+
+
+    orderFun = () =>{
+        // let new_order = {}
+        // new_order.img = this.state.product.img_for_busket
+        // new_order.name = this.state.product.name
+        // new_order.days = this.state.days
+        // new_order.from = this.state.from === undefined ? undefined : this.state.from
+        // new_order.to = this.state.to === undefined ? undefined : this.state.to
+        // new_order.count = this.state.count
+        // new_order.prod_prise = this.state.product.prise
+        // new_order.total_prise = this.state.total_prise
+        // new_order.id = this.state.product.id
+
+
+        // if(new_order.from === undefined){
+        //     this.setState({
+        //         redirect: false
+        //     })
+        //     this.redirect = false
+        // } else{
+        //     this.setState({
+        //         redirect: true
+        //     })
+        //     this.redirect = true
+        // }
+
+
+
+        // if(this.redirect === true){
+        //     // this.myStorage.removeItem('products')
+
+        //     let storage_prods = JSON.parse(this.myStorage.getItem('products'))
+        //     let redirect = true
+
+        //     if(storage_prods === null){   //Storage haven't products
+
+        //         Products.push(new_order)
+        //         this.myStorage.setItem('products', JSON.stringify(Products))
+                
+        //     } else{     // Storage have products
+
+        //         let prods = storage_prods
+        //         let prod_length = prods.length
+
+        //         for (let i = 0; i < prod_length; i++) {
+        //             if (prods[i].id === new_order.id){
+
+        //                 console.log('You have this prod!')
+        //                 redirect = false
+        //                 this.setState({
+        //                     product_is_in_stock: true
+        //                 })     
+        //                 this.error_fun()
+
+        //             } else if(prods[i].id !== new_order.id){
+
+        //                 console.log('Add prod!')
+        //                 this.setState({
+        //                     product_is_in_stock: false
+        //                 })
+
+        //                 prods.push(new_order)
+        //                 this.myStorage.setItem('products', JSON.stringify(prods))
+        //                 redirect = true
+        //             }
+        //         }
+        //     }
+
+        //     if(redirect === true){
+        //         this.props.history.push('/shopping-cart')
+        //     }
+
+        // }
+    }
+
+
+    goToShoppingCart = () =>{
+        let needed_products = this.state.needed_products
+        let redirect = true
+
+        // for (let i = 0; i < needed_products.length; i++) {
+        //     let new_order = {}
+        //     new_order.img = needed_products[i].img_for_busket
+        //     new_order.name = needed_products[i].name
+        //     new_order.days = needed_products[i].days
+        //     new_order.from = needed_products[i].from
+        //     new_order.to = needed_products[i].to
+        //     new_order.count = needed_products[i].count
+        //     new_order.prise = needed_products[i].prise
+        //     new_order.total_prise = needed_products[i].total_prise
+        //     new_order.id = needed_products[i].id
+            
+        //     if(this.redirect === true){
+        //         // this.myStorage.removeItem('products')
+    
+        //         let storage_prods = JSON.parse(this.myStorage.getItem('products'))
+    
+
+        //         // console.log(storage_prods)
+        //         if(storage_prods === null){   //Storage haven't products
+    
+        //             Products.push(new_order)
+        //             this.myStorage.setItem('products', JSON.stringify(Products))
+                    
+        //         } else{     // Storage have products
+    
+        //             let prods = storage_prods
+        //             let prod_length = prods.length
+    
+        //             for (let i = 0; i < prod_length; i++) {
+        //                 if (prods[i].id === new_order.id){
+    
+        //                     console.log('You have this prod!')
+        //                     redirect = false
+        //                     this.setState({
+        //                         product_is_in_stock: true
+        //                     })     
+        //                     this.error_fun()
+    
+        //                 } else if(prods[i].id !== new_order.id){
+    
+        //                     console.log('Add prod!')
+        //                     this.setState({
+        //                         product_is_in_stock: false
+        //                     })
+    
+        //                     prods.push(new_order)
+        //                     this.myStorage.setItem('products', JSON.stringify(prods))
+        //                     redirect = true
+        //                 }
+        //             }
+        //         }
+        //     }
+        // }
+
+        this.props.history.push({
+            pathname:'/shopping-cart',
+            state: { 
+                from: 'fest-page'
+            }
+        })
     }
 
 
@@ -102,6 +315,29 @@ class FestivalPage extends React.Component{
             root.style.overflow = 'hidden'
         }
     }
+
+
+    addProd = (product, event) => {
+        let all_prods = this.state.needed_products
+        
+        if(event.target.checked){
+            all_prods.push(product)
+
+        } else{
+
+            for (let i = 0; i < all_prods.length; i++) {
+                if(all_prods[i].id === product.id){
+                    all_prods.splice(i, 1)
+                }
+            }
+        }
+
+        this.setState({
+            needed_products: all_prods
+        })
+    }
+
+
 
 
     componentDidMount(){
@@ -206,8 +442,8 @@ class FestivalPage extends React.Component{
                                             return(
                                                 <li key={idx}>
                                                     <label>
-                                                        <input name={nes} type='checkbox'/>
-                                                        {nes}
+                                                        <input onChange={this.addProd.bind(null, nes.product)} name={nes.name} type='checkbox'/>
+                                                        {nes.name}
                                                     </label>
                                                 </li>
                                             )
@@ -226,7 +462,7 @@ class FestivalPage extends React.Component{
 
                                 <p className='last-info'>Հարգելի հաճախորդ, ամրագրումից հետո մեր օպերատորը կզանգահարի Ձեզ այնուհետև էլեկտրոնային հասցեով կստանաք պատվերի հաստատման հղումը:</p>
 
-                                <button type='submit'>Ամրագրել</button>
+                                <button onClick={this.goToShoppingCart} type='button'>Ամրագրել</button>
                             </form>
                         </div>
                         
@@ -254,44 +490,42 @@ class FestivalPage extends React.Component{
                     <div className='container160'>
                         <h1>Ապրանքներ փառատոնի համար</h1>
 
-                        {/* <div className='top_prods'>
-                {
-                    this.state.top_prods.map((card, idx)=>{
-                        return(
-                            <div className='card' key={idx}>
-                                <div className='img-wrapper'>
-                                    <img src={card.img} alt='img'/>
-                                </div>
-                                <div className='content'>
-                                    <NavLink to={card.type_url} className='type'>{card.type}</NavLink>
-                                    
-                                    <h1 onClick={()=>{this.props.history.push(card.prod_url)}} 
-                                        className={card.name.length > 20 ? 'name long' : 'name'}>
-                                        {card.name}
-                                    </h1>
+                        <div className='fest_prods'>
+                        {
+                            this.state.products_for_the_festival.map((card, idx)=>{
+                                return(
+                                    <div className='card' key={idx}>
+                                        <div className='img-wrapper'>
+                                            <img src={card.img} alt='img'/>
+                                        </div>
+                                        <div className='card-content'>
+                                            <NavLink to={card.type_url} className='type'>{card.type}</NavLink>
+                                            
+                                            <h1 onClick={()=>{this.props.history.push(card.prod_url)}} 
+                                                className={card.name.length > 20 ? 'name long' : 'name'}>
+                                                {card.name}
+                                            </h1>
 
-                                    <ul className={card.name.length > 20 ? 'info long' : 'info'}>
-                                    {
-                                        card.info.map((param, idx)=>{
-                                            return(
-                                                <li key={idx}>{param}</li>
-                                            )
-                                        }) 
-                                    }
-                                    </ul>
-                                    <div className='line'></div>
-                                    <div className='prise-wrapper'>
-                                        <div className='prise'>{card.prise} <span>դր/օր</span></div>
-                                        <div className='rent'><NavLink to={card.prod_url}>Վարձել</NavLink></div>
+                                            <ul className={card.name.length > 20 ? 'info long' : 'info'}>
+                                            {
+                                                card.info.map((param, idx)=>{
+                                                    return(
+                                                        <li key={idx}>{param}</li>
+                                                    )
+                                                }) 
+                                            }
+                                            </ul>
+                                            <div className='line'></div>
+                                            <div className='prise-wrapper'>
+                                                <div className='prise'>{card.prise} <span>դր/օր</span></div>
+                                                <div className='rent'><NavLink to={card.prod_url}>Վարձել</NavLink></div>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
-                        )
-                    })
-                }
-            </div> */}
-
-
+                                )
+                            })
+                        }
+                        </div>
                     </div>
                 </div>
             </div>

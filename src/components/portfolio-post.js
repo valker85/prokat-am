@@ -44,6 +44,7 @@ class PortfolioPost extends React.Component{
                     ],
                     [
                         [{src: Video, type: 'video', poster: VideoImg}],
+                        
                         [{src: Img5, type: 'img'}, {src: Img6, type: 'img'}, 
                         {src: Img7, type: 'img'}, {src: Img8, type: 'img'}]
                     ],
