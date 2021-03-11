@@ -21,8 +21,8 @@ export default class ShoppingCart extends React.Component{
             products:[],
             total_prise: 0,
             here: this,
-            fromFest: false,
-            secForRedirect: 5
+            festHaveProd: false,
+            fromFest: false
         }
 
         this.file_input_p = React.createRef()
@@ -114,26 +114,6 @@ export default class ShoppingCart extends React.Component{
         window.localStorage.setItem('products', JSON.stringify(all_products))
     }
 
-    gotoShoppingCart(){
-        let seconds = this.state.secForRedirect
-
-        let int = setInterval(()=>{ 
-            seconds = seconds-1
-
-            if(seconds < 0){
-                clearInterval(int)
-                // console.log('Go to shopping cart!');
-                this.setState({
-                    fromFest: false
-                })
-
-            } else if(seconds >= 0){
-                this.setState({
-                    secForRedirect: seconds
-                })
-            }
-        }, 1000);
-    }
 
     viewProds = () =>{
         // this.myStorage.removeItem('products')
@@ -151,15 +131,32 @@ export default class ShoppingCart extends React.Component{
             }
         }
 
+
         if(this.props.location.state){
-            if(this.props.location.state.from === 'fest-page'){
+            if(this.props.location.state.have === false){
                 setTimeout(()=>{
                     this.setState({
-                        fromFest: true
+                        festHaveProd: true
                     })
                 })
-                this.gotoShoppingCart()
+                
             }
+        } else{
+            setTimeout(()=>{
+                this.setState({
+                    festHaveProd: false
+                })
+            })
+        }
+
+
+        if(this.props.location.state.from === 'fest-page'){
+            setTimeout(()=>{
+                this.setState({
+                    fromFest: true
+                })
+            })
+            
         } else{
             setTimeout(()=>{
                 this.setState({
@@ -183,11 +180,11 @@ export default class ShoppingCart extends React.Component{
             <div className='shopping-cart'>
                 <Path/>
                 {
-                    this.state.fromFest === true 
+                    this.state.festHaveProd === true 
                     ? 
                     <div className='container160'>
                         <p className='from-fest-info'>Հարգելի հաճախորդ, մեր օպերատորը կզանգահարի Ձեզ:</p>
-                        <h3 className='go-to-shopping-cart'>Go to shopping cart in {this.state.secForRedirect} seconds...</h3>
+                        {/* <h3 className='go-to-shopping-cart'>Go to shopping cart in {this.state.secForRedirect} seconds...</h3> */}
                     </div>
                     :     
                     <div className='container160'>
@@ -196,12 +193,12 @@ export default class ShoppingCart extends React.Component{
                                 <form>
                                     <h1>Պատվերի ձևակերպում</h1>
                                     <div className='inps'>
-                                        <input placeholder='Անուն*' />
-                                        <input placeholder='Email*' />
+                                        <input placeholder='Անուն*' name='name' />
+                                        <input placeholder='Email*' name='email' />
                                     </div>
 
                                     <div className='inps'>
-                                        <input placeholder='Հեռախոս*' />
+                                        <input placeholder='Հեռախոս*' name='phone' />
                                         <div className='input_div'>
                                             <input placeholder='Առաքման օր և ժամ' />
                                             <img src={Calendar} alt='calendar' />

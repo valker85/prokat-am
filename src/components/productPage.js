@@ -212,8 +212,8 @@ export default class ProductPage extends React.Component{
         new_order.count = this.state.count
         new_order.prod_prise = this.state.product.prise
         new_order.total_prise = this.state.total_prise
-        new_order.id = 20
-        // new_order.id = this.state.product.id
+        // new_order.id = 20
+        new_order.id = this.state.product.id
 
         // new_order.id = 1
 

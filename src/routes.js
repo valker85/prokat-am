@@ -8,6 +8,9 @@ import Portfolio from './components/portfolio'
 import PortfolioPost from './components/portfolio-post'
 import Festivals from './components/festivals'
 import FestivalPage from './components/festival-page'
+import CharityEvents from './components/charity-events'
+import CharEvent from './components/char-event'
+import ContactUs from './components/contactUs'
 
 
 export default [
@@ -75,5 +78,20 @@ export default [
         path: '/festivals/:fest',
         component: FestivalPage,
         exact: true
+    },
+    {
+        path: '/charity-events',
+        component: CharityEvents,
+        exact: true
+    },
+    {
+        path: '/charity-events/:event',
+        component: CharEvent,
+        exact: false
+    },
+    {
+        path: '/contact-us',
+        component: ContactUs,
+        exact: false
     }
 ]
