@@ -78,11 +78,11 @@ export default class CharEvent extends React.Component{
 
                             <div className='block'>
                                 <div className='imgBlock'>
-                                    <img src={this.state.event.pictures[0]} alt='image'/>
+                                    <img src={this.state.event.pictures[0]} alt='event'/>
                                 </div>
 
                                 <div className='imgBlock'>
-                                    <img src={this.state.event.pictures[1]} alt='image'/>
+                                    <img src={this.state.event.pictures[1]} alt='event'/>
                                 </div>
                             </div>
                         </div>

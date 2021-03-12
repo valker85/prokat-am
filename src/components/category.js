@@ -163,7 +163,7 @@ class Category extends React.Component{
                         },
                         {
                             name: 'Service staff', 
-                            url:'service-staff'
+                            url: 'service-staff'
                         },
                         {
                             name: 'Casting services', 
@@ -194,7 +194,6 @@ class Category extends React.Component{
 
 
     }
-
 
 
     selectFun = (wichOne) =>{
@@ -230,7 +229,6 @@ class Category extends React.Component{
             this.setState({option_container_classes_type: new_classes})
         }
     }
-
 
     acceptOption = (filter, actual, option = '', event) =>{
 
@@ -270,7 +268,6 @@ class Category extends React.Component{
         this.doActual(filter, actual)
     }
 
-
     doActual = (filter, actual) =>{
         //get actual
         if(filter === 'sections'){
@@ -284,7 +281,6 @@ class Category extends React.Component{
         }
 
     }
-
 
     componentDidMount(){
         let sections = this.state.sections
@@ -332,7 +328,6 @@ class Category extends React.Component{
             })
         }
     }
-
 
     componentWillReceiveProps(newPr){   // во время клика
         let url = newPr.location.pathname.split('/')
@@ -432,9 +427,9 @@ class Category extends React.Component{
                                 </div>
                             </div>
 
-                            {
-                            this.state.close_types === true ? null :
-                            <div style={{display: this.state.close_types === true ? 'none':'inline-block'}} className='input'>
+                            {/* {
+                            this.state.close_types === true ? <p : */}
+                            <div className='input'>
                                 <p>Տեսակ</p>
                                 <div className='select-box' onClick={this.selectFun.bind(null, 'types')}>
                                     <div className={this.state.option_container_classes_type.join(' ')}>
@@ -466,7 +461,7 @@ class Category extends React.Component{
                                     </div>
                                 </div>
                             </div>
-                            }
+                            
 
                             <NavLink to={`/filter/${this.state.history}`}>Մաքրել ֆիլտրը</NavLink>
                         </div>

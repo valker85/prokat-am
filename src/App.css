@@ -1111,20 +1111,24 @@
 /* //////////////////////////////////// */
 /* //////////// Day Picker //////////// */
 .product-page .DayPicker-Day--selected:not(.DayPicker-Day--disabled):not(.DayPicker-Day--outside),
-.prod_card .DayPicker-Day--selected:not(.DayPicker-Day--disabled):not(.DayPicker-Day--outside){
+.prod_card .DayPicker-Day--selected:not(.DayPicker-Day--disabled):not(.DayPicker-Day--outside),
+.shopping-cart .DayPicker-Day--selected:not(.DayPicker-Day--disabled):not(.DayPicker-Day--outside){
     outline: none;
 }
 .product-page .Selectable .DayPicker-Day--selected:not(.DayPicker-Day--start):not(.DayPicker-Day--end):not(.DayPicker-Day--outside),
-.prod_card .Selectable .DayPicker-Day--selected:not(.DayPicker-Day--start):not(.DayPicker-Day--end):not(.DayPicker-Day--outside){
+.prod_card .Selectable .DayPicker-Day--selected:not(.DayPicker-Day--start):not(.DayPicker-Day--end):not(.DayPicker-Day--outside),
+.shopping-cart .Selectable .DayPicker-Day--selected:not(.DayPicker-Day--start):not(.DayPicker-Day--end):not(.DayPicker-Day--outside){
     background-color: #f0f8ff !important;
     color: #4a90e2;
     outline: none;
 }
-.shopping-cart .section .block:last-child .prod_card .block:nth-child(2){
+.shopping-cart .section .block:last-child .prod_card .block:nth-child(2),
+.shopping-cart .section .block:first-child .inps .input_div{
     position: relative;
 }
 .product-page .daypick-wrapper,
-.prod_card .daypick-wrapper{
+.prod_card .daypick-wrapper,
+.shopping-cart .section .block:first-child .DayPicker-wrapper{
     position: absolute;
     border-radius: 3px;
     background: white;
@@ -1140,12 +1144,14 @@
     top: -30px;
 }
 .product-page .daypick-wrapper .btns-wrapper,
-.prod_card .daypick-wrapper .btns-wrapper{
+.prod_card .daypick-wrapper .btns-wrapper,
+.shopping-cart .section .block:first-child .daypick-wrapper .btns-wrapper{
     margin: 0 23px 23px;
     display: flex;
 }
 .product-page .daypick-wrapper .btns-wrapper button,
-.prod_card .daypick-wrapper .btns-wrapper button{
+.prod_card .daypick-wrapper .btns-wrapper button,
+.shopping-cart .section .block:first-child .daypick-wrapper .btns-wrapper button{
     padding: 10px 0;
     width: 50%;
     transition: 0.3s;
@@ -2167,8 +2173,108 @@
 .char-event .section1 .pictures .imgBlock:first-child{
     margin-bottom: 16px;
 }
-
-
+/* ////////////////////////// */
+.contact-us h1{
+    margin-top: 80px;
+    margin-bottom: 30px;
+    font-weight: 700;
+    font-size: 50px;
+    color: #147EC2;
+}
+.contact-us .content{
+    margin-bottom: 150px;
+    display: flex;
+}
+.contact-us .content .block{
+    width: 50%;
+}
+.contact-us .content .block:last-child img{
+    width: 100%;
+    min-width: 100%;
+}
+.contact-us .content .block:last-child{
+    margin-left: 4.69vw;
+}
+.contact-us .content .info{
+    display: flex;
+    margin-top: 30px;
+    margin-bottom: 130px;
+}
+.contact-us .content .info .info-block{
+    list-style: none;
+}
+.contact-us .content .info .info-block:first-child{
+    font-weight: 700;
+    font-size: 18px;
+    color: #147EC2;
+    width: 160px;
+}
+.contact-us .content .info .info-block li:not(:last-child){
+    margin-bottom: 25px;
+}
+.contact-us .content .info .info-block:last-child{
+    font-size: 18px;
+    font-weight: 400;
+}
+.contact-us .content .info .info-block a{
+    color: #147EC2;
+    margin-right: 26px;
+    font-size: 18px;
+}
+.contact-us .content .info .info-block sup{
+    font-size: 8px;
+}
+.contact-us .content form h3{
+    font-size: 18px;
+    color: #147EC2;
+    margin-bottom: 23px;
+}
+.contact-us .content form input,
+.contact-us .content form textarea{
+    width: 100%;
+    border: 0.5px solid #C6C6C6;
+    border-radius: 3px;
+    outline: none;
+    font-size: 18px;
+    padding: 21px 19px;
+}
+.contact-us .content form input::placeholder,
+.contact-us .content form textarea::placeholder{
+    color: #C6C6C6;
+}
+.contact-us .content form .inps{
+    display: flex;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+.contact-us .content form .inps input{
+    width: 50%;
+}
+.contact-us .content form .inps input:first-child{
+    margin-right: 20px;
+}
+.contact-us .content form textarea{
+    width: 100%;
+    height: 155px;
+    height: 155px;
+    resize: none;
+}
+.contact-us .content form button{
+    margin-top: 40px;
+    background: #147EC2;
+    transition: 0.3s;
+    color: white;
+    width: 100%;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 24px;
+    font-weight: 700;
+    padding: 18.5px 0;
+}
+.contact-us .content form button:hover{
+    background: #114F9F;
+}
 /* 
   3px - 0.157vw
   5px - 0.261vw

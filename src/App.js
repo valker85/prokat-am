@@ -27,7 +27,7 @@ class App extends React.Component {
         {
           routes.map((route, i)=>{
             return(
-              <Route key={i} path={route.path} exact={route.exact} component={route.component}/>
+              <Route qwerty={11111111} key={i} path={route.path} exact={route.exact} component={route.component}/>
             )
           })
         }

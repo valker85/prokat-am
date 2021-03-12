@@ -32,7 +32,8 @@ export default class Header extends React.Component{
                 {url: '/', name: 'Something'},
                 {url: '/', name: 'Something'},
                 {url: '/', name: 'Something'}
-            ]
+            ],
+            empty: true
         }
 
         this.hide_menu = React.createRef()
@@ -75,6 +76,25 @@ export default class Header extends React.Component{
         uls[num].className === 'active' ? 
         uls[num].classList.remove('active') :
         uls[num].classList.add('active')
+    }
+
+    componentDidMount(){
+        let storage_prods = JSON.parse(window.localStorage.getItem('products'))
+
+        if(Boolean(storage_prods) === true && storage_prods.length > 0){
+            setTimeout(()=>{
+                this.setState({
+                    empty: false
+                })
+            })
+        } else{
+            setTimeout(()=>{
+                this.setState({
+                    empty: true
+                })
+            })
+        }
+        
     }
 
     render(){
@@ -134,10 +154,10 @@ export default class Header extends React.Component{
                                 <li className='busket'>
                                     <NavLink to='/shopping-cart'>
                                         <img src={Basket} alt='basket'/>
-                                        {/* {
+                                        {
                                             this.state.empty === true ? null :
                                             <span className='empty'></span>
-                                        } */}
+                                        }
                                     </NavLink>
                                 </li>
                                 <li>En</li>

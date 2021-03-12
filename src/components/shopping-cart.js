@@ -1,6 +1,9 @@
 import React from 'react';
 import InputFiles from 'react-input-files';
 
+import DayPicker from 'react-day-picker';
+import 'react-day-picker/lib/style.css';
+
 // Components
 import Path from '../components/other-components/path'
 import ShoppingCartProducts from './other-components/shopping-cart-products'
@@ -9,11 +12,14 @@ import ShoppingCartProducts from './other-components/shopping-cart-products'
 // Images
 import Surface from '../assets/img/shopping-cart/surface.svg'
 import Calendar from '../assets/img/shopping-cart/calendar.svg'
+import { withRouter } from 'react-router';
 
 
-export default class ShoppingCart extends React.Component{
+class ShoppingCart extends React.Component{
     constructor(props){
         super(props)
+
+        this.handleDayClick = this.handleDayClick.bind(this);
 
         this.state = {
             img: {},
@@ -22,25 +28,65 @@ export default class ShoppingCart extends React.Component{
             total_prise: 0,
             here: this,
             festHaveProd: false,
-            fromFest: false
+            fromFest: false,
+            selectedDay: undefined
         }
 
         this.file_input_p = React.createRef()
         this.dayPicker = React.createRef()
+        this.form = React.createRef()
+
+        this.picker_open = false
 
         this.myStorage = window.localStorage
+    }
 
+    orderFunction = () =>{
+        let obj = {}
+        obj.name = this.form.current[0].value
+        obj.email = this.form.current[1].value
+        obj.phone = this.form.current[2].value
+        obj.orderDay = new Date()
+        obj.adress = this.form.current[4].value
+        obj.delivery = this.form.current[5].checked
+        obj.comments = this.form.current[6].value
+        obj.img = this.state.img
+        obj.ordered_products = this.state.products
+
+
+
+
+        console.log(obj)
+    }
+
+    // Day Picker ===================
+    handleDayClick(day) {
+        this.setState({ selectedDay: day });
+    }
+
+    handleResetClick() {
+
+    }
+    // ==============================
+    apply_btn = (close) =>{
+        // if(close === true){
+        //     this.picker_open = false
+        //     this.dayPicker.current.style.display = 'none'
+        // }
     }
 
     open_calendar = () =>{
         this.picker_open = !this.picker_open
 
-        if(this.picker_open === true){
-            this.dayPicker.current.style.display = 'block'
-        } else{
-            this.dayPicker.current.style.display = 'none'
-            this.apply_btn(true)
-        }
+
+
+        // console.log(this.dayPicker.current);
+        // if(this.picker_open === true){
+        //     this.dayPicker.current.style.display = 'block'
+        // } else{
+        //     this.dayPicker.current.style.display = 'none'
+        //     // this.apply_btn(true)
+        // }
     }
     
     fileFun = (files) => {
@@ -114,7 +160,6 @@ export default class ShoppingCart extends React.Component{
         window.localStorage.setItem('products', JSON.stringify(all_products))
     }
 
-
     viewProds = () =>{
         // this.myStorage.removeItem('products')
 
@@ -132,38 +177,40 @@ export default class ShoppingCart extends React.Component{
         }
 
 
-        if(this.props.location.state){
-            if(this.props.location.state.have === false){
-                setTimeout(()=>{
-                    this.setState({
-                        festHaveProd: true
-                    })
-                })
+        // ///////////////////  FESTIVALS  ///////////////////
+
+        // if(this.props.location.state){
+        //     if(Boolean(this.props.location.state.have) === true && this.props.location.state.have === false){
+        //         setTimeout(()=>{
+        //             this.setState({
+        //                 festHaveProd: true
+        //             })
+        //         })
                 
-            }
-        } else{
-            setTimeout(()=>{
-                this.setState({
-                    festHaveProd: false
-                })
-            })
-        }
+        //     }
+        // } else{
+        //     setTimeout(()=>{
+        //         this.setState({
+        //             festHaveProd: false
+        //         })
+        //     })
+        // }
 
+        // setTimeout(()=>{
+        //     if(Boolean(this.props.location.state) === true && this.props.location.state.from === 'fest-page'){
+        //         this.setState({
+        //             fromFest: true
+        //         })
+                
+        //     } else{
 
-        if(this.props.location.state.from === 'fest-page'){
-            setTimeout(()=>{
-                this.setState({
-                    fromFest: true
-                })
-            })
-            
-        } else{
-            setTimeout(()=>{
-                this.setState({
-                    fromFest: false
-                })
-            })
-        }
+        //         this.setState({
+        //             fromFest: false
+        //         })
+        //     }
+        // })
+
+        // ///////////////////////////////////////////////////
 
         setTimeout(()=>{
             this.setState({
@@ -171,8 +218,9 @@ export default class ShoppingCart extends React.Component{
                 total_prise: total_prise
             })
         })
-    }
 
+        console.log(this.props)
+    }
 
 
     render(){
@@ -184,14 +232,13 @@ export default class ShoppingCart extends React.Component{
                     ? 
                     <div className='container160'>
                         <p className='from-fest-info'>Հարգելի հաճախորդ, մեր օպերատորը կզանգահարի Ձեզ:</p>
-                        {/* <h3 className='go-to-shopping-cart'>Go to shopping cart in {this.state.secForRedirect} seconds...</h3> */}
                     </div>
                     :     
                     <div className='container160'>
                         <div className='section'>
                             <div className='block'>
-                                <form>
-                                    <h1>Պատվերի ձևակերպում</h1>
+                                <form ref={this.form}>
+                                    <h1 onClick={()=>{}}>Պատվերի ձևակերպում</h1>
                                     <div className='inps'>
                                         <input placeholder='Անուն*' name='name' />
                                         <input placeholder='Email*' name='email' />
@@ -199,8 +246,26 @@ export default class ShoppingCart extends React.Component{
 
                                     <div className='inps'>
                                         <input placeholder='Հեռախոս*' name='phone' />
+
                                         <div className='input_div'>
+                                            
                                             <input placeholder='Առաքման օր և ժամ' />
+
+                                            {/* 
+                                            <div className='RangeExample'>
+                                                <DayPicker
+                                                    ref={this.dayPicker}
+                                                    onDayClick={this.handleDayClick}
+                                                    selectedDays={this.state.selectedDay}
+                                                />
+                                                {this.state.selectedDay ? (
+                                                <p onClick={this.open_calendar}>You clicked {this.state.selectedDay.toLocaleDateString()}</p>
+                                                ) : (
+                                                <p onClick={this.open_calendar}>Առաքման օր և ժամ</p>
+                                                )}
+                                            </div>
+                                             */}
+
                                             <img src={Calendar} alt='calendar' />
                                         </div>
                                     </div>
@@ -235,7 +300,10 @@ export default class ShoppingCart extends React.Component{
                                         null
                                     }
                                     <p className='info'>Հարգելի հաճախորդ, պատվերի նախնական գրանցումից հետո մեր օպերատորը կզանգահարի Ձեզ՝ պատվերի վերջնական հաստատման համար:</p>
-                                    <button className='submit' type='submit'>Պատվիրել</button>
+                                    <button onClick={this.orderFunction} className='submit' type='button'>Պատվիրել</button>
+
+
+
                                 </form>
                             </div>
 
@@ -280,5 +348,4 @@ export default class ShoppingCart extends React.Component{
     }
 }
 
-
-
+export default withRouter(ShoppingCart)
