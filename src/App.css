@@ -747,6 +747,10 @@
 .category .filter .filter-wrapper .input{
     margin-right: 1.55vw;
 }
+.category .filter .clear_div{
+    display: flex;
+    align-items: center;
+}
 .category .filter a{
     text-decoration: none;
     color: #147EC2;
@@ -970,7 +974,7 @@
     margin-bottom: 20px;
 }
 .product-page .section1 .block .general-image .general-image-block{
-    width: fit-content;
+    width: auto;
     display: flex;
     margin: 0 auto;
     height: 100%;
@@ -2275,6 +2279,8 @@
 .contact-us .content form button:hover{
     background: #114F9F;
 }
+
+
 /* 
   3px - 0.157vw
   5px - 0.261vw

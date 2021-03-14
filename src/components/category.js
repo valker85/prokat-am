@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 // components
 import Path from './other-components/path'
 
@@ -14,22 +13,20 @@ import Prod3 from '../assets/img/home/top-prods/prod3.png'
 import Prod4 from '../assets/img/home/top-prods/prod4.png'
 import Prod5 from '../assets/img/home/top-prods/prod5.png'
 
+import Serv1 from '../assets/img/services/serv1.png'
+import Serv2 from '../assets/img/services/serv2.png'
+import Serv3 from '../assets/img/services/serv3.png'
+import Serv4 from '../assets/img/services/serv4.png'
+import Serv5 from '../assets/img/services/serv5.png'
+
+
 
 class Category extends React.Component{
     constructor(props){
         super(props)
 
         this.state = {
-            prods:[
-                {prod_url: '/filter/goods/computer-equipment/monitor1/toshiba-Satellite-c50', img: Prod1, type: 'Տեխնիկա',                       type_url: '/filter/goods/computer-equipment',    name: 'Պրոյեկտոր Benq',                 info: ['2700 Lumens', 'SVGA resolution', 'USB'], prise: 10000},
-                {prod_url: '/filter/goods/computer-equipment/monitor1/toshiba-Satellite-c50', img: Prod2, type: 'Ամեն ինչ միջոցառումների համար', type_url: '/filter/goods/everything-for-events', name: 'Սպիտակ ծածկ',                    info: ['3x3 մ', 'ջրակայուն', 'թեթև '],           prise: 24000},
-                {prod_url: '/filter/goods/computer-equipment/monitor1/toshiba-Satellite-c50', img: Prod3, type: 'Ամեն ինչ միջոցառումների համար', type_url: '/filter/goods/everything-for-events', name: 'Ջուր եռացնելու էլեկտրական սարք', info: ['15 լիտր'],                               prise: 3000},
-                {prod_url: '/filter/goods/computer-equipment/monitor1/toshiba-Satellite-c50', img: Prod4, type: 'Տեխնիկա',                       type_url: '/filter/goods/computer-equipment',    name: 'Գրասենյակային աթոռ',             info: ['մետաղ', 'գործվածք', 'սև'],               prise: 1000},
-                {prod_url: '/filter/goods/computer-equipment/monitor1/toshiba-Satellite-c50', img: Prod5, type: 'Տեխնիկա',                       type_url: '/filter/goods/computer-equipment',    name: 'Պրոյեկտոր Benq',                 info: ['2700 Lumens', 'SVGA resolution', 'USB'], prise: 10000},
-                {prod_url: '/filter/goods/computer-equipment/monitor1/toshiba-Satellite-c50', img: Prod1, type: 'Ամեն ինչ միջոցառումների համար', type_url: '/filter/goods/everything-for-events', name: 'Սպիտակ ծածկ',                    info: ['3x3 մ', 'ջրակայուն', 'թեթև '],           prise: 24000},
-                {prod_url: '/filter/goods/computer-equipment/monitor1/toshiba-Satellite-c50', img: Prod2, type: 'Ամեն ինչ միջոցառումների համար', type_url: '/filter/goods/everything-for-events', name: 'Ջուր եռացնելու էլեկտրական սարք', info: ['15 լիտր'],                               prise: 3000},
-                {prod_url: '/filter/goods/computer-equipment/monitor1/toshiba-Satellite-c50', img: Prod3, type: 'Տեխնիկա',                       type_url: '/filter/goods/computer-equipment',    name: 'Գրասենյակային աթոռ',             info: ['մետաղ', 'գործվածք', 'սև'],               prise: 1000}
-            ],
+            prods:[],
             comparable_products:[
                 {prod_url: '/filter/goods/computer-equipment/monitor1/toshiba-Satellite-c50', img: Prod1, type: 'Տեխնիկա',                       type_url: '/filter/goods/computer-equipment',    name: 'Պրոյեկտոր Benq',                 info: ['2700 Lumens', 'SVGA resolution', 'USB'], prise: 10000},
                 {prod_url: '/filter/goods/computer-equipment/monitor1/toshiba-Satellite-c50', img: Prod2, type: 'Ամեն ինչ միջոցառումների համար', type_url: '/filter/goods/everything-for-events', name: 'Սպիտակ ծածկ',                    info: ['3x3 մ', 'ջրակայուն', 'թեթև '],           prise: 24000},
@@ -189,7 +186,7 @@ class Category extends React.Component{
             actual_pathname: this.props.location.pathname,
             history: this.props.match.params.url,
             position: 0,
-            close_types: false
+            close_types: true
         }
 
 
@@ -324,24 +321,90 @@ class Category extends React.Component{
             })
         } else{
             this.setState({
-                close_types: true
+                close_types: false
             })
         }
+
+        // Services prods
+        if(all_pats[0] === "services"){
+            let services = [
+                {this_is: 'service', serv_url: '/filter/services/special-effects/heavy-smoke', img: Serv1, type: 'special-effects', type_url: '/filter/services/special-effects', name: 'Ծանր ծուխ',             info: ['СО2'],                  prise: 29000},
+                {this_is: 'service', serv_url: '/filter/services/special-effects/heavy-smoke', img: Serv2, type: 'special-effects', type_url: '/filter/services/special-effects', name: 'Լուսային էֆֆեկտներ',    info: ['սարքավորումներ'],       prise: 29000},
+                {this_is: 'service', serv_url: '/filter/services/special-effects/heavy-smoke', img: Serv3, type: 'special-effects', type_url: '/filter/services/special-effects', name: 'Ձայնային էֆֆեկտներ',    info: ['DJ'],                   prise: 29000},
+                {this_is: 'service', serv_url: '/filter/services/special-effects/heavy-smoke', img: Serv4, type: 'special-effects', type_url: '/filter/services/special-effects', name: 'Կոնֆետտի (փայլաթուղթ)', info: ['թուղթ', 'ձև', 'գույն'], prise: 29000},
+                {this_is: 'service', serv_url: '/filter/services/special-effects/heavy-smoke', img: Serv5, type: 'special-effects', type_url: '/filter/services/special-effects', name: 'Օճառե պղպջակներ',       info: ['շոու '],                prise: 29000}
+            ]
+            this.setState({
+                prods: services
+            })
+        } else if(all_pats[0] === "goods"){
+            let prods = [
+                {this_is: 'product', prod_url: '/filter/goods/computer-equipment/monitor1/toshiba-Satellite-c50', img: Prod1, type: 'Տեխնիկա',                       type_url: '/filter/goods/computer-equipment',    name: 'Պրոյեկտոր Benq',                 info: ['2700 Lumens', 'SVGA resolution', 'USB'], prise: 10000},
+                {this_is: 'product', prod_url: '/filter/goods/computer-equipment/monitor1/toshiba-Satellite-c50', img: Prod2, type: 'Ամեն ինչ միջոցառումների համար', type_url: '/filter/goods/everything-for-events', name: 'Սպիտակ ծածկ',                    info: ['3x3 մ', 'ջրակայուն', 'թեթև '],           prise: 24000},
+                {this_is: 'product', prod_url: '/filter/goods/computer-equipment/monitor1/toshiba-Satellite-c50', img: Prod3, type: 'Ամեն ինչ միջոցառումների համար', type_url: '/filter/goods/everything-for-events', name: 'Ջուր եռացնելու էլեկտրական սարք', info: ['15 լիտր'],                               prise: 3000},
+                {this_is: 'product', prod_url: '/filter/goods/computer-equipment/monitor1/toshiba-Satellite-c50', img: Prod4, type: 'Տեխնիկա',                       type_url: '/filter/goods/computer-equipment',    name: 'Գրասենյակային աթոռ',             info: ['մետաղ', 'գործվածք', 'սև'],               prise: 1000},
+                {this_is: 'product', prod_url: '/filter/goods/computer-equipment/monitor1/toshiba-Satellite-c50', img: Prod5, type: 'Տեխնիկա',                       type_url: '/filter/goods/computer-equipment',    name: 'Պրոյեկտոր Benq',                 info: ['2700 Lumens', 'SVGA resolution', 'USB'], prise: 10000},
+                {this_is: 'product', prod_url: '/filter/goods/computer-equipment/monitor1/toshiba-Satellite-c50', img: Prod1, type: 'Ամեն ինչ միջոցառումների համար', type_url: '/filter/goods/everything-for-events', name: 'Սպիտակ ծածկ',                    info: ['3x3 մ', 'ջրակայուն', 'թեթև '],           prise: 24000},
+                {this_is: 'product', prod_url: '/filter/goods/computer-equipment/monitor1/toshiba-Satellite-c50', img: Prod2, type: 'Ամեն ինչ միջոցառումների համար', type_url: '/filter/goods/everything-for-events', name: 'Ջուր եռացնելու էլեկտրական սարք', info: ['15 լիտր'],                               prise: 3000},
+                {this_is: 'product', prod_url: '/filter/goods/computer-equipment/monitor1/toshiba-Satellite-c50', img: Prod3, type: 'Տեխնիկա',                       type_url: '/filter/goods/computer-equipment',    name: 'Գրասենյակային աթոռ',             info: ['մետաղ', 'գործվածք', 'սև'],               prise: 1000}
+            ]
+
+            this.setState({
+                prods: prods
+            })
+        }
+        /////////////////
     }
 
     componentWillReceiveProps(newPr){   // во время клика
         let url = newPr.location.pathname.split('/')
         url.splice(0, 1)
 
-        console.log(url)
+        if(url[1] === "services"){
+            this.setState({
+                close_types: true
+            })
+        } else{
+            this.setState({
+                close_types: false
+            })
+        }
 
-    
+        /////////////////
+        // Services prods
+        if(url[1] === "services"){
+            let services = [
+                {this_is: 'service', serv_url: '/filter/services/special-effects/heavy-smoke', img: Serv1, type: 'special-effects', type_url: '/filter/services/special-effects', name: 'Ծանր ծուխ',             info: ['СО2'],                  prise: 29000},
+                {this_is: 'service', serv_url: '/filter/services/special-effects/heavy-smoke', img: Serv2, type: 'special-effects', type_url: '/filter/services/special-effects', name: 'Լուսային էֆֆեկտներ',    info: ['սարքավորումներ'],       prise: 29000},
+                {this_is: 'service', serv_url: '/filter/services/special-effects/heavy-smoke', img: Serv3, type: 'special-effects', type_url: '/filter/services/special-effects', name: 'Ձայնային էֆֆեկտներ',    info: ['DJ'],                   prise: 29000},
+                {this_is: 'service', serv_url: '/filter/services/special-effects/heavy-smoke', img: Serv4, type: 'special-effects', type_url: '/filter/services/special-effects', name: 'Կոնֆետտի (փայլաթուղթ)', info: ['թուղթ', 'ձև', 'գույն'], prise: 29000},
+                {this_is: 'service', serv_url: '/filter/services/special-effects/heavy-smoke', img: Serv5, type: 'special-effects', type_url: '/filter/services/special-effects', name: 'Օճառե պղպջակներ',       info: ['շոու '],                prise: 29000}
+            ]
+            this.setState({
+                prods: services
+            })
+        } else if(url[1] === "goods"){
+            let prods = [
+                {this_is: 'product', prod_url: '/filter/goods/computer-equipment/monitor1/toshiba-Satellite-c50', img: Prod1, type: 'Տեխնիկա',                       type_url: '/filter/goods/computer-equipment',    name: 'Պրոյեկտոր Benq',                 info: ['2700 Lumens', 'SVGA resolution', 'USB'], prise: 10000},
+                {this_is: 'product', prod_url: '/filter/goods/computer-equipment/monitor1/toshiba-Satellite-c50', img: Prod2, type: 'Ամեն ինչ միջոցառումների համար', type_url: '/filter/goods/everything-for-events', name: 'Սպիտակ ծածկ',                    info: ['3x3 մ', 'ջրակայուն', 'թեթև '],           prise: 24000},
+                {this_is: 'product', prod_url: '/filter/goods/computer-equipment/monitor1/toshiba-Satellite-c50', img: Prod3, type: 'Ամեն ինչ միջոցառումների համար', type_url: '/filter/goods/everything-for-events', name: 'Ջուր եռացնելու էլեկտրական սարք', info: ['15 լիտր'],                               prise: 3000},
+                {this_is: 'product', prod_url: '/filter/goods/computer-equipment/monitor1/toshiba-Satellite-c50', img: Prod4, type: 'Տեխնիկա',                       type_url: '/filter/goods/computer-equipment',    name: 'Գրասենյակային աթոռ',             info: ['մետաղ', 'գործվածք', 'սև'],               prise: 1000},
+                {this_is: 'product', prod_url: '/filter/goods/computer-equipment/monitor1/toshiba-Satellite-c50', img: Prod5, type: 'Տեխնիկա',                       type_url: '/filter/goods/computer-equipment',    name: 'Պրոյեկտոր Benq',                 info: ['2700 Lumens', 'SVGA resolution', 'USB'], prise: 10000},
+                {this_is: 'product', prod_url: '/filter/goods/computer-equipment/monitor1/toshiba-Satellite-c50', img: Prod1, type: 'Ամեն ինչ միջոցառումների համար', type_url: '/filter/goods/everything-for-events', name: 'Սպիտակ ծածկ',                    info: ['3x3 մ', 'ջրակայուն', 'թեթև '],           prise: 24000},
+                {this_is: 'product', prod_url: '/filter/goods/computer-equipment/monitor1/toshiba-Satellite-c50', img: Prod2, type: 'Ամեն ինչ միջոցառումների համար', type_url: '/filter/goods/everything-for-events', name: 'Ջուր եռացնելու էլեկտրական սարք', info: ['15 լիտր'],                               prise: 3000},
+                {this_is: 'product', prod_url: '/filter/goods/computer-equipment/monitor1/toshiba-Satellite-c50', img: Prod3, type: 'Տեխնիկա',                       type_url: '/filter/goods/computer-equipment',    name: 'Գրասենյակային աթոռ',             info: ['մետաղ', 'գործվածք', 'սև'],               prise: 1000}
+            ]
+
+            this.setState({
+                prods: prods
+            })
+        }
+        /////////////////
 
         this.setState({
             actual_pathname: newPr.location.pathname
         })
     }
-
 
     render(){
 
@@ -427,8 +490,8 @@ class Category extends React.Component{
                                 </div>
                             </div>
 
-                            {/* {
-                            this.state.close_types === true ? <p : */}
+                            {
+                            this.state.close_types === true ? null :
                             <div className='input'>
                                 <p>Տեսակ</p>
                                 <div className='select-box' onClick={this.selectFun.bind(null, 'types')}>
@@ -461,9 +524,15 @@ class Category extends React.Component{
                                     </div>
                                 </div>
                             </div>
+                            }
                             
-
-                            <NavLink to={`/filter/${this.state.history}`}>Մաքրել ֆիլտրը</NavLink>
+                            <div className='clear_div'>
+                                <NavLink to={
+                                    this.state.history === undefined ?
+                                    `/filter/goods` :
+                                    `/filter/${this.state.history}`
+                                }>Մաքրել ֆիլտրը</NavLink>
+                            </div>
                         </div>
 
                     </div>
@@ -481,9 +550,9 @@ class Category extends React.Component{
                                             </div>
                                             <div className='content'>
                                                 <NavLink to='/' className='type'>{card.type}</NavLink>
-                                                <h1 className={card.name.length > 20 ? 'name long' : 'name'}>{card.name}</h1>
+                                                <h1 className={card.name.length > 21 ? 'name long' : 'name'}>{card.name}</h1>
 
-                                                <ul className={card.name.length > 20 ? 'info long' : 'info'}>
+                                                <ul className={card.name.length > 21 ? 'info long' : 'info'}>
                                                 {
                                                     card.info.map((param, idx)=>{
                                                         return(
@@ -493,10 +562,20 @@ class Category extends React.Component{
                                                 }
                                                 </ul>
                                                 <div className='line'></div>
-                                                <div className='prise-wrapper'>
-                                                    <div className='prise'>{card.prise} <span>դր/օր</span></div>
-                                                    <div className='rent'><NavLink to='/'>Վարձել</NavLink></div>
-                                                </div>
+                                                {
+                                                    card.this_is === "product" 
+                                                    ?
+                                                    <div className='prise-wrapper'>
+                                                        <div className='prise'>{card.prise} <span>դր/օր</span></div>
+                                                        <div className='rent'><NavLink to='/'>Վարձել</NavLink></div>
+                                                    </div>
+                                                    :
+                                                    <div className='prise-wrapper'>
+                                                        <div className='prise'><span>սկսած </span>{card.prise} <span>դր</span></div>
+                                                        <div className='rent'><NavLink to='/'>Վարձել</NavLink></div>
+                                                    </div>
+                                                }
+
                                             </div>
                                         </div>
                                     )
@@ -519,9 +598,9 @@ class Category extends React.Component{
                                         </div>
                                         <div className='content'>
                                             <NavLink to='/' className='type'>{card.type}</NavLink>
-                                            <h1 className={card.name.length > 20 ? 'name long' : 'name'}>{card.name}</h1>
+                                            <h1 className={card.name.length > 21 ? 'name long' : 'name'}>{card.name}</h1>
 
-                                            <ul className={card.name.length > 20 ? 'info long' : 'info'}>
+                                            <ul className={card.name.length > 21 ? 'info long' : 'info'}>
                                             {
                                                 card.info.map((param, idx)=>{
                                                     return(

@@ -22,7 +22,8 @@ import topProd4 from '../assets/img/home/top-prods/prod4.png'
 import Toshiba from '../assets/img/product-page/toshiba.png'
 import Calendar from '../assets/img/product-page/calendar.svg'
 
-
+import Serv1 from '../assets/img/services/serv1.png'
+import Mini1 from '../assets/img/services/mini1.png'
 
 export default class ProductPage extends React.Component{
 
@@ -34,13 +35,11 @@ export default class ProductPage extends React.Component{
 
         this.state = {
             product: {
-                name: 'Toshiba Satellite c50',
-                prise: 6000,
-                description:[
-                    'Processor Intel Core i3-3120M','Processor clock speed 2.5GHz','Memory 4.00GB','Memory slots 2','Memory slots free 1','Maximum memory 16GB','Size 32x380x240mm','Weight 2.3kg','Sound Realtek HD Audio','Pointing device touchpad','Display','Viewable size 15.6 in','Native resolution 1,366x768','Graphics Processor Intel HD Graphics 4000','Graphics/video ports HDMI, VGA','Graphics Memory 256MB','Storage','Total storage capacity 1,024GB','Optical drive type DVD+/-RW +/-DL','Ports and Expansion','USB ports 3','Bluetooth yes','Wired network ports 1x 10/100','Wireless networking support 802.11n','PC Card slots none','Supported memory cards SDXC, MMC','Other ports 1x USB3, headphone, microphone','Miscellaneous','Carrying case No','Operating system Windows 8','Operating system restore option restore partition','Software included none','Optional extras none'
-                ],
-                images:[Toshiba, topProd1, Toshiba, Toshiba, Toshiba],
-                img_for_busket: Toshiba,
+                name: '',
+                prise: null,
+                description:[],
+                images:[],
+                img_for_busket: '',
                 id:0
             },
             similar_suggestions:[
@@ -313,6 +312,42 @@ export default class ProductPage extends React.Component{
     // ==============================
 
     componentDidMount(){
+        // let server_prod = {
+        //     type: 'service',
+        //     name: 'Toshiba Satellite c50',
+        //     prise: 6000,
+        //     description:[
+        //         'Processor Intel Core i3-3120M','Processor clock speed 2.5GHz','Memory 4.00GB','Memory slots 2','Memory slots free 1','Maximum memory 16GB','Size 32x380x240mm','Weight 2.3kg','Sound Realtek HD Audio','Pointing device touchpad','Display','Viewable size 15.6 in','Native resolution 1,366x768','Graphics Processor Intel HD Graphics 4000','Graphics/video ports HDMI, VGA','Graphics Memory 256MB','Storage','Total storage capacity 1,024GB','Optical drive type DVD+/-RW +/-DL','Ports and Expansion','USB ports 3','Bluetooth yes','Wired network ports 1x 10/100','Wireless networking support 802.11n','PC Card slots none','Supported memory cards SDXC, MMC','Other ports 1x USB3, headphone, microphone','Miscellaneous','Carrying case No','Operating system Windows 8','Operating system restore option restore partition','Software included none','Optional extras none'
+        //     ],
+        //     images:[Toshiba, topProd1, Toshiba, Toshiba, Toshiba],
+        //     general_image: Toshiba,
+        //     img_for_busket: Toshiba,
+        //     id:0
+        // }
+
+        let server_prod = {
+            type: 'service',
+            name: 'Ծանր ծուխ',
+            prise: 6000,
+            description:[
+                'Ցանկացծ միջոցառում կարող է ավելի հեքիաթային և կախարդական դառնալ հատուկ էֆֆեկտների օգնությաբ՝ րանցից ամենաասիրվածներից մեկը ծանր ծուխն է։',
+                'Ծանր ծուխը արձակվում է հատուկ գեներատորների օգնությամբ՝ СО2-ի հիման վրա: Ծխի բարձրությունը և թավությունը հնարավոր է կարգավորել՝ կախված ձեր ընտրությունից և սրահի չափից:'
+            ],
+            images:[Serv1],
+            general_image: Serv1,
+            img_for_busket: Serv1,
+            id:100
+        }
+
+        
+
+
+
+        // setTimeout(()=>{
+        this.setState({
+            product: server_prod
+        })
+        // })
 
         setTimeout(()=>{
             this.setState({
@@ -325,7 +360,6 @@ export default class ProductPage extends React.Component{
     render(){
         const { from, to } = this.state;
         const modifiers = { start: from, end: to };
-
 
         return(
             <div className='product-page'>
@@ -399,7 +433,7 @@ export default class ProductPage extends React.Component{
                                                 disabled={Boolean(from) !== true && Boolean(from) !== true ? true:false} 
                                                 className="link" 
                                                 onClick={this.handleResetClick}>
-
+                                                    
                                                 Մաքրել
                                             </button>
 
@@ -407,7 +441,7 @@ export default class ProductPage extends React.Component{
                                                 type='button'
                                                 disabled={Boolean(from) !== true && Boolean(from) !== true ? true:false}
                                                 onClick={this.apply_btn.bind(null, true)}>
-                                                
+                                                    
                                                 Հաստատել
                                             </button>
                                         </div>

@@ -426,11 +426,11 @@ class FestivalPage extends React.Component{
                                             <NavLink to={card.type_url} className='type'>{card.type}</NavLink>
                                             
                                             <h1 onClick={()=>{this.props.history.push(card.prod_url)}} 
-                                                className={card.name.length > 20 ? 'name long' : 'name'}>
+                                                className={card.name.length > 21 ? 'name long' : 'name'}>
                                                 {card.name}
                                             </h1>
 
-                                            <ul className={card.name.length > 20 ? 'info long' : 'info'}>
+                                            <ul className={card.name.length > 21 ? 'info long' : 'info'}>
                                             {
                                                 card.info.map((param, idx)=>{
                                                     return(
