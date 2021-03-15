@@ -193,6 +193,49 @@
 .header .modal .hide_menu ul li:last-child{
     margin-bottom: 30px;
 }
+.header .modal.open .hide_menu .close {
+    display: none;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+}
+.header .modal .hide_menu .phones{
+    display: none;
+    margin-top: 160px;
+    margin-right: 15px;
+    margin-bottom: 100px;
+}
+.header .modal .hide_menu .phones a{
+    display: block;
+    font-weight: 700;
+    font-size: 29px;
+    color: #147EC2;
+    text-decoration: none;
+}
+.header .modal .hide_menu .phones a:not(:last-child){
+    margin-bottom: 15px;
+}
+.header .modal .hide_menu .languages{
+    display: none;
+    position: fixed;
+    bottom: 0;
+    background: white;
+    padding: 15px;
+    float: right;
+    width: 100%;
+    margin-top: 50px;
+    box-shadow: -1px -1px 31px -7px rgb(177 177 177 / 80%);
+}
+.header .modal .hide_menu .languages p{
+    display: inline-block;
+    font-size: 18px;
+}
+.header .modal .hide_menu .languages p.active{
+    color: #147EC2;
+}
+.header .modal .hide_menu .languages p:first-child{
+    margin-right: 40px;
+}
 /* //////////////////////////////// */
 .home .section1 h1{
     margin-top: 170px;
@@ -347,6 +390,22 @@
     color: #147EC2;
     font-weight: 700;
     margin-bottom: 84px;
+}
+.home .section1 .mob_btn{
+    width: 100%;
+    border-radius: 3px;
+    border: none;
+    background: #147EC2;
+    cursor: pointer;
+    color: white;
+    font-family: 'Arial';
+    font-size: 22px;
+    font-weight: 700;
+    outline: none;
+    padding: 19px 0;
+    transition: 0.3s;
+    margin-top: 17px;
+    display: none;
 }
 .home .section3 .top_prods,
 .category .section3 .prods,
@@ -765,7 +824,7 @@
 /* /////  Custom Select  ///// */
 .select-box{
     display: flex;
-    width: 400px;
+    width: 24vw;
     flex-direction: column;
     position: relative;
     z-index: 1;

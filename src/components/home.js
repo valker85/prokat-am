@@ -162,7 +162,12 @@ export default class Home extends React.Component{
                                     <img src={card.img} alt='img'/>
                                 </div>
                                 <div className='content'>
-                                    <NavLink to={card.type_url} className='type'>{card.type}</NavLink>
+                                    <NavLink 
+                                        to={card.type_url} 
+                                        className={card.type.length > 21 ? 'type' : 'type'}
+                                    >
+                                        {card.type}
+                                    </NavLink>
                                     
                                     <h1 onClick={()=>{this.props.history.push(card.prod_url)}} 
                                         className={card.name.length > 21 ? 'name long' : 'name'}>
@@ -208,6 +213,9 @@ export default class Home extends React.Component{
                         <div className='some_info'>
                             <p>Երբեմն որոնում են <NavLink to='/'>նոութբուք</NavLink> կամ <NavLink to='/'>սկաներ</NavLink>:</p>
                         </div>
+
+                        <button className='mob_btn'>Որոնել</button>
+
                     </div>
                 </div>
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import './assets/css/media.css'
 
 import {Route, withRouter} from 'react-router-dom'
 
@@ -38,5 +39,3 @@ class App extends React.Component {
 }
 
 export default withRouter(App);
-
-

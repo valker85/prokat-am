@@ -4,6 +4,7 @@ import {NavLink} from 'react-router-dom'
 // images
 import Logo from '../../assets/img/header/ProkatAm Logo.png'
 import Basket from '../../assets/img/basket.svg'
+import Close from '../../assets/img/header/close.png'
 
 // Componets
 
@@ -16,10 +17,10 @@ export default class Header extends React.Component{
         this.state = {
             modal_classes:['modal'],
             goods:[
-                {url: '/', name: 'Something'},
-                {url: '/', name: 'Something'},
-                {url: '/', name: 'Something'},
-                {url: '/', name: 'Something'}
+                {url: '/', name: 'Prod1'},
+                {url: '/', name: 'Prod2'},
+                {url: '/', name: 'Prod3'},
+                {url: '/', name: 'Prod4'}
             ],
             services:[
                 {url: '/', name: 'Something'},
@@ -106,26 +107,40 @@ export default class Header extends React.Component{
                     onClick={this.open_menu.bind(null, false)} 
                     className={this.state.modal_classes.join(' ')}>
                     <div ref={this.hide_menu} className='hide_menu'>
+                        <img className='close' src={Close} alt='close' />
                         <ul>
-                            <li onClick={this.open_lis.bind(null, 0)}>Ապրանքներ</li>
+                            <li onClick={this.open_lis.bind(null, 1)}>Ապրանքներ</li>
                             {this.state.goods.map((li, idx)=>{
                                 return <li key={idx}><NavLink to={li.url}>{li.name}</NavLink></li>
                             })}
                         </ul>
 
                         <ul>
-                            <li onClick={this.open_lis.bind(null, 1)}>Ծառայություններ</li>
+                            <li onClick={this.open_lis.bind(null, 2)}>Ծառայություններ</li>
                             {this.state.services.map((li, idx)=>{
                                 return <li key={idx}><NavLink to={li.url}>{li.name}</NavLink></li>
                             })}
                         </ul>
 
+                        {/* 
                         <ul>
                             <li onClick={this.open_lis.bind(null, 2)}>Տրանսպորտ</li>
                             {this.state.transport.map((li, idx)=>{
                                 return <li key={idx}><NavLink to={li.url}>{li.name}</NavLink></li>
                             })}
-                        </ul>
+                        </ul> 
+                        */}
+
+                        <div className='phones'>
+                            <a href='tel:+37499772528'>(+374 99) 77 25 28</a>
+                            <a href='tel:+37494772528'>(+374 94) 77 25 28</a>
+                            <a href='tel:+37455772528'>(+374 55) 77 25 28</a> 
+                        </div>
+
+                        <div className='languages'>
+                            <p>English</p>
+                            <p className='active'>Հայերեն</p>
+                        </div>
                     </div>
                 </div>
 
