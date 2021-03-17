@@ -28,10 +28,10 @@ export default class Footer extends React.Component{
                                 <img src={Logo} alt='logo'/>
                             </div>
                             <div className='social'>
-                                <a href='https://www.instagram.com/?hl=ru' target='_blank' rel="noopener noreferrer">
+                                <a href='https://www.facebook.com/' target='_blank' rel="noopener noreferrer">
                                     <img src={Fb} alt='facebook'/>
                                 </a>
-                                <a href='https://www.youtube.com/' target='_blank' rel="noopener noreferrer">
+                                <a href='https://www.instagram.com/?hl=ru' target='_blank' rel="noopener noreferrer">
                                     <img src={Insta} alt='instagram'/>
                                 </a>
                                 <a href='https://www.youtube.com/' target='_blank' rel="noopener noreferrer">
@@ -55,11 +55,25 @@ export default class Footer extends React.Component{
                                     <li><NavLink to='/'>Ծառայություններ</NavLink></li>
                                 </ul>
 
-                                <ul>
+                                <ul className='desktop'>
                                     <li><NavLink to='/about'>Մեր մասին</NavLink></li>
                                     <li><NavLink to='/'>Պայմաններ</NavLink></li>
                                     <li><NavLink to='/'>Հետադարձ կապ</NavLink></li>
                                 </ul>
+
+                                <ul className='mob'>
+                                    <ul>                                    
+                                        <li><NavLink to='/about'>Պորտֆոլիո</NavLink></li>
+                                        <li><NavLink to='/'>Փառատոն</NavLink></li>
+                                        <li><NavLink to='/'>Բարեգործական միջոցառումներ</NavLink></li>
+                                    </ul>
+                                    <ul>
+                                        <li><NavLink to='/'>Մեր մասին</NavLink></li>
+                                        <li><NavLink to='/'>Պայմաններ</NavLink></li>
+                                        <li><NavLink to='/'>Հետադարձ կապ</NavLink></li>
+                                    </ul>
+                                </ul>
+
                             </div>
                         </div>
 

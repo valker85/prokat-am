@@ -62,6 +62,8 @@ class ShoppingCart extends React.Component{
     // Day Picker ===================
     handleDayClick(day) {
         this.setState({ selectedDay: day });
+
+        this.apply_btn(true)
     }
 
     handleResetClick() {
@@ -69,24 +71,22 @@ class ShoppingCart extends React.Component{
     }
     // ==============================
     apply_btn = (close) =>{
-        // if(close === true){
-        //     this.picker_open = false
-        //     this.dayPicker.current.style.display = 'none'
-        // }
+        if(close === true){
+            this.picker_open = false
+            this.dayPicker.current.style.display = 'none'
+        }
     }
 
     open_calendar = () =>{
         this.picker_open = !this.picker_open
 
 
-
-        // console.log(this.dayPicker.current);
-        // if(this.picker_open === true){
-        //     this.dayPicker.current.style.display = 'block'
-        // } else{
-        //     this.dayPicker.current.style.display = 'none'
-        //     // this.apply_btn(true)
-        // }
+        if(this.picker_open === true){
+            this.dayPicker.current.style.display = 'block'
+        } else{
+            this.dayPicker.current.style.display = 'none'
+            // this.apply_btn(true)
+        }
     }
     
     fileFun = (files) => {
@@ -179,36 +179,36 @@ class ShoppingCart extends React.Component{
 
         // ///////////////////  FESTIVALS  ///////////////////
 
-        // if(this.props.location.state){
-        //     if(Boolean(this.props.location.state.have) === true && this.props.location.state.have === false){
-        //         setTimeout(()=>{
-        //             this.setState({
-        //                 festHaveProd: true
-        //             })
-        //         })
+        if(this.props.location.state){
+            if(Boolean(this.props.location.state.have) === true && this.props.location.state.have === false){
+                setTimeout(()=>{
+                    this.setState({
+                        festHaveProd: true
+                    })
+                })
                 
-        //     }
-        // } else{
-        //     setTimeout(()=>{
-        //         this.setState({
-        //             festHaveProd: false
-        //         })
-        //     })
-        // }
+            }
+        } else{
+            setTimeout(()=>{
+                this.setState({
+                    festHaveProd: false
+                })
+            })
+        }
 
-        // setTimeout(()=>{
-        //     if(Boolean(this.props.location.state) === true && this.props.location.state.from === 'fest-page'){
-        //         this.setState({
-        //             fromFest: true
-        //         })
+        setTimeout(()=>{
+            if(Boolean(this.props.location.state) === true && this.props.location.state.from === 'fest-page'){
+                this.setState({
+                    fromFest: true
+                })
                 
-        //     } else{
+            } else{
 
-        //         this.setState({
-        //             fromFest: false
-        //         })
-        //     }
-        // })
+                this.setState({
+                    fromFest: false
+                })
+            }
+        })
 
         // ///////////////////////////////////////////////////
 
@@ -249,24 +249,25 @@ class ShoppingCart extends React.Component{
 
                                         <div className='input_div'>
                                             
-                                            <input placeholder='Առաքման օր և ժամ' />
-
-                                            {/* 
-                                            <div className='RangeExample'>
-                                                <DayPicker
-                                                    ref={this.dayPicker}
-                                                    onDayClick={this.handleDayClick}
-                                                    selectedDays={this.state.selectedDay}
-                                                />
-                                                {this.state.selectedDay ? (
-                                                <p onClick={this.open_calendar}>You clicked {this.state.selectedDay.toLocaleDateString()}</p>
+                                            {
+                                                this.state.selectedDay ? (
+                                                <p onClick={this.open_calendar}>Առաքման օր {this.state.selectedDay.toLocaleDateString()}</p>
                                                 ) : (
                                                 <p onClick={this.open_calendar}>Առաքման օր և ժամ</p>
-                                                )}
-                                            </div>
-                                             */}
+                                                )
+                                            }
 
-                                            <img src={Calendar} alt='calendar' />
+                                            <div className='dp-wrapper' ref={this.dayPicker}>
+                                                <div className='RangeExample'>
+                                                    <DayPicker
+                                                        onDayClick={this.handleDayClick}
+                                                        selectedDays={this.state.selectedDay}
+                                                    />
+
+                                                </div>
+                                            </div>
+
+                                            <img onClick={this.open_calendar} src={Calendar} alt='calendar' />
                                         </div>
                                     </div>
                                     <input placeholder='Առաքման հասցե*' />

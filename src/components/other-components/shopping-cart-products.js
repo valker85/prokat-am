@@ -26,6 +26,8 @@ export default class Terms extends React.Component{
         this.picker_open = false
     }
 
+
+
     open_calendar = () =>{
         this.picker_open = !this.picker_open
 
@@ -102,7 +104,6 @@ export default class Terms extends React.Component{
         }
     }
 
-
     // Day Picker ===================
     handleDayClick(day) {
         const range = DateUtils.addDayToRange(day, this.state)
@@ -141,7 +142,6 @@ export default class Terms extends React.Component{
         // });
     }
     // ==============================
-
 
     counter = (sign) =>{
         let product = this.state.product
@@ -214,6 +214,7 @@ export default class Terms extends React.Component{
     }
 
 
+    
     render(){
         const { from, to } = this.state.product
         const modifiers = { start: from, end: to }

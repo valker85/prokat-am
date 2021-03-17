@@ -287,6 +287,23 @@
 .category .section1 .input button:hover{
     background: #114F9F;
 }
+.category .section1 .input button{
+    display: block;
+}
+.category .section1 button.mob{
+    width: 100%;
+    border-radius: 3px;
+    border: none;
+    background: #147EC2;
+    cursor: pointer;
+    color: white;
+    font-family: 'Arial';
+    font-size: 24px;
+    font-weight: 700;
+    outline: none;
+    padding: 18px 0px;
+    display: none;
+}
 .home .section1 .some_info{
     font-family: 'Arial';
     font-size: 20px;
@@ -724,6 +741,21 @@
 .footer .content .other_content .right ul li a:hover{
     color: #147EC2;
 }
+.footer .content .other_content .right .mob{
+    display: none;
+}
+.footer .content .other_content .right .mob ul{
+    width: 41%;
+    margin: 0;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+}
+.footer .content .other_content .right .mob ul:last-child{
+    float: right;
+}
+.footer .content .other_content .right .desktop{
+    display: inline-block;
+}
 .footer .content .bottom{
     display: flex;
     justify-content: space-between;
@@ -822,14 +854,14 @@
 }
 /* =========================== */
 /* /////  Custom Select  ///// */
-.select-box{
+.category .select-box{
     display: flex;
     width: 24vw;
     flex-direction: column;
     position: relative;
     z-index: 1;
 }
-.select-box .option-container{
+.category .select-box .option-container{
     background: #FFFFFF;
     box-shadow: 0px 4px 14px rgba(5, 58, 91, 0.14);
     border-radius: 3px;
@@ -844,7 +876,7 @@
     z-index: 2;
     top: 50px;
 }
-.selected{
+.category .selected{
     background: white;
     border: 0.5px solid #C6C6C6;
     border-radius: 3px;
@@ -854,7 +886,7 @@
     cursor: pointer;
     order: 0;
 } 
-.selected::after{
+.category .selected::after{
     content: "";
     display: block;
     border-color: #000 transparent transparent;
@@ -865,43 +897,43 @@
     right: 20px;
     transition: all .3s;
 }
-.select-box .option-container.active{
+.category .select-box .option-container.active{
     max-height: 250px;
     opacity: 1;
     overflow-y: scroll;
 }
-.select-box .option-container.active + .selected::after{
+.category .select-box .option-container.active + .selected::after{
     transform: rotate(180deg);
 }
-.select-box .option-container::-webkit-scrollbar{
+.category .select-box .option-container::-webkit-scrollbar{
     width: 8px;
     background: #e2e3e4;
     border-radius: 0 3px 3px 0;
 }
-.select-box .option-container::-webkit-scrollbar-thumb{
+.category .select-box .option-container::-webkit-scrollbar-thumb{
     background: #737577;
     border-radius: 0 3px 3px 0;
 }
-.select-box .option{
+.category .select-box .option{
     width: 100%;
     display: block;
     padding: 15px 20px;
     cursor: pointer;
     transition: 0.2s;
 }
-.select-box .option:hover{
+.category .select-box .option:hover{
     background: #147EC2;
 }
-.select-box .option a{
+.category .select-box .option a{
     color: #353535;
 }
-.select-box .option:hover a{
+.category .select-box .option:hover a{
     color: white;
 }
-.select-box label{
+.category .select-box label{
     cursor: pointer;
 }
-.select-box .option .radio{
+.category .select-box .option .radio{
     display: none;
 }
 /* /////////////////////////// */
@@ -1021,6 +1053,27 @@
 .product-page .section1 .block .images-blocks .img-block img{
     width: 140%;
     margin-left: -20%;
+}
+.product-page .section1 .block .images-blocks{
+    display: block;
+}
+.product-page .section1 .block .images-blocks.mob{
+    display: none;
+}
+.product-page .section1 .block .images-blocks.mob{
+    margin-right: 0;
+    max-height: fit-content;
+    overflow: hidden;
+    overflow-y: hidden;
+    padding-right: 0; 
+    padding-bottom: 20px;
+}
+.product-page .section1 .block .images-blocks.mob .slick-slide img {
+    display: block;
+    width: 100%;
+}
+.product-page .section1 .block .images-blocks.mob .slick-dots {
+    bottom: -25px;
 }
 .product-page .section1 .block .general-image{
     width: 100%;
@@ -1185,13 +1238,12 @@
     color: #4a90e2;
     outline: none;
 }
-.shopping-cart .section .block:last-child .prod_card .block:nth-child(2),
-.shopping-cart .section .block:first-child .inps .input_div{
+.shopping-cart .section .block:last-child .prod_card .block:nth-child(2){
     position: relative;
 }
 .product-page .daypick-wrapper,
 .prod_card .daypick-wrapper,
-.shopping-cart .section .block:first-child .DayPicker-wrapper{
+.shopping-cart .section .block:first-child .dp-wrapper{
     position: absolute;
     border-radius: 3px;
     background: white;
@@ -1202,19 +1254,20 @@
     left: -260px;
     bottom: 0;
 }
+.shopping-cart .section .block:first-child .dp-wrapper{
+    bottom: -295px;
+}
 .prod_card .daypick-wrapper{
     left: -290px;
     top: -30px;
 }
 .product-page .daypick-wrapper .btns-wrapper,
-.prod_card .daypick-wrapper .btns-wrapper,
-.shopping-cart .section .block:first-child .daypick-wrapper .btns-wrapper{
+.prod_card .daypick-wrapper .btns-wrapper{
     margin: 0 23px 23px;
     display: flex;
 }
 .product-page .daypick-wrapper .btns-wrapper button,
-.prod_card .daypick-wrapper .btns-wrapper button,
-.shopping-cart .section .block:first-child .daypick-wrapper .btns-wrapper button{
+.prod_card .daypick-wrapper .btns-wrapper button{
     padding: 10px 0;
     width: 50%;
     transition: 0.3s;
@@ -1266,6 +1319,19 @@
     font-weight: 700;
     padding: 12.5px 20px;
     border-radius: 3px 3px 0 0;
+}
+.shopping-cart .section .block:first-child .dp-wrapper::before{
+    content: 'Ընտրեք առաքման օրը';
+    color: white;
+    background: #147EC2;
+    font-size: 14px;
+    font-family: 'Arial';
+    font-weight: 700;
+    padding: 12.5px 55px;
+    border-radius: 3px 3px 0 0;
+}
+.shopping-cart .section .block:first-child .DayPicker-NavBar{
+    margin-top: 10px;
 }
 .product-page .Selectable .DayPicker-Day,
 .prod_card .Selectable .DayPicker-Day{
@@ -1419,6 +1485,7 @@
     color: #C6C6C6;
 }
 .shopping-cart .section .block:first-child .inps .input_div{
+    position: relative;
     width: 50%;
     border: 0.5px solid #C6C6C6;
     border-radius: 3px;
@@ -1426,6 +1493,12 @@
     outline: none;
     display: flex;
     justify-content: space-between;
+}
+.shopping-cart .section .block:first-child .inps .input_div p{
+    width: 100%;
+    font-size: 18px;
+    padding: 20px 18px;
+    cursor: pointer;
 }
 .shopping-cart .section .block:first-child .inps div input{
     border: none;

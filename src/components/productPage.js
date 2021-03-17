@@ -1,8 +1,14 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
+// Day Picker
 import DayPicker, { DateUtils } from 'react-day-picker';
 import 'react-day-picker/lib/style.css';
+
+// React-slick (slider)
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
 
 
 // Components
@@ -72,6 +78,7 @@ export default class ProductPage extends React.Component{
         this.redirect = true
 
     }
+
 
 
     chooseImg = (idx) => {
@@ -357,9 +364,19 @@ export default class ProductPage extends React.Component{
 
     }
 
+
+
     render(){
         const { from, to } = this.state;
         const modifiers = { start: from, end: to };
+
+        const settings = {
+            dots: true,
+            infinite: true,
+            speed: 250,
+            slidesToShow: 1,
+            slidesToScroll: 1
+        };
 
         return(
             <div className='product-page'>
@@ -388,6 +405,20 @@ export default class ProductPage extends React.Component{
                                     )
                                 })
                             }
+                            </div>
+
+                            <div ref={this.images_blocks} className='images-blocks mob'>
+                                <Slider {...settings}>
+                                    {
+                                        this.state.product.images.map((img, idx)=>{
+                                            return(
+                                                <div className='slide' key={idx}>
+                                                    <img src={img} alt='product'/>
+                                                </div>
+                                            )
+                                        })
+                                    }
+                                </Slider>
                             </div>
 
                             <div className='general-image'>

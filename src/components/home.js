@@ -135,7 +135,7 @@ export default class Home extends React.Component{
                                     pathname:`/filter/${card.section}/${card.category}`,
                                     product: card.type
                                 }} className='card' key={idx}>
-                                    <div className='img-wrapper'>
+                                    <div className='img-wrapper service'>
                                         <img src={card.image} alt='subject'/>
                                     </div>
                                     <div className='name-wrapper'>

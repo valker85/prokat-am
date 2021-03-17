@@ -406,6 +406,7 @@ class Category extends React.Component{
         })
     }
 
+    
     render(){
 
         return(
@@ -419,6 +420,8 @@ class Category extends React.Component{
                             <input ref={this.searchInput} name='category'/>
                             <button>Որոնել</button>
                         </div>
+
+                        <button className='mob'>Որոնել</button>
                     </div>
                 </div>
 
