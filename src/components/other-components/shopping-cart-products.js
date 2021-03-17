@@ -228,8 +228,9 @@ export default class Terms extends React.Component{
                             <img src={this.state.product.img} alt='product img' />
                         </div>
                     </div>
+
                     <div className='block'>
-                        <h1>{this.state.product.name}</h1>
+                        <h1 className='desktop_name'>{this.state.product.name}</h1>
 
 
                         <div className="RangeExample">
@@ -265,13 +266,6 @@ export default class Terms extends React.Component{
                                 />
 
                                 <div className='btns-wrapper'>
-                                    {/* <button
-                                        disabled={Boolean(from) !== true && Boolean(from) !== true ? true:false}
-                                        className="link"
-                                        onClick={this.handleResetClick}>
-
-                                        Մաքրել
-                                    </button> */}
 
                                     <button
                                         type='button'
@@ -294,7 +288,9 @@ export default class Terms extends React.Component{
                             <button onClick={this.counter.bind(null, '+')}>+</button>
                         </div>
                     </div>
+                   
                     <div className='block'>
+                        <h1 className='mob_name'>{this.state.product.name}</h1>
                         <h3 className='prise'>{this.state.product.total_prise} <span>դր</span></h3>
                     </div>
                 </div>

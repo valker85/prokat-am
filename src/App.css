@@ -1241,6 +1241,9 @@
 .shopping-cart .section .block:last-child .prod_card .block:nth-child(2){
     position: relative;
 }
+.shopping-cart .section .block:last-child .prod_card .block:last-child .mob_name{
+    display: none;
+}
 .product-page .daypick-wrapper,
 .prod_card .daypick-wrapper,
 .shopping-cart .section .block:first-child .dp-wrapper{
@@ -1255,7 +1258,8 @@
     bottom: 0;
 }
 .shopping-cart .section .block:first-child .dp-wrapper{
-    bottom: -295px;
+    /* bottom: -295px; */
+    top: 60px;
 }
 .prod_card .daypick-wrapper{
     left: -290px;
@@ -1329,9 +1333,24 @@
     font-weight: 700;
     padding: 12.5px 55px;
     border-radius: 3px 3px 0 0;
+    white-space: nowrap;
 }
 .shopping-cart .section .block:first-child .DayPicker-NavBar{
     margin-top: 10px;
+}
+.shopping-cart .mob_btns{
+    display: none;
+}
+.shopping-cart .mob_btns button{
+    width: 100%;
+    background: #F8F8F8;
+    border: 0.5px solid #C6C6C6;
+    border-radius: 3px;
+    color: #5C5C5C;
+    font-size: 18px;
+    padding: 13.5px 0;
+    margin-bottom: 70px;
+    outline: none;
 }
 .product-page .Selectable .DayPicker-Day,
 .prod_card .Selectable .DayPicker-Day{
@@ -1595,6 +1614,9 @@
 }
 .shopping-cart .section .block:last-child h1{
     margin-left: 40px;
+}
+.shopping-cart .section .block:last-child h1 .mob_span{
+    display: none;
 }
 .shopping-cart .section .block:last-child .line{
     width: 100%;

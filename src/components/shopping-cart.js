@@ -29,14 +29,17 @@ class ShoppingCart extends React.Component{
             here: this,
             festHaveProd: false,
             fromFest: false,
-            selectedDay: undefined
+            selectedDay: undefined,
+            mob_tab: 1
         }
 
         this.file_input_p = React.createRef()
         this.dayPicker = React.createRef()
         this.form = React.createRef()
+        this.section = React.createRef()
 
         this.picker_open = false
+        this.mob_tab_flag = 1
 
         this.myStorage = window.localStorage
     }
@@ -166,6 +169,29 @@ class ShoppingCart extends React.Component{
         console.log(this.state.products)
     }
 
+    mob_tabs = () =>{
+        let blocks = this.section.current.childNodes
+
+        if(this.state.mob_tab === 1){
+            this.setState({
+                mob_tab: 2
+            })
+
+
+            blocks[0].className = 'block view'
+            blocks[1].className = 'block'
+
+        } else{
+
+            this.setState({
+                mob_tab: 1
+            })
+
+            blocks[0].className = 'block'
+            blocks[1].className = 'block view'
+        }
+    }
+
     componentDidMount(){
         let prods = JSON.parse(this.myStorage.getItem('products'))
         let total_prise = 0
@@ -219,7 +245,7 @@ class ShoppingCart extends React.Component{
             })
         })
 
-        console.log(this.props)
+        // console.log(this.props)
     }
 
 
@@ -235,10 +261,11 @@ class ShoppingCart extends React.Component{
                     </div>
                     :     
                     <div className='container160'>
-                        <div className='section'>
+                        <div ref={this.section} className='section'>
+
                             <div className='block'>
                                 <form ref={this.form}>
-                                    <h1 onClick={()=>{}}>Պատվերի ձևակերպում</h1>
+                                    <h1><span className='mob_span'>{this.state.mob_tab}.</span> Պատվերի ձևակերպում</h1>
                                     <div className='inps'>
                                         <input placeholder='Անուն*' name='name' />
                                         <input placeholder='Email*' name='email' />
@@ -248,7 +275,6 @@ class ShoppingCart extends React.Component{
                                         <input placeholder='Հեռախոս*' name='phone' />
 
                                         <div className='input_div'>
-                                            
                                             {
                                                 this.state.selectedDay ? (
                                                 <p onClick={this.open_calendar}>Առաքման օր {this.state.selectedDay.toLocaleDateString()}</p>
@@ -302,14 +328,11 @@ class ShoppingCart extends React.Component{
                                     }
                                     <p className='info'>Հարգելի հաճախորդ, պատվերի նախնական գրանցումից հետո մեր օպերատորը կզանգահարի Ձեզ՝ պատվերի վերջնական հաստատման համար:</p>
                                     <button onClick={this.orderFunction} className='submit' type='button'>Պատվիրել</button>
-
-
-
                                 </form>
                             </div>
 
-                            <div className='block'>
-                                <h1>Ձեր պատվերը</h1>
+                            <div className='block view'>
+                                <h1><span className='mob_span'>{this.state.mob_tab}.</span> Ձեր պատվերը</h1>
 
                                 {
                                     this.state.products === null ? 
@@ -341,6 +364,13 @@ class ShoppingCart extends React.Component{
                                     <h3>{this.state.total_prise} <span>դր</span></h3>
                                 </div>
                             </div>
+ 
+                        </div>
+
+                        <div className='mob_btns'>
+                            <button onClick={this.mob_tabs}>
+                                {this.state.mob_tab === 1?'Պատվերի ձևակերպում':'Նախորդ էջ'}
+                            </button>
                         </div>
                     </div>
                 }

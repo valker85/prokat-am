@@ -191,16 +191,6 @@
 /* ========================================================================= */
 /* ========================================================================= */
 /* ========================================================================= */
-/* ----------  BURGER MENU and HEADER  --------- */
-
-@media only screen and (max-width: 812px){
-
-}
-
-/* --------------------------------------------- */
-/* ========================================================================= */
-/* ========================================================================= */
-/* ========================================================================= */
 /* ==================    Labtop 1024px  */
 
 @media only screen and (max-width: 1150px) and (min-width: 769px) and (min-height: 500px){
@@ -421,7 +411,83 @@
         margin-top: 100px;
         margin-bottom: 50px;
     }
-
+    /* /////////////////////////////// */
+    .shopping-cart .section .block:first-child {
+        margin-right: 2.5vw;
+    }
+    .shopping-cart .section .block h1 {
+        margin-bottom: 30px;
+        font-size: 24px;
+    }
+    .shopping-cart .section .block:first-child .inps input:first-child {
+        margin-right: 10px;
+    }
+    .shopping-cart .container160 {
+        margin-left: 3vw;
+        margin-right: 3vw;
+    }
+    .shopping-cart .path .container160{
+        margin-left: 5vw;
+        margin-right: 5vw;
+    }
+    .shopping-cart .section .block:first-child .inps {
+        margin-bottom: 20px;
+    }
+    .shopping-cart .section .block:first-child input, .shopping-cart .section .block:first-child textarea{
+        font-size: 15px;
+    }
+    .shopping-cart .section .block:first-child .inps .input_div p {
+        font-size: 15px;
+        padding: 18px 15px;
+    }
+    .shopping-cart .section .block:first-child input, .shopping-cart .section .block:first-child textarea {
+        padding: 18px 15px;
+    }
+    .shopping-cart .section .block:first-child .dp-wrapper{
+        left: -20px;
+    }
+    .shopping-cart .section .block:first-child img{
+        width: 20px;
+    }
+    .shopping-cart .section .block:first-child .inps .input_div p {
+        font-size: 1.3vw;
+    }
+    .shopping-cart .section .block:first-child form label {
+        font-size: 1.6vw;
+        cursor: pointer;
+    }
+    .shopping-cart .section .block:first-child form textarea {
+        min-width: unset;
+        max-width: unset;
+        min-height: 155px;
+        max-height: 155px;
+        width: 100%;
+        resize: none;
+    }
+    .shopping-cart .section .block:first-child .id_card p {
+        font-size: 1.7vw;
+        color: #353535;
+    }
+    .shopping-cart .section .block:last-child .promo {
+        padding: 30px 20px 55px;
+    }
+    .shopping-cart .section .block:last-child .promo form button {
+        font-size: 1.6vw;
+    }
+    .shopping-cart .section .block:last-child .promo form input {
+        margin-right: 12px;
+        padding: 18px 15px;
+        font-size: 15px;
+    }
+    .shopping-cart .section .block:last-child .total_prise h2 {
+        font-size: 24px;
+    }
+    .shopping-cart .section .block:last-child .total_prise h3 {
+        font-size: 26px;
+    }
+    .shopping-cart .section .block:first-child form button.submit{
+        font-size: 22px;
+    }
 }
 
 /*  1024px end  */
@@ -1187,6 +1253,162 @@
         width: 95%;
         left: 10px;
     }
+    /* ///////////////////////////////// */
+    .shopping-cart .path{
+        display: none;
+    }
+    .shopping-cart .section{
+        flex-direction: column;
+    }
+    .shopping-cart .section .block:first-child{
+        margin-left: 0;
+    }
+    .shopping-cart .section .block {
+        padding-top: 30px;
+        width: 100%;
+        display: none;
+    }
+    .shopping-cart .mob_btns{
+        display: block;
+    }
+    .shopping-cart .block.view{
+        display: block;
+    }
+    .shopping-cart .section .block:last-child h1 .mob_span{
+        display: inline-block;
+    }
+    .shopping-cart .section .block:last-child h1{
+        font-size: 24px;
+        margin-left: 15px;
+    }
+    .shopping-cart .section .block:last-child{
+        padding-bottom: 20px;
+    }
+    .shopping-cart .section{
+        margin-top: 15px;
+    }
+    .shopping-cart .section .block:last-child .havent_prods{
+        font-size: 19px;
+        margin: 60px 15px;
+    }
+    .shopping-cart .section .block:last-child .promo {
+        padding: 30px 15px 40px;
+    }
+    .shopping-cart .section .block:last-child .promo form {
+        display: flex;
+        flex-direction: column;
+    }
+    .shopping-cart .section .block:last-child .promo form button {
+        width: 100%;
+        min-width: unset;
+        border-radius: 3px;
+        font-size: 24px;
+        padding: 18px 0;
+        margin-top: 20px;
+    }
+    .shopping-cart .section .block:last-child .total_prise {
+        display: flex;
+        justify-content: space-between;
+        padding: 0 15px 0;
+    }
+    .shopping-cart .section .block:last-child .total_prise h2 {
+        color: #114F9F;
+        font-size: 18px;
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+    .shopping-cart .section .block:last-child .total_prise {
+        display: flex;
+        justify-content: space-between;
+        padding: 0 15px 0;
+        align-items: center;
+    }
+    .shopping-cart .section .block:last-child .prod_card .content .block{
+        display: block;
+    }
+    .shopping-cart .section .block:last-child .prod_card .content .block .img_block{
+        width: 100%;
+    }
+    .shopping-cart .section {
+        padding-bottom: 30px;
+    }
+    .shopping-cart .section .block:last-child .prod_card .block:first-child{
+        width: 40%;
+    }
+    .shopping-cart .section .block:last-child .prod_card .block:nth-child(2){
+        order: 2;
+    }
+    .shopping-cart .section .block:last-child .prod_card .block:nth-child(2) .desktop_name{
+        display: none;
+    }
+    .shopping-cart .section .block:last-child .prod_card .block:last-child{
+        order: 1;
+        width: 60%;
+    }
+    .shopping-cart .section .block:last-child .prod_card .block:last-child .mob_name{
+        display: block;
+        margin-left: 10px;
+
+    }
+    .shopping-cart .section .block:last-child .prod_card .content .prise{
+        text-align: left;
+        margin-left: 10px;
+    }
+    .shopping-cart .section .block:last-child .prod_card .content{
+        flex-wrap: wrap;
+    }
+    .shopping-cart .section .block:last-child .prod_card .content .block:last-child{
+        margin-left: 0;
+    }
+    .shopping-cart .section .block:last-child .prod_card .content .block:first-child{
+        margin-right: 0;
+    }
+    .shopping-cart .section .block:last-child .prod_card .content .block .img_block{
+        height: 120px;
+    }
+    .shopping-cart .section .block:last-child .prod_card .content h1{
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+    .shopping-cart .section .block:last-child .prod_card .content .prise {
+        font-size: 24px;
+    }
+    .shopping-cart .section .block:last-child .prod_card .content {
+        padding: 30px 15px 40px;
+    }
+    .prod_card .daypick-wrapper {
+        left: 0;
+        top: 100px;
+    }
+    .shopping-cart .section .block:last-child .prod_card .content .counter {
+        width: 100%;
+    }
+    .shopping-cart .section .block h1 {
+        font-size: 6.5vw;
+    }
+    .shopping-cart .section .block:first-child .inps {
+        flex-direction: column;
+    }
+    .shopping-cart .section .block:first-child .inps input:first-child{
+        margin-right: 0;
+        width: 100%;
+    }
+    .shopping-cart .section .block:first-child .inps input {
+        width: 100%;
+        margin-top: 20px;
+    }
+    .shopping-cart .section .block:first-child .inps{
+        margin-bottom: 0;
+    }
+    .shopping-cart .section .block:first-child .inps .input_div{
+        width: 100%;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    shopping-cart .section .block:first-child .dp-wrapper {
+        left: -1px;
+    }
+
 }
 
 /* only 425px */
