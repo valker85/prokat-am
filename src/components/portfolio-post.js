@@ -130,7 +130,7 @@ class PortfolioPost extends React.Component{
         const settings = {
             dots: true,
             infinite: true,
-            speed: 500,
+            speed: 300,
             slidesToShow: 1,
             slidesToScroll: 1
         };
@@ -143,6 +143,7 @@ class PortfolioPost extends React.Component{
                     <div className='content'>
                         <span onClick={this.modal_fun.bind(null, false)} className='closeModal'>✖</span>
                         <h1>{this.state.postname}</h1>
+
                         <Slider {...settings}>
                         {
                             this.state.slides.map((slide, idx)=>{
@@ -171,7 +172,8 @@ class PortfolioPost extends React.Component{
                 </div>
 
                 <div className='container160'>
-                    <h1>{this.state.data.postname}</h1>
+                    <h1>{this.state.postname}</h1>
+
 
                     <div className='content-wrapper'>
                     {

@@ -2370,6 +2370,9 @@
 .contact-us .content .info .info-block li:not(:last-child){
     margin-bottom: 25px;
 }
+.contact-us .content .info .info-block li br{
+    display: none;
+}
 .contact-us .content .info .info-block:last-child{
     font-size: 18px;
     font-weight: 400;
@@ -2433,8 +2436,12 @@
 .contact-us .content form button:hover{
     background: #114F9F;
 }
-
-
+.contact-us .map.desktop{
+    display: block;
+}
+.contact-us .map.mob{
+    display: none;
+}
 /* 
   3px - 0.157vw
   5px - 0.261vw
