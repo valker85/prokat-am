@@ -2,6 +2,7 @@ import React from 'react';
 
 // Components
 import Path from '../components/other-components/path'
+import Header from './other-components/header';
 
 
 // Images
@@ -44,6 +45,8 @@ export default class Portfolio extends React.Component{
 
     render(){
         return(
+            <>
+            <Header/>
             <div className='portfolio'>
                 <Path/>
 
@@ -65,6 +68,7 @@ export default class Portfolio extends React.Component{
                     </div>
                 </div>
             </div>
+            </>
         )
     }
 }

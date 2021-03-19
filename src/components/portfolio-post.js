@@ -9,6 +9,7 @@ import "slick-carousel/slick/slick-theme.css";
 
 // Components
 import Path from '../components/other-components/path'
+import Header from './other-components/header';
 
 
 // Images
@@ -136,6 +137,8 @@ class PortfolioPost extends React.Component{
         };
 
         return(
+            <>
+            <Header/>
             <div ref={this.pp_ref} className='portfolio-post'>
                 <Path/>
 
@@ -261,6 +264,7 @@ class PortfolioPost extends React.Component{
                     </div>
                 </div>
             </div>
+            </>
         )
     }
 }

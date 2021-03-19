@@ -10,10 +10,9 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 
-
 // Components
 import Path from './other-components/path'
-
+import Header from './other-components/header';
 
 // Products
 import Products from './other-components/ordered_prods'
@@ -73,6 +72,7 @@ export default class ProductPage extends React.Component{
         this.myStorage = window.localStorage
         this.images_blocks = React.createRef()
         this.dayPicker = React.createRef()
+        this.headerRef = React.createRef()
 
         this.picker_open = false
         this.redirect = true
@@ -346,9 +346,7 @@ export default class ProductPage extends React.Component{
         //     id:100
         // }
 
-        
-
-
+    
 
         // setTimeout(()=>{
         this.setState({
@@ -379,6 +377,8 @@ export default class ProductPage extends React.Component{
         };
 
         return(
+            <>
+            <Header ref={this.headerRef}/>
             <div className='product-page'>
                 <Path/>
 
@@ -586,6 +586,7 @@ export default class ProductPage extends React.Component{
                     </div>
                 </div>
             </div>
+            </>
         )
     }
 }

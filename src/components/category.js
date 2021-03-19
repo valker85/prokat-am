@@ -2,6 +2,7 @@ import React from 'react';
 
 // components
 import Path from './other-components/path'
+import Header from './other-components/header';
 
 // images
 import Search from '../assets/img/home/search.svg'
@@ -410,6 +411,8 @@ class Category extends React.Component{
     render(){
 
         return(
+            <>
+            <Header/>
             <div className='category'>
                 <Path/>
 
@@ -626,6 +629,7 @@ class Category extends React.Component{
                     </div>
                 </div>
             </div>
+            </>
         )
     }
 }

@@ -79,6 +79,12 @@ export default class Header extends React.Component{
         uls[num].classList.add('active')
     }
 
+    haveProd = (prop) => {
+        this.setState({
+            empty: prop
+        })
+    }
+
     componentDidMount(){
         let storage_prods = JSON.parse(window.localStorage.getItem('products'))
 

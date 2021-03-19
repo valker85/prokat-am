@@ -2,6 +2,7 @@ import React from 'react'
 
 // Components
 import Path from '../components/other-components/path'
+import Header from './other-components/header';
 
 // Images
 import Img from '../assets/img/contact-us/img.png'
@@ -9,6 +10,8 @@ import Img from '../assets/img/contact-us/img.png'
 export default class ContactUs extends React.Component{
     render(){
         return(
+            <>
+            <Header/>
             <div className='contact-us'>
                 <Path/>
 
@@ -82,6 +85,7 @@ export default class ContactUs extends React.Component{
                     </iframe>
                 </div>
             </div>
+            </>
         )
     }
 }

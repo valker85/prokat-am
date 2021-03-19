@@ -1398,6 +1398,7 @@
 .product-page .section1 .block .other-content .RangeExample p img,
 .prod_card .RangeExample p img{
     float: right;
+    width: 1.1vw;
 }
 .product-page .errorBlock{
     border-radius: 3px;
@@ -1661,7 +1662,7 @@
     border: 0.5px solid #C6C6C6;
     color: #353535;
     background: white;
-    font-size: 18px;
+    font-size: 0.9vw;
     margin-top: 30px;
 }
 .shopping-cart .section .block:last-child .prod_card .content .counter{
@@ -2184,7 +2185,7 @@
     cursor: pointer;
 }
 .fest-page .content .pic-block.video{
-    width: 98.5%;
+    width: 38.6vw;
     cursor: inherit;
 }
 .fest-page .content .pic-block{

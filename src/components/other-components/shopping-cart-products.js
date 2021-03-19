@@ -146,6 +146,8 @@ export default class Terms extends React.Component{
     counter = (sign) =>{
         let product = this.state.product
 
+        // console.log(this.state.product)
+
         // let count = products[idx].count
         let prise = product.prod_prise
         let new_total_prise = product.total_prise
@@ -193,26 +195,64 @@ export default class Terms extends React.Component{
     componentDidMount(){
         let dlt = this.props.prod.count === 1 ? true : false
         let product = this.props.prod
+    
+        console.log(product);
+    
         // let from = this.props.prod.from.replace(/(\d+).(\d+).(\d+)/, '$3/$2/$1')
         // let to = this.props.prod.to.replace(/(\d+).(\d+).(\d+)/, '$3/$2/$1')
-
+    
         let from = new Date(this.props.prod.from)
         let to = new Date(this.props.prod.to)
-
+    
         setTimeout(() => {
             product.from = new Date(this.props.prod.from)
             product.to = new Date(this.props.prod.to)
-
+    
             this.setState({
                 product: product,
                 delete_btn: dlt,
                 start_from: from,
                 start_to: to
             })
-
+    
         })
     }
 
+//     componentWillUpdate(){
+//         // this.props.prod === this.state.product
+//         // this.qwerty()
+//     }
+
+// qwerty = () =>{
+    // let dlt = this.props.prod.count === 1 ? true : false
+    // let product = this.props.prod
+
+    // console.log(product);
+
+    // // let from = this.props.prod.from.replace(/(\d+).(\d+).(\d+)/, '$3/$2/$1')
+    // // let to = this.props.prod.to.replace(/(\d+).(\d+).(\d+)/, '$3/$2/$1')
+
+    // let from = new Date(this.props.prod.from)
+    // let to = new Date(this.props.prod.to)
+
+    // setTimeout(() => {
+    //     product.from = new Date(this.props.prod.from)
+    //     product.to = new Date(this.props.prod.to)
+
+    //     this.setState({
+    //         product: product,
+    //         delete_btn: dlt,
+    //         start_from: from,
+    //         start_to: to
+    //     })
+
+    // })
+// }
+
+
+    changes = () =>{
+        console.log()
+    }
 
     
     render(){
@@ -230,8 +270,7 @@ export default class Terms extends React.Component{
                     </div>
 
                     <div className='block'>
-                        <h1 className='desktop_name'>{this.state.product.name}</h1>
-
+                        <h1 className='desktop_name'>{this.props.prod.name}</h1>
 
                         <div className="RangeExample">
                             <p className={this.state.redirect ? 'redirect':'error_date'} 

@@ -12,6 +12,7 @@ import "slick-carousel/slick/slick-theme.css";
 // Components
 import Path from '../components/other-components/path'
 import Products from './other-components/ordered_prods'
+import Header from './other-components/header';
 
 
 // Images
@@ -163,7 +164,7 @@ class FestivalPage extends React.Component{
             new_order.from = needed_products[i].from
             new_order.to = needed_products[i].to
             new_order.count = needed_products[i].count
-            new_order.prise = needed_products[i].prise
+            new_order.prod_prise = needed_products[i].prise
             new_order.total_prise = needed_products[i].total_prise
             new_order.id = needed_products[i].id
 
@@ -219,7 +220,6 @@ class FestivalPage extends React.Component{
         })
     }
 
-
     modal_fun = (todo) =>{
         this.modal_flag = todo
 
@@ -239,7 +239,6 @@ class FestivalPage extends React.Component{
             root.style.overflow = 'hidden'
         }
     }
-
 
     addProd = (product, event) => {
         let all_prods = this.state.needed_products
@@ -261,9 +260,6 @@ class FestivalPage extends React.Component{
         })
     }
 
-
-
-
     componentDidMount(){
         // console.log(this.props.location.pathname)
     }
@@ -280,6 +276,8 @@ class FestivalPage extends React.Component{
 
 
         return(
+            <>
+            <Header/>
             <div ref={this.pp_ref} className='fest-page'>
                 <Path/>
 
@@ -453,6 +451,7 @@ class FestivalPage extends React.Component{
                     </div>
                 </div>
             </div>
+            </>
         )
     }
 }

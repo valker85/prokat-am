@@ -7,6 +7,7 @@ import 'react-day-picker/lib/style.css';
 // Components
 import Path from '../components/other-components/path'
 import ShoppingCartProducts from './other-components/shopping-cart-products'
+import Header from './other-components/header';
 
 
 // Images
@@ -37,6 +38,7 @@ class ShoppingCart extends React.Component{
         this.dayPicker = React.createRef()
         this.form = React.createRef()
         this.section = React.createRef()
+        this.headerRef = React.createRef()
 
         this.picker_open = false
         this.mob_tab_flag = 1
@@ -56,10 +58,7 @@ class ShoppingCart extends React.Component{
         obj.img = this.state.img
         obj.ordered_products = this.state.products
 
-
-
-
-        console.log(obj)
+        // console.log(obj)
     }
 
     // Day Picker ===================
@@ -115,7 +114,10 @@ class ShoppingCart extends React.Component{
 
     deleteProduct = (product) =>{
         let all_products = JSON.parse(window.localStorage.getItem('products'))
-        let here = this
+        // let here = this
+
+        // console.log(product);
+        // console.log(all_products);
 
         for (let i = 0; i < all_products.length; i++) {
             if(all_products[i].id === product.id){
@@ -123,23 +125,30 @@ class ShoppingCart extends React.Component{
             }
         }
 
-        async function name() {
-            if(all_products.length === 0){
-                here.setState({
-                    products: null
-                })
-                window.localStorage.removeItem('products')
-
-            } else {
-
-                here.setState({
-                    products: all_products
-                })
-                window.localStorage.setItem('products', JSON.stringify(all_products))
-            }
-        }
-        name()
+        this.updateCard(all_products)
     }
+    componentDidUpdate(){
+
+    }
+    updateCard = (all_products) => {
+        if(all_products.length === 0){
+            this.setState({
+                products: null
+            })
+            window.localStorage.removeItem('products')
+
+        } else {
+
+            console.log(all_products);
+
+            this.setState({
+                products: all_products
+            }, ()=>console.log(this.state.products))
+            
+            window.localStorage.setItem('products', JSON.stringify(all_products))
+        }
+    }
+
 
     updateStorage(product) {
         // console.log(product.total_prise)
@@ -202,11 +211,10 @@ class ShoppingCart extends React.Component{
             }
         }
 
-
         // ///////////////////  FESTIVALS  ///////////////////
 
         if(this.props.location.state){
-            if(Boolean(this.props.location.state.have) === true && this.props.location.state.have === false){
+            if(Boolean(this.props.location.state) === true && this.props.location.state.have === false){
                 setTimeout(()=>{
                     this.setState({
                         festHaveProd: true
@@ -221,7 +229,7 @@ class ShoppingCart extends React.Component{
                 })
             })
         }
-
+        
         setTimeout(()=>{
             if(Boolean(this.props.location.state) === true && this.props.location.state.from === 'fest-page'){
                 this.setState({
@@ -237,6 +245,11 @@ class ShoppingCart extends React.Component{
         })
 
         // ///////////////////////////////////////////////////
+        // ///////////////////////////////////////////////////
+        // ///////////////////////////////////////////////////
+        // ///////////////////////////////////////////////////
+        // ///////////////////////////////////////////////////
+        // ///////////////////////////////////////////////////
 
         setTimeout(()=>{
             this.setState({
@@ -244,13 +257,21 @@ class ShoppingCart extends React.Component{
                 total_prise: total_prise
             })
         })
+    }
 
-        // console.log(this.props)
+    componentDidUpdate(){
+        if(this.state.products === null || this.state.products.length === 0){
+            this.headerRef.current.haveProd(true)
+        } else{
+            this.headerRef.current.haveProd(false)
+        }
     }
 
 
     render(){
         return(
+            <>
+            <Header  ref={this.headerRef}/>
             <div className='shopping-cart'>
                 <Path/>
                 {
@@ -339,12 +360,16 @@ class ShoppingCart extends React.Component{
                                     <h1 className='havent_prods'>Ձեր զամբյուղում ոչ մի ապրանք չկա:</h1> :
                                     this.state.products.map((prod, idx)=>{
                                         return(
-                                            <ShoppingCartProducts 
+                                            <div>
+                                                {JSON.stringify(prod)}
+                                                <ShoppingCartProducts 
                                                 deleteProduct={this.deleteProduct}
                                                 update={this} 
                                                 prod={prod} 
                                                 key={idx} 
                                             />
+                                            </div>
+                                            
                                         )
                                     })
                                 }
@@ -375,6 +400,7 @@ class ShoppingCart extends React.Component{
                     </div>
                 }
             </div>
+            </>
         )
     }
 }

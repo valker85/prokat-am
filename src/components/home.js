@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
 
 // Componets
+import Header from './other-components/header';
 
 
 // images
@@ -86,7 +87,6 @@ export default class Home extends React.Component{
         this.searchInput.current.placeholder = 'ամենաշատը փնտրւմ են վրաններ, հեծանիվներ և համակարգիչներ'
     }
 
-
     changeTab = (index) =>{
         let tabs = this.tabs.current.childNodes
 
@@ -100,7 +100,6 @@ export default class Home extends React.Component{
             tab: index+1
         })
     }
-
 
     tabFun = () =>{
         if(this.state.tab === 1){
@@ -150,7 +149,6 @@ export default class Home extends React.Component{
         }
     }
 
-
     topProds = () => {
         return(
             <div className='top_prods'>
@@ -198,9 +196,10 @@ export default class Home extends React.Component{
     }
 
 
-
     render(){
         return(
+            <>
+            <Header/>
             <div className='home'>
                 <div className='section1'>
                     <div className='container160'>
@@ -237,6 +236,7 @@ export default class Home extends React.Component{
                     </div>
                 </div>
             </div>
+            </>
         )
     }
 }

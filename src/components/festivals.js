@@ -2,6 +2,7 @@ import React from 'react';
 
 // Components
 import Path from '../components/other-components/path'
+import Header from './other-components/header';
 
 
 // Images
@@ -53,6 +54,8 @@ export default class Festival extends React.Component{
 
     render(){
         return(
+            <>
+            <Header/>
             <div className='festivals'>
                 <Path/>
 
@@ -99,6 +102,7 @@ export default class Festival extends React.Component{
                     }
                 </div>
             </div>
+            </>
         )
     }
 }

@@ -2,6 +2,7 @@ import React from 'react';
 
 // Components
 import Path from '../components/other-components/path'
+import Header from './other-components/header';
 
 // Images
 import Img1 from '../assets/img/charity-events/img1.png'
@@ -28,6 +29,8 @@ export default class CharityEvents extends React.Component{
 
     render(){
         return(
+            <>
+            <Header/>
             <div className='charity-events'>
                 <Path/>
 
@@ -55,6 +58,7 @@ export default class CharityEvents extends React.Component{
                     </div>
                 </div>
             </div>
+            </>
         )
     }
 }

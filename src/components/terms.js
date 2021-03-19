@@ -2,6 +2,7 @@ import React from 'react';
 
 // Components
 import Path from '../components/other-components/path'
+import Header from './other-components/header';
 
 
 export default class Terms extends React.Component{
@@ -9,6 +10,8 @@ export default class Terms extends React.Component{
 
     render(){
         return(
+            <>
+            <Header/>
             <div className='about terms'>
                 <Path/>
 
@@ -54,6 +57,7 @@ export default class Terms extends React.Component{
                     </div>
                 </div>
             </div>
+            </>
         )
     }
 }

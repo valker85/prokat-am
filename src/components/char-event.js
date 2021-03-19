@@ -2,7 +2,7 @@ import React from 'react';
 
 // Components
 import Path from '../components/other-components/path'
-
+import Header from './other-components/header';
 
 // Images
 import GeneralImg from '../assets/img/char-event/genImg.png'
@@ -53,6 +53,8 @@ export default class CharEvent extends React.Component{
 
     render(){
         return(
+            <>
+            <Header/>
             <div className='char-event'>
                 <Path/>
 
@@ -132,6 +134,7 @@ export default class CharEvent extends React.Component{
                 </div>
 
             </div>
+            </>
         )
     }
 }
