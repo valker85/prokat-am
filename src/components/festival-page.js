@@ -161,8 +161,8 @@ class FestivalPage extends React.Component{
             new_order.img = needed_products[i].img_for_busket
             new_order.name = needed_products[i].name
             new_order.days = needed_products[i].days
-            new_order.from = needed_products[i].from
-            new_order.to = needed_products[i].to
+            new_order.from = new Date(needed_products[i].from)
+            new_order.to = new Date(needed_products[i].to)
             new_order.count = needed_products[i].count
             new_order.prod_prise = needed_products[i].prise
             new_order.total_prise = needed_products[i].total_prise
@@ -294,14 +294,17 @@ class FestivalPage extends React.Component{
                                         {
                                             slide.type === 'img' ?
                                             <img src={slide.src} alt='img'/> :
-                                            <iframe 
-                                            title='video'
-                                            src={slide.src} 
-                                            width="100%" 
-                                            height="100%" 
-                                            frameBorder="0" 
-                                            allowFullScreen>
-                                            </iframe>
+                                            // <iframe 
+                                            //     title='video'
+                                            //     src={slide.src} 
+                                            //     width="100%" 
+                                            //     height="100%" 
+                                            //     frameBorder="0" 
+                                            //     allowFullScreen>
+                                            // </iframe>
+                                            <video poster={slide.poster} controls>
+                                                <source src={slide.src} type="video/mp4"/>
+                                            </video>
                                         }
 
                                         {/* <div>{`${idx+1} — ${this.state.slides.length}`}</div> */}

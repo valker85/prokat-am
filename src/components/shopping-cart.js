@@ -114,10 +114,7 @@ class ShoppingCart extends React.Component{
 
     deleteProduct = (product) =>{
         let all_products = JSON.parse(window.localStorage.getItem('products'))
-        // let here = this
-
-        // console.log(product);
-        // console.log(all_products);
+        let prise = 0
 
         for (let i = 0; i < all_products.length; i++) {
             if(all_products[i].id === product.id){
@@ -125,11 +122,19 @@ class ShoppingCart extends React.Component{
             }
         }
 
+        for (let i = 0; i < all_products.length; i++) {
+            prise += all_products[i].total_prise
+        }
+
+        this.setState({
+            total_prise: prise
+        })
+
+        console.log(`Total price: ${prise}`)
+
         this.updateCard(all_products)
     }
-    componentDidUpdate(){
 
-    }
     updateCard = (all_products) => {
         if(all_products.length === 0){
             this.setState({
@@ -139,16 +144,14 @@ class ShoppingCart extends React.Component{
 
         } else {
 
-            console.log(all_products);
-
             this.setState({
                 products: all_products
-            }, ()=>console.log(this.state.products))
-            
+            })
             window.localStorage.setItem('products', JSON.stringify(all_products))
         }
-    }
+        
 
+    }
 
     updateStorage(product) {
         // console.log(product.total_prise)
@@ -360,13 +363,12 @@ class ShoppingCart extends React.Component{
                                     <h1 className='havent_prods'>Ձեր զամբյուղում ոչ մի ապրանք չկա:</h1> :
                                     this.state.products.map((prod, idx)=>{
                                         return(
-                                            <div>
-                                                {JSON.stringify(prod)}
+                                            <div key={idx} >
+                                                {/* {JSON.stringify(prod)} */}
                                                 <ShoppingCartProducts 
-                                                deleteProduct={this.deleteProduct}
+                                                deleteProduct={this.deleteProduct} 
                                                 update={this} 
                                                 prod={prod} 
-                                                key={idx} 
                                             />
                                             </div>
                                             

@@ -10,8 +10,8 @@ export default class Terms extends React.Component{
     constructor(props){
         super(props)
 
-        this.handleDayClick = this.handleDayClick.bind(this);
-        this.handleResetClick = this.handleResetClick.bind(this);
+        // this.handleDayClick = this.handleDayClick.bind(this);
+        // this.handleResetClick = this.handleResetClick.bind(this);
 
         this.state = {
             product:{},
@@ -105,46 +105,46 @@ export default class Terms extends React.Component{
     }
 
     // Day Picker ===================
-    handleDayClick(day) {
-        const range = DateUtils.addDayToRange(day, this.state)
-        this.setState(range)
+    // handleDayClick(day) {
+    //     const range = DateUtils.addDayToRange(day, this.state)
+    //     this.setState(range)
 
-        let product = this.state.product
+    //     let product = this.state.product
 
-        if(range.from !== undefined && range.to !== undefined){
-            product.from = range.from
-            product.to = range.to
+    //     if(range.from !== undefined && range.to !== undefined){
+    //         product.from = range.from
+    //         product.to = range.to
 
-            this.setState({
-                product: product,
-            })
+    //         this.setState({
+    //             product: product,
+    //         })
 
-            this.apply_btn(false)
-        }
-        if(range.from === undefined && range.to === undefined){
-            product.from = this.state.start_from
-            product.to = this.state.start_to
+    //         this.apply_btn(false)
+    //     }
+    //     if(range.from === undefined && range.to === undefined){
+    //         product.from = this.state.start_from
+    //         product.to = this.state.start_to
 
-            this.setState({
-                product: product,
-            })
-        }      
-    }
+    //         this.setState({
+    //             product: product,
+    //         })
+    //     }      
+    // }
 
-    handleResetClick() {
-        // let product = this.state.product
-        // product.from = undefined
-        // product.to = undefined
-        // product.total_prise = product.prise
+    // handleResetClick() {
+    //     // let product = this.state.product
+    //     // product.from = undefined
+    //     // product.to = undefined
+    //     // product.total_prise = product.prise
 
-        // this.setState({
-        //     product: product
-        // });
-    }
+    //     // this.setState({
+    //     //     product: product
+    //     // });
+    // }
     // ==============================
 
     counter = (sign) =>{
-        let product = this.state.product
+        let product = this.props.prod
 
         // console.log(this.state.product)
 
@@ -155,32 +155,32 @@ export default class Terms extends React.Component{
         let new_prise = 0 
 
         if(sign === '+'){
-            if(this.state.product.count >= 1){
+            if(this.props.prod.count >= 1){
                 new_prise = prise*days
                 new_total_prise += new_prise
                 product.total_prise = new_total_prise
                 ++product.count
 
             } 
-        } else if(this.state.product.count > 1){
+        } else if(this.props.prod.count > 1){
                 new_prise = prise*days
                 new_total_prise -= new_prise
                 product.total_prise = new_total_prise
                 --product.count
         }
 
-        if(this.state.product.count === 1){
-            this.setState({
-                delete_btn: true
-            })
+        // if(this.props.prod.count === 1){
+        //     this.setState({
+        //         delete_btn: true
+        //     })
 
-        } else{
-
-            this.setState({
-                delete_btn: false
-            })
-        }
+        // } else{
+        //     this.setState({
+        //         delete_btn: false
+        //     })
+        // }
         
+
         this.setState({
             product: product
         })
@@ -189,24 +189,25 @@ export default class Terms extends React.Component{
     }
 
     delete = () => {
-        this.props.deleteProduct(this.state.product)
+        this.props.deleteProduct(this.props.prod)
     }
 
     componentDidMount(){
         let dlt = this.props.prod.count === 1 ? true : false
         let product = this.props.prod
     
-        console.log(product);
-    
-        // let from = this.props.prod.from.replace(/(\d+).(\d+).(\d+)/, '$3/$2/$1')
-        // let to = this.props.prod.to.replace(/(\d+).(\d+).(\d+)/, '$3/$2/$1')
-    
+
+        
         let from = new Date(this.props.prod.from)
         let to = new Date(this.props.prod.to)
+
+        console.log(`${this.props.prod.from} - ${this.props.prod}`);
+        console.log(product)
+
     
         setTimeout(() => {
-            product.from = new Date(this.props.prod.from)
-            product.to = new Date(this.props.prod.to)
+            // product.from = new Date(this.props.prod.from)
+            // product.to = new Date(this.props.prod.to)
     
             this.setState({
                 product: product,
@@ -218,46 +219,10 @@ export default class Terms extends React.Component{
         })
     }
 
-//     componentWillUpdate(){
-//         // this.props.prod === this.state.product
-//         // this.qwerty()
-//     }
-
-// qwerty = () =>{
-    // let dlt = this.props.prod.count === 1 ? true : false
-    // let product = this.props.prod
-
-    // console.log(product);
-
-    // // let from = this.props.prod.from.replace(/(\d+).(\d+).(\d+)/, '$3/$2/$1')
-    // // let to = this.props.prod.to.replace(/(\d+).(\d+).(\d+)/, '$3/$2/$1')
-
-    // let from = new Date(this.props.prod.from)
-    // let to = new Date(this.props.prod.to)
-
-    // setTimeout(() => {
-    //     product.from = new Date(this.props.prod.from)
-    //     product.to = new Date(this.props.prod.to)
-
-    //     this.setState({
-    //         product: product,
-    //         delete_btn: dlt,
-    //         start_from: from,
-    //         start_to: to
-    //     })
-
-    // })
-// }
-
-
-    changes = () =>{
-        console.log()
-    }
-
     
     render(){
-        const { from, to } = this.state.product
-        const modifiers = { start: from, end: to }
+        // const { from, to } = this.props.prod
+        // const modifiers = { start: from, end: to }
 
         return(
             <div className='prod_card'>
@@ -265,7 +230,7 @@ export default class Terms extends React.Component{
                 <div className='content'>
                     <div className='block'>
                         <div className='img_block'>
-                            <img src={this.state.product.img} alt='product img' />
+                            <img src={this.props.prod.img} alt='product img' />
                         </div>
                     </div>
 
@@ -273,29 +238,31 @@ export default class Terms extends React.Component{
                         <h1 className='desktop_name'>{this.props.prod.name}</h1>
 
                         <div className="RangeExample">
-                            <p className={this.state.redirect ? 'redirect':'error_date'} 
+                            {/* <p className={this.state.redirect ? 'redirect':'error_date'} 
                                 onClick={this.open_calendar}>
                                 {   
                                     !from && 
                                     !to && 
-                                    this.state.start_from !== null && 
-                                    this.state.start_to !== null &&
-                                    `${this.state.start_from.toLocaleDateString()} - 
-                                    ${this.state.start_to.toLocaleDateString()}`
+                                    this.props.prod.from !== null && 
+                                    this.props.prod.to !== null &&
+                                    `${this.props.prod.from.toLocaleDateString()} - 
+                                    ${this.props.prod.to.toLocaleDateString()}`
                                 }
 
                                 {from && !to && 'Ընտրեք մինչև որ օր*.'}
                                 {from && to && `${from.toLocaleDateString()} - ${to.toLocaleDateString()}`}{' '}
 
                                 <img src={Calendar} alt='Calendar'/>
-                            </p>
+                            </p> */}
+                            <p>{`${new Date(this.props.prod.from).toLocaleDateString()} - 
+                            ${new Date(this.props.prod.to).toLocaleDateString()}`}</p>
 
                             {/* {
                                 this.state.redirect === true ? null :
                                 <span>Ընտրեք օրեր</span> 
                             } */}
 
-                            <div ref={this.dayPicker} className='daypick-wrapper'>
+                            {/* <div ref={this.dayPicker} className='daypick-wrapper'>
                                 <DayPicker
                                     className="Selectable"
                                     numberOfMonths={1}
@@ -314,23 +281,30 @@ export default class Terms extends React.Component{
                                         Հաստատել
                                     </button>
                                 </div>
-                            </div>
+                            </div> */}
                         </div>
                         
                         <div className='counter'>
-                            {
+                            {/* {
                                 this.state.delete_btn === false ? 
                                 <button ref={this.delete_btn} onClick={this.counter.bind(null, '-')}>—</button>
                                 : <button className='delete_btn' ref={this.delete_btn} onClick={this.delete}>×</button>
+                            } */}
+
+                            {
+                                this.props.prod.count === 1 ? 
+                                <button className='delete_btn' ref={this.delete_btn} onClick={this.delete}>×</button> :
+                                <button ref={this.delete_btn} onClick={this.counter.bind(null, '-')}>—</button> 
                             }
-                            <h2>{this.state.product.count}</h2>
+
+                            <h2>{this.props.prod.count}</h2>
                             <button onClick={this.counter.bind(null, '+')}>+</button>
                         </div>
                     </div>
                    
                     <div className='block'>
-                        <h1 className='mob_name'>{this.state.product.name}</h1>
-                        <h3 className='prise'>{this.state.product.total_prise} <span>դր</span></h3>
+                        <h1 className='mob_name'>{this.props.prod.name}</h1>
+                        <h3 className='prise'>{this.props.prod.total_prise} <span>դր</span></h3>
                     </div>
                 </div>
             </div>

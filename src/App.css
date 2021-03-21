@@ -1664,6 +1664,7 @@
     background: white;
     font-size: 0.9vw;
     margin-top: 30px;
+    cursor: unset;
 }
 .shopping-cart .section .block:last-child .prod_card .content .counter{
     width: 13.542vw;
@@ -1974,6 +1975,9 @@
 .portfolio-post .modal .content .slide video,
 .fest-page .modal .modal-content .slide video{
     width: 100%;
+}
+.fest-page .modal .modal-content .slide video{
+    height: 100%;
 }
 .portfolio-post .slick-slider, 
 .fest-page .slick-slider{
