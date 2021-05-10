@@ -89,7 +89,10 @@ export default class ProductPage extends React.Component{
                 img_blocks[i].className = 'img-block'
             }
         }
-        img_blocks[idx].classList.add('active')
+        // img_blocks[idx].classList.add('active')
+        // console.log(idx);
+        // console.log(img_blocks);
+
 
         this.setState({
             actual_image: idx
