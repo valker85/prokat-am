@@ -180,15 +180,15 @@ export default class Home extends React.Component{
                                         {card.title_en}
                                     </h1>
 
-                                    {/* <ul className={ card.title_en.length > 21 ? 'info long' : 'info'}>
+                                    <ul className={ card.title_en ? card.title_en.length > 21 ? 'info long' : 'info' : null }>
                                     {
-                                        card.info.map((param, idx)=>{
+                                        card.features.map((param, idx)=>{
                                             return(
                                                 <li key={idx}>{param}</li>
                                             )
                                         }) 
                                     }
-                                    </ul> */}
+                                    </ul>
                                     <div className='line'></div>
                                     <div className='prise-wrapper'>
                                         <div className='prise'>{card.price} <span>դր/օր</span></div>
@@ -238,6 +238,7 @@ export default class Home extends React.Component{
 
         axios.post('https://prokat.weflex.am/api/products', { top: true }, config.headers)
             .then((response) => {
+                console.log( response.data.data )
                 this.setState({
                     top_prods: response.data.data 
                 })
