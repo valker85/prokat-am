@@ -23,6 +23,10 @@
     font-weight: 700;
     margin-left: 32px;
     text-decoration: none;
+    transition: 0.3s;
+}
+.header .header-wrapper .block:first-child a:hover{
+    color: #114f9f;
 }
 .header .header-wrapper .block:first-child a:first-child{
     margin-left: 0;

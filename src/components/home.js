@@ -145,7 +145,7 @@ export default class Home extends React.Component{
                                         <img src={`https://prokat.weflex.am/public/uploads/categories/${card.img}`} alt='subject'/>
                                     </div>
                                     <div className='name-wrapper'>
-                                        <h1>{card.name}</h1>
+                                        <h1>{card.title_en}</h1>
                                     </div>
                                 </Link>
                             )
