@@ -34,165 +34,169 @@ class Category extends React.Component{
                 {prod_url: '/filter/goods/computer-equipment/monitor1/toshiba-Satellite-c50', img: Prod2, type: 'Ամեն ինչ միջոցառումների համար', type_url: '/filter/goods/everything-for-events', name: 'Սպիտակ ծածկ',                    info: ['3x3 մ', 'ջրակայուն', 'թեթև '],           prise: 24000},
                 {prod_url: '/filter/goods/computer-equipment/monitor1/toshiba-Satellite-c50', img: Prod3, type: 'Ամեն ինչ միջոցառումների համար', type_url: '/filter/goods/everything-for-events', name: 'Ջուր եռացնելու էլեկտրական սարք', info: ['15 լիտր'],                               prise: 3000},
             ],
-            categories: [
-                { name: 'computer-equipment' }
-            ],
-            types: [],
             sections:[
-                {
-                    secName:'Goods',
-                    url:'goods',
-                    categories: [
-                        {
-                            name: 'Computer equipment', 
-                            url: 'computer-equipment',
-                            types: [
-                                {typeName:'monitor1', url:'monitor1'},
-                                {typeName:'monitor2', url:'monitor2'},
-                                {typeName:'monitor3', url:'monitor3'},
-                                {typeName:'monitor4', url:'monitor4'},
-                                {typeName:'monitor5', url:'monitor5'}
-                            ]
-                        },
-                        {
-                            name: 'Everything for events', 
-                            url: 'everything-for-events',
-                            types: [
-                                {typeName:'for events1', url:'for-events1'},
-                                {typeName:'for events2', url:'for-events2'},
-                                {typeName:'for events3', url:'for-events3'},
-                                {typeName:'for events4', url:'for-events4'},
-                                {typeName:'for events5', url:'for-events5'}
-                            ]
-                        },
-                        {
-                            name: 'Tableware', 
-                            url: 'tableware',
-                            types: [
-                                {typeName:'tableware1', url:'tableware1'},
-                                {typeName:'tableware2', url:'tableware2'},
-                                {typeName:'tableware3', url:'tableware3'},
-                                {typeName:'tableware4', url:'tableware4'},
-                                {typeName:'tableware5', url:'tableware5'}
-                            ]
-                        },
-                        {
-                            name: 'Tools',
-                            url: 'tools',
-                            types: [
-                                {typeName:'Tools1', url:'tools1'},
-                                {typeName:'Tools2', url:'tools2'},
-                                {typeName:'Tools3', url:'tools3'},
-                                {typeName:'Tools4', url:'tools4'},
-                                {typeName:'Tools5', url:'tools5'}
-                            ]
-                        },
-                        {
-                            name: 'Tourism', 
-                            url: 'tourism',
-                            types: [
-                                {typeName:'Tourism1', url:'tourism1'},
-                                {typeName:'Tourism2', url:'tourism2'},
-                                {typeName:'Tourism3', url:'tourism3'},
-                                {typeName:'Tourism4', url:'tourism4'},
-                                {typeName:'Tourism5', url:'tourism5'}
-                            ]
-                        },
-                        {
-                            name: 'Clothing', 
-                            url: 'clothing',
-                            types: [
-                                {typeName:'clothing1', url:'clothing1'},
-                                {typeName:'clothing2', url:'clothing2'},
-                                {typeName:'clothing3', url:'clothing3'},
-                                {typeName:'clothing4', url:'clothing4'},
-                                {typeName:'clothing5', url:'clothing5'}
-                            ]
-                        },
-                        {
-                            name: 'Means of communication', 
-                            url: 'means-of-communication',
-                            types: [
-                                {typeName:'communication1', url:'communication1'},
-                                {typeName:'communication2', url:'communication2'},
-                                {typeName:'communication3', url:'communication3'},
-                                {typeName:'communication4', url:'communication4'},
-                                {typeName:'communication5', url:'communication5'}
-                            ]
-                        },
-                        {
-                            name: 'Fun', 
-                            url: 'fun',
-                            types: [
-                                {typeName:'Fun1', url:'fun1'},
-                                {typeName:'Fun2', url:'fun2'},
-                                {typeName:'Fun3', url:'fun3'},
-                                {typeName:'Fun4', url:'fun4'},
-                                {typeName:'Fun5', url:'fun5'}
-                            ]
-                        },
-                        {
-                            name: 'Sound and light equipment', 
-                            url: 'sound-and-light-equipment',
-                            types: [
-                                {typeName:'equipment1', url:'equipment1'},
-                                {typeName:'equipment2', url:'equipment2'},
-                                {typeName:'equipment3', url:'equipment3'},
-                                {typeName:'equipment4', url:'equipment4'},
-                                {typeName:'equipment5', url:'equipment5'}
-                            ]
-                        }
-                    ]
-                },
-                {
-                    secName:'Services',
-                    url:'services',
-                    categories: [
-                        {
-                            name: 'Events', 
-                            url:'events'
-                        },
-                        {
-                            name: 'Corporate events', 
-                            url:'corporate-events'
-                        },
-                        {
-                            name: 'Catering services', 
-                            url:'сatering-services'
-                        },
-                        {
-                            name: 'Childrens services', 
-                            url:'сhildrens-services'
-                        },
-                        {
-                            name: 'Service staff', 
-                            url: 'service-staff'
-                        },
-                        {
-                            name: 'Casting services', 
-                            url:'casting-services'
-                        },
-                        {
-                            name: 'Special effects',
-                            url:'special-effects'
-                        },
-                        {
-                            name: 'Cleaning services',
-                            url:'cleaning-services'
-                        }
-                    ]
-                }
+                { secName:'Goods', url:'goods' },
+                { secName:'Services', url:'services' },
             ],
+            categories: [],
+            types: [],
+            // sections:[
+            //     {
+            //         secName:'Goods',
+            //         url:'goods',
+            //         categories: [
+            //             {
+            //                 name: 'Computer equipment', 
+            //                 url: 'computer-equipment',
+            //                 types: [
+            //                     {typeName:'monitor1', url:'monitor1'},
+            //                     {typeName:'monitor2', url:'monitor2'},
+            //                     {typeName:'monitor3', url:'monitor3'},
+            //                     {typeName:'monitor4', url:'monitor4'},
+            //                     {typeName:'monitor5', url:'monitor5'}
+            //                 ]
+            //             },
+            //             {
+            //                 name: 'Everything for events', 
+            //                 url: 'everything-for-events',
+            //                 types: [
+            //                     {typeName:'for events1', url:'for-events1'},
+            //                     {typeName:'for events2', url:'for-events2'},
+            //                     {typeName:'for events3', url:'for-events3'},
+            //                     {typeName:'for events4', url:'for-events4'},
+            //                     {typeName:'for events5', url:'for-events5'}
+            //                 ]
+            //             },
+            //             {
+            //                 name: 'Tableware', 
+            //                 url: 'tableware',
+            //                 types: [
+            //                     {typeName:'tableware1', url:'tableware1'},
+            //                     {typeName:'tableware2', url:'tableware2'},
+            //                     {typeName:'tableware3', url:'tableware3'},
+            //                     {typeName:'tableware4', url:'tableware4'},
+            //                     {typeName:'tableware5', url:'tableware5'}
+            //                 ]
+            //             },
+            //             {
+            //                 name: 'Tools',
+            //                 url: 'tools',
+            //                 types: [
+            //                     {typeName:'Tools1', url:'tools1'},
+            //                     {typeName:'Tools2', url:'tools2'},
+            //                     {typeName:'Tools3', url:'tools3'},
+            //                     {typeName:'Tools4', url:'tools4'},
+            //                     {typeName:'Tools5', url:'tools5'}
+            //                 ]
+            //             },
+            //             {
+            //                 name: 'Tourism', 
+            //                 url: 'tourism',
+            //                 types: [
+            //                     {typeName:'Tourism1', url:'tourism1'},
+            //                     {typeName:'Tourism2', url:'tourism2'},
+            //                     {typeName:'Tourism3', url:'tourism3'},
+            //                     {typeName:'Tourism4', url:'tourism4'},
+            //                     {typeName:'Tourism5', url:'tourism5'}
+            //                 ]
+            //             },
+            //             {
+            //                 name: 'Clothing', 
+            //                 url: 'clothing',
+            //                 types: [
+            //                     {typeName:'clothing1', url:'clothing1'},
+            //                     {typeName:'clothing2', url:'clothing2'},
+            //                     {typeName:'clothing3', url:'clothing3'},
+            //                     {typeName:'clothing4', url:'clothing4'},
+            //                     {typeName:'clothing5', url:'clothing5'}
+            //                 ]
+            //             },
+            //             {
+            //                 name: 'Means of communication', 
+            //                 url: 'means-of-communication',
+            //                 types: [
+            //                     {typeName:'communication1', url:'communication1'},
+            //                     {typeName:'communication2', url:'communication2'},
+            //                     {typeName:'communication3', url:'communication3'},
+            //                     {typeName:'communication4', url:'communication4'},
+            //                     {typeName:'communication5', url:'communication5'}
+            //                 ]
+            //             },
+            //             {
+            //                 name: 'Fun', 
+            //                 url: 'fun',
+            //                 types: [
+            //                     {typeName:'Fun1', url:'fun1'},
+            //                     {typeName:'Fun2', url:'fun2'},
+            //                     {typeName:'Fun3', url:'fun3'},
+            //                     {typeName:'Fun4', url:'fun4'},
+            //                     {typeName:'Fun5', url:'fun5'}
+            //                 ]
+            //             },
+            //             {
+            //                 name: 'Sound and light equipment', 
+            //                 url: 'sound-and-light-equipment',
+            //                 types: [
+            //                     {typeName:'equipment1', url:'equipment1'},
+            //                     {typeName:'equipment2', url:'equipment2'},
+            //                     {typeName:'equipment3', url:'equipment3'},
+            //                     {typeName:'equipment4', url:'equipment4'},
+            //                     {typeName:'equipment5', url:'equipment5'}
+            //                 ]
+            //             }
+            //         ]
+            //     },
+            //     {
+            //         secName:'Services',
+            //         url:'services',
+            //         categories: [
+            //             {
+            //                 name: 'Events', 
+            //                 url:'events'
+            //             },
+            //             {
+            //                 name: 'Corporate events', 
+            //                 url:'corporate-events'
+            //             },
+            //             {
+            //                 name: 'Catering services', 
+            //                 url:'сatering-services'
+            //             },
+            //             {
+            //                 name: 'Childrens services', 
+            //                 url:'сhildrens-services'
+            //             },
+            //             {
+            //                 name: 'Service staff', 
+            //                 url: 'service-staff'
+            //             },
+            //             {
+            //                 name: 'Casting services', 
+            //                 url:'casting-services'
+            //             },
+            //             {
+            //                 name: 'Special effects',
+            //                 url:'special-effects'
+            //             },
+            //             {
+            //                 name: 'Cleaning services',
+            //                 url:'cleaning-services'
+            //             }
+            //         ]
+            //     }
+            // ],
             option_container_classes:['option-container'],
             option_container_classes_category:['option-container'],
             option_container_classes_type:['option-container'],
             actual_section: '',
             actual_category: '',
             actual_type: '',
+            actual_sec: '',
             actual_pathname: this.props.location.pathname,
             history: this.props.match.params.url,
             position: 0,
-            close_types: true
+            close_types: true,
+            loader: true
         }
 
 
@@ -277,13 +281,87 @@ class Category extends React.Component{
             this.setState({actual_section: actual})
 
         } else if(filter === 'categories'){
-            this.setState({actual_category: actual})
+            let actual_cat = this.state.categories[actual]
+            this.setState( {actual_category: actual_cat} )
 
         } else if(filter === 'types'){
             this.setState({actual_type: actual})
         }
-
     }
+
+    getServices = (actual_cat, top) => {
+        let config = {
+            headers: {
+                auth:{
+                    username: 'prokat',
+                    password: '9H8lFCGGAHksplo9h9kQ'
+                }
+            }
+        }
+
+        let obj = {}
+
+        if( actual_cat ){
+            // obj.category = actual_cat._id
+        }
+        if( top ){
+            obj.top = true
+        }
+
+        console.log(actual_cat)
+
+        axios.post('https://prokat.weflex.am/api/services', obj, config.headers)
+        .then( (response) => {
+
+            console.log('Services', response.data.data )
+
+            this.setState({
+                loader: false,
+                prods: response.data.data
+            })
+        })
+        .catch(function (error) {
+            console.log(error)
+        })
+    }
+
+    getProducts = (actual_cat, top) => {
+        let config = {
+            headers: {
+                auth:{
+                    username: 'prokat',
+                    password: '9H8lFCGGAHksplo9h9kQ'
+                }
+            }
+        }
+
+        let obj = {}
+
+        if( actual_cat ){
+            obj.category = actual_cat._id
+        }
+        if( top ){
+            obj.top = true
+        }
+
+        console.log('Send object: ', obj)
+
+        axios.post('https://prokat.weflex.am/api/products', obj, config.headers)
+        .then( (response) => {
+
+            console.log( 'Get products: ', response.data.data )
+
+            this.setState({
+                loader: false,
+                prods: response.data.data
+            })
+        })
+        .catch(function (error) {
+            console.log(error)
+        })
+    }
+
+
 
     componentDidMount(){
         let sections = this.state.sections
@@ -291,35 +369,9 @@ class Category extends React.Component{
         let types;
         let pathname = this.state.actual_pathname
 
-
         // all paths without '/'
         let all_pats = pathname.split('/')
         all_pats.splice(0, 2)
-
-
-        for (let i = 0; i < sections.length; i++) {
-            if(sections[i].url === all_pats[0]){
-                this.doActual('sections', i)
-                categories = this.state.sections[i].categories
-            }
-        }
-
-        if(all_pats.length >= 2){
-            for (let i = 0; i < categories.length; i++) {
-                if(categories[i].url === all_pats[1]){
-                    this.doActual('categories', i)
-                    types = categories[i].types
-                }
-            }
-        }
-
-        if(all_pats.length === 3){
-            for (let i = 0; i < types.length; i++) {
-                if(types[i].url === all_pats[2]){
-                    this.doActual('types', i)
-                }
-            }
-        }
 
         if(all_pats[0] === "services"){
             this.setState({
@@ -331,35 +383,96 @@ class Category extends React.Component{
             })
         }
 
+        this.setState({
+            actual_sec: all_pats[0]
+        })
+
         // Services prods
         if(all_pats[0] === "services"){
-            let services = [
-                {this_is: 'service', serv_url: '/filter/services/special-effects/heavy-smoke', img: Serv1, type: 'special-effects', type_url: '/filter/services/special-effects', name: 'Ծանր ծուխ',             info: ['СО2'],                  prise: 29000},
-                {this_is: 'service', serv_url: '/filter/services/special-effects/heavy-smoke', img: Serv2, type: 'special-effects', type_url: '/filter/services/special-effects', name: 'Լուսային էֆֆեկտներ',    info: ['սարքավորումներ'],       prise: 29000},
-                {this_is: 'service', serv_url: '/filter/services/special-effects/heavy-smoke', img: Serv3, type: 'special-effects', type_url: '/filter/services/special-effects', name: 'Ձայնային էֆֆեկտներ',    info: ['DJ'],                   prise: 29000},
-                {this_is: 'service', serv_url: '/filter/services/special-effects/heavy-smoke', img: Serv4, type: 'special-effects', type_url: '/filter/services/special-effects', name: 'Կոնֆետտի (փայլաթուղթ)', info: ['թուղթ', 'ձև', 'գույն'], prise: 29000},
-                {this_is: 'service', serv_url: '/filter/services/special-effects/heavy-smoke', img: Serv5, type: 'special-effects', type_url: '/filter/services/special-effects', name: 'Օճառե պղպջակներ',       info: ['շոու '],                prise: 29000}
-            ]
-            this.setState({
-                prods: services
-            })
-        } else if(all_pats[0] === "goods"){
-            let prods = [
-                {this_is: 'product', prod_url: '/filter/goods/computer-equipment/monitor1/toshiba-Satellite-c50', img: Prod1, type: 'Տեխնիկա',                       type_url: '/filter/goods/computer-equipment',    name: 'Պրոյեկտոր Benq',                 info: ['2700 Lumens', 'SVGA resolution', 'USB'], prise: 10000},
-                {this_is: 'product', prod_url: '/filter/goods/computer-equipment/monitor1/toshiba-Satellite-c50', img: Prod2, type: 'Ամեն ինչ միջոցառումների համար', type_url: '/filter/goods/everything-for-events', name: 'Սպիտակ ծածկ',                    info: ['3x3 մ', 'ջրակայուն', 'թեթև '],           prise: 24000},
-                {this_is: 'product', prod_url: '/filter/goods/computer-equipment/monitor1/toshiba-Satellite-c50', img: Prod3, type: 'Ամեն ինչ միջոցառումների համար', type_url: '/filter/goods/everything-for-events', name: 'Ջուր եռացնելու էլեկտրական սարք', info: ['15 լիտր'],                               prise: 3000},
-                {this_is: 'product', prod_url: '/filter/goods/computer-equipment/monitor1/toshiba-Satellite-c50', img: Prod4, type: 'Տեխնիկա',                       type_url: '/filter/goods/computer-equipment',    name: 'Գրասենյակային աթոռ',             info: ['մետաղ', 'գործվածք', 'սև'],               prise: 1000},
-                {this_is: 'product', prod_url: '/filter/goods/computer-equipment/monitor1/toshiba-Satellite-c50', img: Prod5, type: 'Տեխնիկա',                       type_url: '/filter/goods/computer-equipment',    name: 'Պրոյեկտոր Benq',                 info: ['2700 Lumens', 'SVGA resolution', 'USB'], prise: 10000},
-                {this_is: 'product', prod_url: '/filter/goods/computer-equipment/monitor1/toshiba-Satellite-c50', img: Prod1, type: 'Ամեն ինչ միջոցառումների համար', type_url: '/filter/goods/everything-for-events', name: 'Սպիտակ ծածկ',                    info: ['3x3 մ', 'ջրակայուն', 'թեթև '],           prise: 24000},
-                {this_is: 'product', prod_url: '/filter/goods/computer-equipment/monitor1/toshiba-Satellite-c50', img: Prod2, type: 'Ամեն ինչ միջոցառումների համար', type_url: '/filter/goods/everything-for-events', name: 'Ջուր եռացնելու էլեկտրական սարք', info: ['15 լիտր'],                               prise: 3000},
-                {this_is: 'product', prod_url: '/filter/goods/computer-equipment/monitor1/toshiba-Satellite-c50', img: Prod3, type: 'Տեխնիկա',                       type_url: '/filter/goods/computer-equipment',    name: 'Գրասենյակային աթոռ',             info: ['մետաղ', 'գործվածք', 'սև'],               prise: 1000}
-            ]
+            let config = {
+                headers: {
+                    auth:{
+                        username: 'prokat',
+                        password: '9H8lFCGGAHksplo9h9kQ'
+                    }
+                }
+            }
 
-            this.setState({
-                prods: prods
-            })
+            axios.post('https://prokat.weflex.am/api/categories/section/services', { }, config.headers)
+                .then( (response) => {
+
+                    this.setState({
+                        categories: response.data.data
+                    }, ()=>{
+
+                        for (let i = 0; i < this.state.categories.length; i++) {
+                            if(this.state.categories[i].url === all_pats[1]){
+                                this.doActual('categories', i)
+                                this.getServices( this.state.categories[i], false )
+                            }
+                        }
+                    })
+                })
+                .catch(function (error) {
+                    console.log(error)
+                })
+
+        } else if(all_pats[0] === "goods"){
+            let config = {
+                headers: {
+                    auth:{
+                        username: 'prokat',
+                        password: '9H8lFCGGAHksplo9h9kQ'
+                    }
+                }
+            }
+
+            axios.post('https://prokat.weflex.am/api/categories/section/products', { }, config.headers)
+                .then( (response) => {
+
+                    this.setState({
+                        categories: response.data.data
+                    }, ()=>{
+
+                        for (let i = 0; i < this.state.categories.length; i++) {
+                            if(this.state.categories[i].url === all_pats[1]){
+                                this.doActual('categories', i)
+                                this.getProducts( this.state.categories[i], false )
+                            }
+                        }
+                    })
+                })
+                .catch(function (error) {
+                    console.log(error)
+                })
         }
+
+        for (let i = 0; i < sections.length; i++) {
+            if(sections[i].url === all_pats[0]){
+                this.doActual('sections', i)
+            }
+        }
+
+        if( all_pats.length === 1 && all_pats[0] === "services"){
+            console.log( "Haven't category" )
+            this.getServices( undefined, false )
+
+        } else if (all_pats.length === 1 && all_pats[0] === "goods"){
+
+            console.log( "Haven't category" )
+            this.getProducts( undefined, false )
+        }
+
+        // if(all_pats.length === 3){
+        //     for (let i = 0; i < types.length; i++) {
+        //         if(types[i].url === all_pats[2]){
+        //             this.doActual('types', i)
+        //         }
+        //     }
+        // }
     }
+
+
 
     componentWillReceiveProps(newPr){   // во время клика
         let url = newPr.location.pathname.split('/')
@@ -375,36 +488,88 @@ class Category extends React.Component{
             })
         }
 
-        /////////////////
-        // Services prods
-        if(url[1] === "services"){
-            let services = [
-                {this_is: 'service', serv_url: '/filter/services/special-effects/heavy-smoke', img: Serv1, type: 'special-effects', type_url: '/filter/services/special-effects', name: 'Ծանր ծուխ',             info: ['СО2'],                  prise: 29000},
-                {this_is: 'service', serv_url: '/filter/services/special-effects/heavy-smoke', img: Serv2, type: 'special-effects', type_url: '/filter/services/special-effects', name: 'Լուսային էֆֆեկտներ',    info: ['սարքավորումներ'],       prise: 29000},
-                {this_is: 'service', serv_url: '/filter/services/special-effects/heavy-smoke', img: Serv3, type: 'special-effects', type_url: '/filter/services/special-effects', name: 'Ձայնային էֆֆեկտներ',    info: ['DJ'],                   prise: 29000},
-                {this_is: 'service', serv_url: '/filter/services/special-effects/heavy-smoke', img: Serv4, type: 'special-effects', type_url: '/filter/services/special-effects', name: 'Կոնֆետտի (փայլաթուղթ)', info: ['թուղթ', 'ձև', 'գույն'], prise: 29000},
-                {this_is: 'service', serv_url: '/filter/services/special-effects/heavy-smoke', img: Serv5, type: 'special-effects', type_url: '/filter/services/special-effects', name: 'Օճառե պղպջակներ',       info: ['շոու '],                prise: 29000}
-            ]
-            this.setState({
-                prods: services
-            })
-        } else if(url[1] === "goods"){
-            let prods = [
-                {this_is: 'product', prod_url: '/filter/goods/computer-equipment/monitor1/toshiba-Satellite-c50', img: Prod1, type: 'Տեխնիկա',                       type_url: '/filter/goods/computer-equipment',    name: 'Պրոյեկտոր Benq',                 info: ['2700 Lumens', 'SVGA resolution', 'USB'], prise: 10000},
-                {this_is: 'product', prod_url: '/filter/goods/computer-equipment/monitor1/toshiba-Satellite-c50', img: Prod2, type: 'Ամեն ինչ միջոցառումների համար', type_url: '/filter/goods/everything-for-events', name: 'Սպիտակ ծածկ',                    info: ['3x3 մ', 'ջրակայուն', 'թեթև '],           prise: 24000},
-                {this_is: 'product', prod_url: '/filter/goods/computer-equipment/monitor1/toshiba-Satellite-c50', img: Prod3, type: 'Ամեն ինչ միջոցառումների համար', type_url: '/filter/goods/everything-for-events', name: 'Ջուր եռացնելու էլեկտրական սարք', info: ['15 լիտր'],                               prise: 3000},
-                {this_is: 'product', prod_url: '/filter/goods/computer-equipment/monitor1/toshiba-Satellite-c50', img: Prod4, type: 'Տեխնիկա',                       type_url: '/filter/goods/computer-equipment',    name: 'Գրասենյակային աթոռ',             info: ['մետաղ', 'գործվածք', 'սև'],               prise: 1000},
-                {this_is: 'product', prod_url: '/filter/goods/computer-equipment/monitor1/toshiba-Satellite-c50', img: Prod5, type: 'Տեխնիկա',                       type_url: '/filter/goods/computer-equipment',    name: 'Պրոյեկտոր Benq',                 info: ['2700 Lumens', 'SVGA resolution', 'USB'], prise: 10000},
-                {this_is: 'product', prod_url: '/filter/goods/computer-equipment/monitor1/toshiba-Satellite-c50', img: Prod1, type: 'Ամեն ինչ միջոցառումների համար', type_url: '/filter/goods/everything-for-events', name: 'Սպիտակ ծածկ',                    info: ['3x3 մ', 'ջրակայուն', 'թեթև '],           prise: 24000},
-                {this_is: 'product', prod_url: '/filter/goods/computer-equipment/monitor1/toshiba-Satellite-c50', img: Prod2, type: 'Ամեն ինչ միջոցառումների համար', type_url: '/filter/goods/everything-for-events', name: 'Ջուր եռացնելու էլեկտրական սարք', info: ['15 լիտր'],                               prise: 3000},
-                {this_is: 'product', prod_url: '/filter/goods/computer-equipment/monitor1/toshiba-Satellite-c50', img: Prod3, type: 'Տեխնիկա',                       type_url: '/filter/goods/computer-equipment',    name: 'Գրասենյակային աթոռ',             info: ['մետաղ', 'գործվածք', 'սև'],               prise: 1000}
-            ]
+        this.setState({
+            actual_sec: url[1]
+        })
 
-            this.setState({
-                prods: prods
-            })
+        /////////////////
+        // Products from server
+        if(url[1] === "services"){
+
+            // console.log(url[2])
+
+            let config = {
+                headers: {
+                    auth: {
+                        username: 'prokat',
+                        password: '9H8lFCGGAHksplo9h9kQ'
+                    }
+                }
+            }
+            
+            axios.post('https://prokat.weflex.am/api/categories/section/services', { }, config.headers)
+                .then( (response) => {
+                    
+                    
+                    this.setState({
+                        categories: response.data.data
+                    }, ()=>{
+
+                        for (let i = 0; i < this.state.categories.length; i++) {
+
+                            if(this.state.categories[i].url === url[2]){
+                                this.doActual('categories', i)
+                                this.getServices( this.state.categories[i], false )
+                            }
+                        }
+                    })
+                })
+                .catch(function (error) {
+                    console.log(error)
+                })
+
+        } else if(url[1] === "goods"){
+
+            let config = {
+                headers: {
+                    auth: {
+                        username: 'prokat',
+                        password: '9H8lFCGGAHksplo9h9kQ'
+                    }
+                }
+            }
+            
+            axios.post('https://prokat.weflex.am/api/categories/section/services', { }, config.headers)
+                .then( (response) => {
+                    
+                    this.setState({
+                        categories: response.data.data
+                    }, ()=>{
+
+                        for (let i = 0; i < this.state.categories.length; i++) {
+
+                            if(this.state.categories[i].url === url[2]){
+                                this.doActual('categories', i)
+                                this.getProducts( this.state.categories[i], false )
+                            }
+                        }
+                    })
+                })
+                .catch(function (error) {
+                    console.log(error)
+                })
         }
         /////////////////
+
+        if( url.length === 2 && url[1] === "services"){
+            console.log( "Haven't category" )
+            this.getServices( undefined, false )
+
+        } else if (url.length === 2 && url[1] === "goods"){
+
+            console.log( "Haven't category" )
+            this.getProducts( undefined, false )
+        }
 
         this.setState({
             actual_pathname: newPr.location.pathname
@@ -474,7 +639,7 @@ class Category extends React.Component{
                                     <div className={this.state.option_container_classes_category.join(' ')}>
                                         {
                                             typeof(this.state.actual_section) == typeof(1) ?
-                                            this.state.sections[this.state.actual_section].categories.map((category, idx)=>{
+                                            this.state.categories.map((category, idx)=>{
                                                 return(
                                                 <div className='option' key={idx} onClick={this.acceptOption.bind(null, 'categories', idx, `/filter/${this.state.sections[this.state.actual_section].url}/${category.url}`)}>
                                                     <input type="radio" className='radio' id={`category${idx}`} name="categories"/>
@@ -482,7 +647,7 @@ class Category extends React.Component{
                                                     <Link to={`/filter/${this.state.sections[this.state.actual_section].url}/${category.url}`} 
                                                         htmlFor={`category${idx}`} 
                                                         onClick={this.acceptOption.bind(null, 'categories', idx)}
-                                                    >{category.name}</Link>
+                                                    >{category.title_en}</Link>
 
                                                 </div>
                                                 )
@@ -493,14 +658,14 @@ class Category extends React.Component{
                                     <div className='selected'>
                                     {
                                         this.state.actual_category !== '' ?
-                                            this.state.sections[this.state.actual_section].categories[this.state.actual_category].name
+                                        this.state.actual_category.title_en
                                         :   'Select category'
                                     }
                                     </div>
                                 </div>
                             </div>
 
-                            {
+                            {/* {
                             this.state.close_types === true ? null :
                             <div className='input'>
                                 <p>Տեսակ</p>
@@ -509,7 +674,7 @@ class Category extends React.Component{
                                         
                                         {  
                                             typeof(this.state.actual_category) == typeof(1) ?
-                                            this.state.sections[this.state.actual_section].categories[this.state.actual_category].types.map((type, idx)=>{
+                                            this.state.types.map((type, idx)=>{
                                                 return(
                                                 <div className='option' key={idx} onClick={this.acceptOption.bind(null, 'types', idx, `/filter/${this.state.sections[this.state.actual_section].url}/${this.state.sections[this.state.actual_section].categories[this.state.actual_category].url}/${type.url}`)}>
                                                     <input type="radio" className='radio' id={`type${idx}`} name="types"/>
@@ -534,7 +699,7 @@ class Category extends React.Component{
                                     </div>
                                 </div>
                             </div>
-                            }
+                            } */}
                             
                             <div className='clear_div'>
                                 <NavLink to={
@@ -550,21 +715,28 @@ class Category extends React.Component{
 
                 <div className='section3'>
                     <div className='container160'>
+                        {
+                            this.state.loader ? <div className='load-wrapper'><div className="lds-dual-ring"></div></div> : null
+                        }
                         <div className='prods'>
                             {
                                 this.state.prods.map((card, idx)=>{
                                     return(
                                         <div className='card' key={idx}>
                                             <div className='img-wrapper'>
-                                                <img src={card.img} alt='img'/>
+                                                {
+                                                    this.state.actual_sec === 'goods' ?
+                                                    <img src={`https://prokat.weflex.am/public/uploads/products/${card._id}/${card.img}`} alt='img'/> :
+                                                    <img src={`https://prokat.weflex.am/public/uploads/services/${card._id}/${card.img}`} alt='img'/> 
+                                                }
                                             </div>
                                             <div className='content'>
                                                 <NavLink to='/' className='type'>{card.type}</NavLink>
-                                                <h1 className={card.name.length > 21 ? 'name long' : 'name'}>{card.name}</h1>
+                                                <h1 className={card.title_en.length > 21 ? 'name long' : 'name'}>{card.title_en}</h1>
 
-                                                <ul className={card.name.length > 21 ? 'info long' : 'info'}>
+                                                <ul className={card.title_en.length > 21 ? 'info long' : 'info'}>
                                                 {
-                                                    card.info.map((param, idx)=>{
+                                                    card.features.map((param, idx)=>{
                                                         return(
                                                             <li key={idx}>{param}</li>
                                                         )
@@ -573,15 +745,15 @@ class Category extends React.Component{
                                                 </ul>
                                                 <div className='line'></div>
                                                 {
-                                                    card.this_is === "product" 
+                                                    this.state.actual_sec === "product" 
                                                     ?
                                                     <div className='prise-wrapper'>
-                                                        <div className='prise'>{card.prise} <span>դր/օր</span></div>
+                                                        <div className='prise'>{card.price} <span>դր/օր</span></div>
                                                         <div className='rent'><NavLink to='/'>Վարձել</NavLink></div>
                                                     </div>
                                                     :
                                                     <div className='prise-wrapper'>
-                                                        <div className='prise'><span>սկսած </span>{card.prise} <span>դր</span></div>
+                                                        <div className='prise'><span>սկսած </span>{card.price} <span>դր</span></div>
                                                         <div className='rent'><NavLink to='/'>Վարձել</NavLink></div>
                                                     </div>
                                                 }

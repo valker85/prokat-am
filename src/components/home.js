@@ -116,7 +116,7 @@ export default class Home extends React.Component{
                         this.state.products.goods.map((card, idx)=>{
                             return(
                                 <Link to={{
-                                    pathname:`/filter/goods/${card.category}`,
+                                    pathname:`/filter/goods/${card.url}`,
                                     product: card.type
                                 }} className='card' key={idx}>
                                     <div className='img-wrapper'>
@@ -138,7 +138,7 @@ export default class Home extends React.Component{
                         this.state.products.services.map((card, idx)=>{
                             return(
                                 <Link to={{
-                                    pathname:`/filter/services/${card.category}`,
+                                    pathname:`/filter/services/${card.url}`,
                                     product: card.type
                                 }} className='card' key={idx}>
                                     <div className='img-wrapper service'>
@@ -167,12 +167,14 @@ export default class Home extends React.Component{
                                     <img src={`https://prokat.weflex.am/public/uploads/products/${card._id}/${card.img}`} alt='img'/>
                                 </div>
                                 <div className='content'>
-                                    {/* <NavLink 
+                                    {/* 
+                                    <NavLink 
                                         to={card.type_url} 
                                         className={card.type.length > 21 ? 'type' : 'type'}
                                     >
                                         {card.type}
-                                    </NavLink> */}
+                                    </NavLink> 
+                                    */}
                                     
                                     <h1 onClick={()=>{this.props.history.push(card.prod_url)}} 
                                         className={card.title_en ? card.title_en.length > 21 ? 'name long' : 'name' : null}
@@ -228,6 +230,9 @@ export default class Home extends React.Component{
         axios.post('https://prokat.weflex.am/api/categories/section/services', {  }, config.headers)
             .then((response) => {
                 prods.services = response.data.data
+
+                console.log( response.data.data )
+
                 this.setState({
                     products: prods 
                 })
@@ -238,10 +243,10 @@ export default class Home extends React.Component{
 
         axios.post('https://prokat.weflex.am/api/products', { top: true }, config.headers)
             .then((response) => {
-                console.log( response.data.data )
+                // console.log( response.data.data )
                 this.setState({
                     top_prods: response.data.data 
-                })
+                }, ()=>{ console.log(this.state.top_prods) } )
             })
             .catch(function (error) {
                 console.log(error)
