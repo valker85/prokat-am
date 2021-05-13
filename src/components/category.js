@@ -196,7 +196,8 @@ class Category extends React.Component{
             history: this.props.match.params.url,
             position: 0,
             close_types: true,
-            loader: true
+            loader: true,
+            actual_cat_num: ''
         }
 
 
@@ -282,8 +283,10 @@ class Category extends React.Component{
 
         } else if(filter === 'categories'){
             let actual_cat = this.state.categories[actual]
-            this.setState( {actual_category: actual_cat} )
-
+            this.setState( {
+                actual_category: actual_cat,
+                actual_cat_num: actual
+            })
         } else if(filter === 'types'){
             this.setState({actual_type: actual})
         }
@@ -344,12 +347,12 @@ class Category extends React.Component{
             obj.top = true
         }
 
-        console.log('Send object: ', obj)
+        // console.log('Send object: ', obj)
 
         axios.post('https://prokat.weflex.am/api/products', obj, config.headers)
         .then( (response) => {
 
-            console.log( 'Get products: ', response.data.data )
+            // console.log( 'Get products: ', response.data.data )
 
             this.setState({
                 loader: false,
@@ -359,6 +362,36 @@ class Category extends React.Component{
         .catch(function (error) {
             console.log(error)
         })
+    }
+
+    getCatTypes = (actual_cat, url) => {
+        let config = {
+            headers: {
+                auth:{
+                    username: 'prokat',
+                    password: '9H8lFCGGAHksplo9h9kQ'
+                }
+            }
+        }
+
+        axios.post(`https://prokat.weflex.am/api/types/category/${actual_cat._id}`, { }, config.headers)
+            .then( (response) => {
+
+                console.log('Types: ', response.data.data)
+
+                this.setState({
+                    types: response.data.data
+                }, () => {
+                    for (let i = 0; i < this.state.types.length; i++) {
+                        if(this.state.types[i].url === url){
+                            this.doActual('types', i)
+                        }
+                    }
+                })
+            })
+            .catch(function (error) {
+                console.log(error)
+            })
     }
 
 
@@ -438,8 +471,10 @@ class Category extends React.Component{
                             if(this.state.categories[i].url === all_pats[1]){
                                 this.doActual('categories', i)
                                 this.getProducts( this.state.categories[i], false )
+                                this.getCatTypes( this.state.categories[i], all_pats[2] )
                             }
                         }
+
                     })
                 })
                 .catch(function (error) {
@@ -463,13 +498,6 @@ class Category extends React.Component{
             this.getProducts( undefined, false )
         }
 
-        // if(all_pats.length === 3){
-        //     for (let i = 0; i < types.length; i++) {
-        //         if(types[i].url === all_pats[2]){
-        //             this.doActual('types', i)
-        //         }
-        //     }
-        // }
     }
 
 
@@ -495,9 +523,6 @@ class Category extends React.Component{
         /////////////////
         // Products from server
         if(url[1] === "services"){
-
-            // console.log(url[2])
-
             let config = {
                 headers: {
                     auth: {
@@ -506,7 +531,7 @@ class Category extends React.Component{
                     }
                 }
             }
-            
+        
             axios.post('https://prokat.weflex.am/api/categories/section/services', { }, config.headers)
                 .then( (response) => {
                     
@@ -538,8 +563,8 @@ class Category extends React.Component{
                     }
                 }
             }
-            
-            axios.post('https://prokat.weflex.am/api/categories/section/services', { }, config.headers)
+
+            axios.post('https://prokat.weflex.am/api/categories/section/products', { }, config.headers)
                 .then( (response) => {
                     
                     this.setState({
@@ -551,6 +576,8 @@ class Category extends React.Component{
                             if(this.state.categories[i].url === url[2]){
                                 this.doActual('categories', i)
                                 this.getProducts( this.state.categories[i], false )
+                                this.getCatTypes( this.state.categories[i] )
+
                             }
                         }
                     })
@@ -562,12 +589,10 @@ class Category extends React.Component{
         /////////////////
 
         if( url.length === 2 && url[1] === "services"){
-            console.log( "Haven't category" )
             this.getServices( undefined, false )
 
         } else if (url.length === 2 && url[1] === "goods"){
 
-            console.log( "Haven't category" )
             this.getProducts( undefined, false )
         }
 
@@ -577,6 +602,7 @@ class Category extends React.Component{
     }
 
     
+
     render(){
 
         return(
@@ -665,24 +691,24 @@ class Category extends React.Component{
                                 </div>
                             </div>
 
-                            {/* {
+
+                            {
                             this.state.close_types === true ? null :
                             <div className='input'>
                                 <p>Տեսակ</p>
                                 <div className='select-box' onClick={this.selectFun.bind(null, 'types')}>
                                     <div className={this.state.option_container_classes_type.join(' ')}>
-                                        
                                         {  
-                                            typeof(this.state.actual_category) == typeof(1) ?
+                                            typeof(this.state.actual_cat_num) === typeof(1) ?
                                             this.state.types.map((type, idx)=>{
                                                 return(
-                                                <div className='option' key={idx} onClick={this.acceptOption.bind(null, 'types', idx, `/filter/${this.state.sections[this.state.actual_section].url}/${this.state.sections[this.state.actual_section].categories[this.state.actual_category].url}/${type.url}`)}>
+                                                <div className='option' key={idx} onClick={this.acceptOption.bind(null, 'types', idx, `/filter/${this.state.sections[this.state.actual_section].url}/${this.state.categories[this.state.actual_cat_num].url}/${type.url}`)}>
                                                     <input type="radio" className='radio' id={`type${idx}`} name="types"/>
                                                     <Link 
-                                                        to={`/filter/${this.state.sections[this.state.actual_section].url}/${this.state.sections[this.state.actual_section].categories[this.state.actual_category].url}/${type.url}`} 
+                                                        to={`/filter/${this.state.sections[this.state.actual_section].url}/${this.state.categories[this.state.actual_cat_num].url}/${type.url}`} 
                                                         htmlFor={`type${idx}`} onClick={this.acceptOption.bind(null, 'types', idx)}
                                                     >
-                                                        {type.typeName}
+                                                        {type.title_en}
                                                     </Link>
                                                 </div>
                                                 )
@@ -693,13 +719,13 @@ class Category extends React.Component{
                                     <div className='selected'>
                                     {
                                         typeof(this.state.actual_type) === typeof(1) 
-                                        ?   this.state.sections[this.state.actual_section].categories[this.state.actual_category].types[this.state.actual_type].typeName
+                                        ?   this.state.types[this.state.actual_type].title_en
                                         :   'Select type'
                                     }
                                     </div>
                                 </div>
                             </div>
-                            } */}
+                            }
                             
                             <div className='clear_div'>
                                 <NavLink to={
