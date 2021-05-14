@@ -35,156 +35,11 @@ class Category extends React.Component{
                 {prod_url: '/filter/goods/computer-equipment/monitor1/toshiba-Satellite-c50', img: Prod3, type: 'Ամեն ինչ միջոցառումների համար', type_url: '/filter/goods/everything-for-events', name: 'Ջուր եռացնելու էլեկտրական սարք', info: ['15 լիտր'],                               prise: 3000},
             ],
             sections:[
-                { secName:'Goods', url:'goods' },
+                { secName:'Products', url:'goods' },
                 { secName:'Services', url:'services' },
             ],
             categories: [],
             types: [],
-            // sections:[
-            //     {
-            //         secName:'Goods',
-            //         url:'goods',
-            //         categories: [
-            //             {
-            //                 name: 'Computer equipment', 
-            //                 url: 'computer-equipment',
-            //                 types: [
-            //                     {typeName:'monitor1', url:'monitor1'},
-            //                     {typeName:'monitor2', url:'monitor2'},
-            //                     {typeName:'monitor3', url:'monitor3'},
-            //                     {typeName:'monitor4', url:'monitor4'},
-            //                     {typeName:'monitor5', url:'monitor5'}
-            //                 ]
-            //             },
-            //             {
-            //                 name: 'Everything for events', 
-            //                 url: 'everything-for-events',
-            //                 types: [
-            //                     {typeName:'for events1', url:'for-events1'},
-            //                     {typeName:'for events2', url:'for-events2'},
-            //                     {typeName:'for events3', url:'for-events3'},
-            //                     {typeName:'for events4', url:'for-events4'},
-            //                     {typeName:'for events5', url:'for-events5'}
-            //                 ]
-            //             },
-            //             {
-            //                 name: 'Tableware', 
-            //                 url: 'tableware',
-            //                 types: [
-            //                     {typeName:'tableware1', url:'tableware1'},
-            //                     {typeName:'tableware2', url:'tableware2'},
-            //                     {typeName:'tableware3', url:'tableware3'},
-            //                     {typeName:'tableware4', url:'tableware4'},
-            //                     {typeName:'tableware5', url:'tableware5'}
-            //                 ]
-            //             },
-            //             {
-            //                 name: 'Tools',
-            //                 url: 'tools',
-            //                 types: [
-            //                     {typeName:'Tools1', url:'tools1'},
-            //                     {typeName:'Tools2', url:'tools2'},
-            //                     {typeName:'Tools3', url:'tools3'},
-            //                     {typeName:'Tools4', url:'tools4'},
-            //                     {typeName:'Tools5', url:'tools5'}
-            //                 ]
-            //             },
-            //             {
-            //                 name: 'Tourism', 
-            //                 url: 'tourism',
-            //                 types: [
-            //                     {typeName:'Tourism1', url:'tourism1'},
-            //                     {typeName:'Tourism2', url:'tourism2'},
-            //                     {typeName:'Tourism3', url:'tourism3'},
-            //                     {typeName:'Tourism4', url:'tourism4'},
-            //                     {typeName:'Tourism5', url:'tourism5'}
-            //                 ]
-            //             },
-            //             {
-            //                 name: 'Clothing', 
-            //                 url: 'clothing',
-            //                 types: [
-            //                     {typeName:'clothing1', url:'clothing1'},
-            //                     {typeName:'clothing2', url:'clothing2'},
-            //                     {typeName:'clothing3', url:'clothing3'},
-            //                     {typeName:'clothing4', url:'clothing4'},
-            //                     {typeName:'clothing5', url:'clothing5'}
-            //                 ]
-            //             },
-            //             {
-            //                 name: 'Means of communication', 
-            //                 url: 'means-of-communication',
-            //                 types: [
-            //                     {typeName:'communication1', url:'communication1'},
-            //                     {typeName:'communication2', url:'communication2'},
-            //                     {typeName:'communication3', url:'communication3'},
-            //                     {typeName:'communication4', url:'communication4'},
-            //                     {typeName:'communication5', url:'communication5'}
-            //                 ]
-            //             },
-            //             {
-            //                 name: 'Fun', 
-            //                 url: 'fun',
-            //                 types: [
-            //                     {typeName:'Fun1', url:'fun1'},
-            //                     {typeName:'Fun2', url:'fun2'},
-            //                     {typeName:'Fun3', url:'fun3'},
-            //                     {typeName:'Fun4', url:'fun4'},
-            //                     {typeName:'Fun5', url:'fun5'}
-            //                 ]
-            //             },
-            //             {
-            //                 name: 'Sound and light equipment', 
-            //                 url: 'sound-and-light-equipment',
-            //                 types: [
-            //                     {typeName:'equipment1', url:'equipment1'},
-            //                     {typeName:'equipment2', url:'equipment2'},
-            //                     {typeName:'equipment3', url:'equipment3'},
-            //                     {typeName:'equipment4', url:'equipment4'},
-            //                     {typeName:'equipment5', url:'equipment5'}
-            //                 ]
-            //             }
-            //         ]
-            //     },
-            //     {
-            //         secName:'Services',
-            //         url:'services',
-            //         categories: [
-            //             {
-            //                 name: 'Events', 
-            //                 url:'events'
-            //             },
-            //             {
-            //                 name: 'Corporate events', 
-            //                 url:'corporate-events'
-            //             },
-            //             {
-            //                 name: 'Catering services', 
-            //                 url:'сatering-services'
-            //             },
-            //             {
-            //                 name: 'Childrens services', 
-            //                 url:'сhildrens-services'
-            //             },
-            //             {
-            //                 name: 'Service staff', 
-            //                 url: 'service-staff'
-            //             },
-            //             {
-            //                 name: 'Casting services', 
-            //                 url:'casting-services'
-            //             },
-            //             {
-            //                 name: 'Special effects',
-            //                 url:'special-effects'
-            //             },
-            //             {
-            //                 name: 'Cleaning services',
-            //                 url:'cleaning-services'
-            //             }
-            //         ]
-            //     }
-            // ],
             option_container_classes:['option-container'],
             option_container_classes_category:['option-container'],
             option_container_classes_type:['option-container'],
@@ -201,6 +56,7 @@ class Category extends React.Component{
         }
 
 
+        
     }
 
 
@@ -690,7 +546,6 @@ class Category extends React.Component{
                                     </div>
                                 </div>
                             </div>
-
 
                             {
                             this.state.close_types === true ? null :

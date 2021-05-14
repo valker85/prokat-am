@@ -60,7 +60,7 @@ export default class Festival extends React.Component{
                 <Path/>
 
                 <div className='container160'>
-                    <h1>Փառատոն</h1>
+                    <h1>Փառատոններ</h1>
 
                     <div className='btns'>
                         <button className={this.state.tab === 1 ? 'active':''} onClick={this.tabFun.bind(null, 1)}>Փառատոն</button>

@@ -57,20 +57,20 @@ export default class Footer extends React.Component{
 
                                 <ul className='desktop'>
                                     <li><NavLink to='/about'>Մեր մասին</NavLink></li>
-                                    <li><NavLink to='/'>Պայմաններ</NavLink></li>
-                                    <li><NavLink to='/'>Հետադարձ կապ</NavLink></li>
+                                    <li><NavLink to='/terms'>Պայմաններ</NavLink></li>
+                                    <li><NavLink to='/contact-us'>Հետադարձ կապ</NavLink></li>
                                 </ul>
 
                                 <ul className='mob'>
                                     <ul>                                    
-                                        <li><NavLink to='/about'>Պորտֆոլիո</NavLink></li>
-                                        <li><NavLink to='/'>Փառատոն</NavLink></li>
-                                        <li><NavLink to='/'>Բարեգործական միջոցառումներ</NavLink></li>
+                                        <li><NavLink to='/portfolio'>Պորտֆոլիո</NavLink></li>
+                                        <li><NavLink to='/festivals'>Փառատոններ</NavLink></li>
+                                        <li><NavLink to='/charity-events'>Բարեգործական միջոցառումներ</NavLink></li>
                                     </ul>
                                     <ul>
-                                        <li><NavLink to='/'>Մեր մասին</NavLink></li>
-                                        <li><NavLink to='/'>Պայմաններ</NavLink></li>
-                                        <li><NavLink to='/'>Հետադարձ կապ</NavLink></li>
+                                        <li><NavLink to='/about'>Մեր մասին</NavLink></li>
+                                        <li><NavLink to='/terms'>Պայմաններ</NavLink></li>
+                                        <li><NavLink to='/contact-us'>Հետադարձ կապ</NavLink></li>
                                     </ul>
                                 </ul>
 

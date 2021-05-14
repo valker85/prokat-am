@@ -152,6 +152,12 @@
     max-height: 72px;
     transition: 0.5s;
 }
+.header .modal .hide_menu .other_links{
+    display: flex;
+    flex-direction: column;
+    font-family: 'Arial';
+    transition: 0.5s;
+}
 .header .modal .hide_menu ul.active{
     max-height: fit-content;
 }

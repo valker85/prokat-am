@@ -128,14 +128,14 @@ export default class Header extends React.Component{
                             })}
                         </ul>
 
-                        {/* 
-                        <ul>
-                            <li onClick={this.open_lis.bind(null, 2)}>Տրանսպորտ</li>
-                            {this.state.transport.map((li, idx)=>{
-                                return <li key={idx}><NavLink to={li.url}>{li.name}</NavLink></li>
-                            })}
-                        </ul> 
-                        */}
+                        <div className='other_links'>
+                            <NavLink to='/portfolio'>Պարտֆոլիո</NavLink>
+                            <NavLink to='/festivals'>Փառատոններ</NavLink>
+                            <NavLink to='/charity-events'>Բարեգործական միջոցառումներ</NavLink>
+                            <NavLink to='/about'>Մեր մասին</NavLink>
+                            <NavLink to='/terms'>Պայմաններ</NavLink>
+                            <NavLink to='/contact-us'>Հետադարձ կապ</NavLink>
+                        </div>
 
                         <div className='phones'>
                             <a href='tel:+37499772528'>(+374 99) 77 25 28</a>
