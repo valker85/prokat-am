@@ -12,14 +12,14 @@ import { Link, NavLink, withRouter } from 'react-router-dom';
 import Prod1 from '../assets/img/home/top-prods/prod1.png'
 import Prod2 from '../assets/img/home/top-prods/prod2.png'
 import Prod3 from '../assets/img/home/top-prods/prod3.png'
-import Prod4 from '../assets/img/home/top-prods/prod4.png'
-import Prod5 from '../assets/img/home/top-prods/prod5.png'
+// import Prod4 from '../assets/img/home/top-prods/prod4.png'
+// import Prod5 from '../assets/img/home/top-prods/prod5.png'
 
-import Serv1 from '../assets/img/services/serv1.png'
-import Serv2 from '../assets/img/services/serv2.png'
-import Serv3 from '../assets/img/services/serv3.png'
-import Serv4 from '../assets/img/services/serv4.png'
-import Serv5 from '../assets/img/services/serv5.png'
+// import Serv1 from '../assets/img/services/serv1.png'
+// import Serv2 from '../assets/img/services/serv2.png'
+// import Serv3 from '../assets/img/services/serv3.png'
+// import Serv4 from '../assets/img/services/serv4.png'
+// import Serv5 from '../assets/img/services/serv5.png'
 
 
 
@@ -254,8 +254,8 @@ class Category extends React.Component{
 
     componentDidMount(){
         let sections = this.state.sections
-        let categories;
-        let types;
+        // let categories;
+        // let types;
         let pathname = this.state.actual_pathname
 
         // all paths without '/'

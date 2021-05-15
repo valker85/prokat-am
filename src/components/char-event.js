@@ -1,8 +1,12 @@
 import React from 'react';
+import { NavLink, withRouter } from 'react-router-dom';
+import axios from 'axios';
 
 // Components
 import Path from '../components/other-components/path'
 import Header from './other-components/header';
+
+
 
 // Images
 import GeneralImg from '../assets/img/char-event/genImg.png'
@@ -16,26 +20,22 @@ import topProd4 from '../assets/img/home/top-prods/prod4.png'
 
 import Poster from '../assets/img/portfolio-post/videoImg.png'
 
-
 // Videos
 import Video from '../assets/video/portfolio-post/video.mp4'
-import { NavLink } from 'react-router-dom';
 
 
-export default class CharEvent extends React.Component{
+class CharEvent extends React.Component{
     constructor(props){
         super(props)
 
         this.state = {
             event:{
-                name: 'Փրկենք Վարդուշի ամուսնությունը',
-                date: '17.07.2021',
-                generalImage: GeneralImg,
-                text1: 'Հարսանիքի զարգացման վաղ՝ մայրիշխանության շրջանում կատարվել է պարզ արարողություններով։ Որպես ամուսնության սովորութային ձևակերպում զարգացել է հայրիշխանության ընթացքում, երբ հաստատվել է մենամուսնությունը, որն արտահայտվել է կնոջ բնակությամբ ամուսնու տանը։ Ամուսնական արարողությունների շարքի հիմնական առանձնահատկությունը ծնողների տնից ամուսնու տուն տեղափոխվելու թատերականացված արտահայտությունն է։',
-                text2: 'Հարսանիքը, որպես կանոն, ուղեկցվում է խնջույքներով, նվերների փոխանակությամբ, երգ ու պարով և այլ զվարճություններով։ Հարսանիքին մասնակցում են փեսայի և հարսի ազգականները, մերձավորները, ծիսակարգի համար սահմանված հատուկ անձինք (խնամախոսներ, խնամիներ, կնքահայր, հարսնեղբայր, հարսնաքույր, խաչեղբայր, քահանա, քավոր և այլն)։ Ըստ եկեղեցական ավանդույթի Հարսնաքույր և խաչեղբայր անձը կարող է լինել իր կյանաքում միայն մեկ անգամ և միայն մեկ զույգի համար։ Եկեղեցու առաջ մի քանի անգամ արգելվում է լինել Խաչեղբայր և Հարսնաքույր, քանի որ նրանք հանդիսանում եմ միայն մեկ ամուսնական զույգի վկաներ։ խաչեղբայր և հարսնաքույր ընտրելիս պետք է ամպայման ուշադրություն դարցնել այս հանգամանքին։',
-                text3: 'Հայաստանի ազգագրական յուրաքանչյուր շրջան ունեցել է իրեն հատուկ հարսանեկան ծիսակարգ, որի մեջ առանձնացել են գրեթե բոլոր շրջանների համար ընդհանուր շատ արարողություններ։ Հարսանիքները կատարվել են հիմնականում աշնանը՝ գյուղատնտեսական աշխատանքներից հետո և տևել են 3-7 օր։ Գերադասել են սկսել հինգշաբթի կամ ուրբաթ և ավարտել կիրակի։',
-                video: {src: Video, poster: Poster},
-                pictures:[Img1, Img2]
+                // name: 'Փրկենք Վարդուշի ամուսնությունը',
+                // date: '17.07.2021',
+                // generalImage: GeneralImg,
+                // text1: 'Հարսանիքի զարգացման վաղ՝ մայրիշխանության շրջանում կատարվել է պարզ արարողություններով։ Որպես ամուսնության սովորութային ձևակերպում զարգացել է հայրիշխանության ընթացքում, երբ հաստատվել է մենամուսնությունը, որն արտահայտվել է կնոջ բնակությամբ ամուսնու տանը։ Ամուսնական արարողությունների շարքի հիմնական առանձնահատկությունը ծնողների տնից ամուսնու տուն տեղափոխվելու թատերականացված արտահայտությունն է։',
+                // text2: 'Հարսանիքը, որպես կանոն, ուղեկցվում է խնջույքներով, նվերների փոխանակությամբ, երգ ու պարով և այլ զվարճություններով։ Հարսանիքին մասնակցում են փեսայի և հարսի ազգականները, մերձավորները, ծիսակարգի համար սահմանված հատուկ անձինք (խնամախոսներ, խնամիներ, կնքահայր, հարսնեղբայր, հարսնաքույր, խաչեղբայր, քահանա, քավոր և այլն)։ Ըստ եկեղեցական ավանդույթի Հարսնաքույր և խաչեղբայր անձը կարող է լինել իր կյանաքում միայն մեկ անգամ և միայն մեկ զույգի համար։ Եկեղեցու առաջ մի քանի անգամ արգելվում է լինել Խաչեղբայր և Հարսնաքույր, քանի որ նրանք հանդիսանում եմ միայն մեկ ամուսնական զույգի վկաներ։ խաչեղբայր և հարսնաքույր ընտրելիս պետք է ամպայման ուշադրություն դարցնել այս հանգամանքին։',
+                // text3: 'Հայաստանի ազգագրական յուրաքանչյուր շրջան ունեցել է իրեն հատուկ հարսանեկան ծիսակարգ, որի մեջ առանձնացել են գրեթե բոլոր շրջանների համար ընդհանուր շատ արարողություններ։ Հարսանիքները կատարվել են հիմնականում աշնանը՝ գյուղատնտեսական աշխատանքներից հետո և տևել են 3-7 օր։ Գերադասել են սկսել հինգշաբթի կամ ուրբաթ և ավարտել կիրակի։',
             },
             comparableProducts:[
                 {prod_url: '/filter/goods/computer-equipment/monitor1/toshiba-Satellite-c50', img: topProd1, type: 'Տեխնիկա',                       type_url: '/filter/goods/computer-equipment',    name: 'Պրոյեկտոր Benq',                 info: ['2700 Lumens', 'SVGA resolution', 'USB'], prise: 10000},
@@ -48,6 +48,30 @@ export default class CharEvent extends React.Component{
 
     
 
+    componentDidMount(){
+        let url = this.props.location.pathname.split('/').pop()
+        let config = {
+            headers: {
+                auth:{
+                    username: 'prokat',
+                    password: '9H8lFCGGAHksplo9h9kQ'
+                }
+            }
+        }
+
+
+        axios.post(`https://prokat.weflex.am/api/events/${url}`, {  }, config.headers)
+            .then((response) => {
+
+                console.log( response.data.data )
+                this.setState({
+                    event: response.data.data
+                })
+            })
+            .catch(function (error) {
+                console.log(error)
+            })
+    }
 
 
 
@@ -60,32 +84,52 @@ export default class CharEvent extends React.Component{
 
                 <div className='container160'>
                     <div className='section1'>
-                        <h1>{this.state.event.name}</h1>
-                        <p className='date'>{this.state.event.date}</p>
+                        <h1>{this.state.event.title_am}</h1>
+                        <p className='date'>{ new Date(`${this.state.event.date}`).toLocaleDateString() }</p>
 
                         <div className='general-image'>
-                            <img src={this.state.event.generalImage} alt='event-img' />
+                            {
+                                this.state.event.img ?
+                                <img src={`https://prokat.weflex.am/public/uploads/events/${this.state.event._id}/${this.state.event.img}`} alt='event-img' />
+                                : null
+                            }
                         </div>
 
-                        <p className='text'>{this.state.event.text1}</p>
-                        <p className='text'>{this.state.event.text2}</p>
-                        <p className='text'>{this.state.event.text3}</p>
+                        <div className="text" dangerouslySetInnerHTML={{__html: this.state.event.desc_am}}></div>
+
 
                         <div className='pictures'>
                             <div className='block'>
-                                <video poster={this.state.event.video.poster} controls>
-                                    <source src={this.state.event.video.src} type="video/mp4"/>
-                                </video>
+                            { 
+                                this.state.event.media ?
+                                this.state.event.media.map( (pic, idx)=>{
+                                    if( pic.type === 'video' ){
+                                        return(
+                                        <video controls key={idx}>
+                                            <source src={`https://prokat.weflex.am/public/uploads/events/${this.state.event._id}/media/${pic.filename}`} type="video/mp4"/>
+                                        </video>
+                                        )
+                                    }
+                                })
+                                : null
+                            }
+
                             </div>
 
                             <div className='block'>
-                                <div className='imgBlock'>
-                                    <img src={this.state.event.pictures[0]} alt='event'/>
-                                </div>
-
-                                <div className='imgBlock'>
-                                    <img src={this.state.event.pictures[1]} alt='event'/>
-                                </div>
+                                {
+                                    this.state.event.media ?
+                                    this.state.event.media.map( (pic, idx)=>{
+                                        if( pic.type === 'image' && (idx === 0 || idx === 1)  ){
+                                            return(
+                                            <div className='imgBlock' key = {idx}>
+                                                <img src={`https://prokat.weflex.am/public/uploads/events/${this.state.event._id}/media/${pic.filename}`} alt='event'/>
+                                            </div>
+                                            )
+                                        }
+                                    })
+                                    : null
+                                }
                             </div>
                         </div>
 
@@ -138,3 +182,7 @@ export default class CharEvent extends React.Component{
         )
     }
 }
+
+
+
+export default withRouter(CharEvent)

@@ -158,6 +158,16 @@
     font-family: 'Arial';
     transition: 0.5s;
 }
+.header .modal .hide_menu .other_links a{
+    transition: 0.3s;
+    font-size: 28px;
+    font-weight: 700;
+    cursor: pointer;
+    padding: 20px 160px 20px 35px;
+    line-height: 42px;
+    text-decoration: none;
+    color: black;
+}
 .header .modal .hide_menu ul.active{
     max-height: fit-content;
 }

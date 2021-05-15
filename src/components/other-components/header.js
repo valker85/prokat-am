@@ -5,6 +5,7 @@ import {NavLink} from 'react-router-dom'
 import Logo from '../../assets/img/header/ProkatAm Logo.png'
 import Basket from '../../assets/img/basket.svg'
 import Close from '../../assets/img/header/close.png'
+import axios from 'axios';
 
 // Componets
 
@@ -16,24 +17,9 @@ export default class Header extends React.Component{
 
         this.state = {
             modal_classes:['modal'],
-            goods:[
-                {url: '/', name: 'Prod1'},
-                {url: '/', name: 'Prod2'},
-                {url: '/', name: 'Prod3'},
-                {url: '/', name: 'Prod4'}
-            ],
-            services:[
-                {url: '/', name: 'Something'},
-                {url: '/', name: 'Something'},
-                {url: '/', name: 'Something'},
-                {url: '/', name: 'Something'}
-            ],
-            transport:[
-                {url: '/', name: 'Something'},
-                {url: '/', name: 'Something'},
-                {url: '/', name: 'Something'},
-                {url: '/', name: 'Something'}
-            ],
+            goods:[],
+            services:[],
+            transport:[],
             empty: true
         }
 
@@ -87,6 +73,14 @@ export default class Header extends React.Component{
 
     componentDidMount(){
         let storage_prods = JSON.parse(window.localStorage.getItem('products'))
+        let config = {
+            headers: {
+                auth:{
+                    username: 'prokat',
+                    password: '9H8lFCGGAHksplo9h9kQ'
+                }
+            }
+        }
 
         if(Boolean(storage_prods) === true && storage_prods.length > 0){
             setTimeout(()=>{
@@ -102,6 +96,30 @@ export default class Header extends React.Component{
             })
         }
         
+
+        axios.post('https://prokat.weflex.am/api/categories/section/products', {  }, config.headers)
+            .then((response) => {
+
+                this.setState({
+                    goods: response.data.data 
+                })
+            })
+            .catch(function (error) {
+                console.log(error)
+            })
+
+        axios.post('https://prokat.weflex.am/api/categories/section/services', {  }, config.headers)
+            .then((response) => {
+
+                this.setState({
+                    services: response.data.data 
+                })
+            })
+            .catch(function (error) {
+                console.log(error)
+            })
+
+
     }
 
     render(){
@@ -117,14 +135,14 @@ export default class Header extends React.Component{
                         <ul>
                             <li onClick={this.open_lis.bind(null, 1)}>Ապրանքներ</li>
                             {this.state.goods.map((li, idx)=>{
-                                return <li key={idx}><NavLink to={li.url}>{li.name}</NavLink></li>
+                                return <li key={idx}><NavLink to={`/filter/goods/${li.url}`}>{li.title_am}</NavLink></li>
                             })}
                         </ul>
 
                         <ul>
                             <li onClick={this.open_lis.bind(null, 2)}>Ծառայություններ</li>
                             {this.state.services.map((li, idx)=>{
-                                return <li key={idx}><NavLink to={li.url}>{li.name}</NavLink></li>
+                                return <li key={idx}><NavLink to={`/filter/services/${li.url}`}>{li.title_am}</NavLink></li>
                             })}
                         </ul>
 

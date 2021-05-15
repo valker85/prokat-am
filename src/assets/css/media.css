@@ -359,6 +359,13 @@
         padding-bottom: 15px;
         font-size: 22px;
     }
+    .header .modal .hide_menu .other_links a{
+        font-size: 22px;
+        padding: 15px 100px 15px 35px;
+    }
+
+
+
     .header .modal .hide_menu ul li a {
         font-size: 18px;
     }
@@ -856,6 +863,10 @@
         padding-left: 30px !important;
         padding-right: 30px !important;
     }
+    .header .modal .hide_menu .other_links a{
+        padding-left: 30px !important;
+        padding-right: 30px !important;
+    }
     .header .modal.open .hide_menu {
         padding-top: 100px !important;
     }
@@ -1278,6 +1289,10 @@
     }
     .header .modal .hide_menu ul li {
         padding: 0px 13px 0 15px;
+    }
+    .header .modal .hide_menu .other_links a{
+        padding-right: 13px;
+        padding-left: 15px;
     }
     .header .modal .hide_menu .phones{
         display: block;
@@ -2376,6 +2391,9 @@
         padding-bottom: 15px;
         font-size: 24px;
     }
+
+
+
     /* //////////////////////////// */
     .footer .content .other_content .left p:last-child {
         margin-top: 16px;
@@ -2534,6 +2552,14 @@
     .header .modal .hide_menu ul li:first-child::before {
         font-size: 50px;
     }
+    .header .modal .hide_menu .other_links a{
+        padding: 0px 60px 0 60px;
+        padding-top: 22px;
+        padding-bottom: 22px;
+        font-size: 34px;
+    }
+
+
     .header .modal .hide_menu ul li a {
         font-size: 28px;
     }
