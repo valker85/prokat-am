@@ -652,7 +652,7 @@ class Category extends React.Component{
                     </div>
                 </div>
 
-                <div className='section4'>
+                {/* <div className='section4'>
                     <div className='container160'>
                         <h1>Համադրվող ապրանքներ</h1>
                         <div className='prods'>
@@ -688,7 +688,7 @@ class Category extends React.Component{
                         }
                         </div>
                     </div>
-                </div>
+                </div> */}
             </div>
             </>
         )
