@@ -15,6 +15,7 @@ import Post6 from '../assets/img/portfolio/post6.png'
 import Post7 from '../assets/img/portfolio/post7.png'
 import Post8 from '../assets/img/portfolio/post8.png'
 import Post9 from '../assets/img/portfolio/post9.png'
+import axios from 'axios';
 
 
 
@@ -40,7 +41,30 @@ export default class Portfolio extends React.Component{
     }
 
     goToPost = (url) =>{
-        this.props.history.push({pathname: `/portfolio${url}`})
+        this.props.history.push({pathname: `/am/portfolio/${url}`})
+    }
+
+    componentDidMount(){
+        let config = {
+            headers: {
+                auth:{
+                    username: 'prokat',
+                    password: '9H8lFCGGAHksplo9h9kQ'
+                }
+            }
+        }
+
+        axios.post('https://prokat.weflex.am/api/portfolio', {  }, config.headers)
+            .then((response) => {
+
+                console.log('Portfolio: ', response.data.data )
+                this.setState({
+                    posts: response.data.data
+                })
+            })
+            .catch(function (error) {
+                console.log(error)
+            })
     }
 
     render(){
@@ -57,9 +81,9 @@ export default class Portfolio extends React.Component{
                         this.state.posts.map((post, idx)=>{
                             return(
                                 <div onClick={this.goToPost.bind(null, post.url)} className='post' key={idx}>
-                                    <img src={post.img} alt='post' />
+                                    <img src={`https://prokat.weflex.am/public/uploads/portfolio/${post._id}/${post.img}`} alt='post' />
                                     <div>
-                                        <h2>{post.name}</h2>                                
+                                        <h2>{post.title_am}</h2>                                
                                     </div>
                                 </div>
                             )

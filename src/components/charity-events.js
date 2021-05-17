@@ -61,7 +61,7 @@ export default class CharityEvents extends React.Component{
                     {
                         this.state.events.map((event, idx)=>{
                             return(
-                                <div className='event' key={idx} onClick={()=>{this.props.history.push( `/charity-events/${event.url}` )}}>
+                                <div className='event' key={idx} onClick={()=>{this.props.history.push( `/am/charity-events/${event.url}` )}}>
                                     <div className='gradient'></div>
 
                                     <img src={`https://prokat.weflex.am/public/uploads/events/${event._id}/${event.img}`} alt='event' />

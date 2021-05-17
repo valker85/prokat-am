@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, withRouter } from 'react-router-dom';
 
 // images
 import Messanger from '../../assets/img/footer/fixed social/Messanger.svg'
@@ -15,7 +15,24 @@ import YouTube from '../../assets/img/footer/other social/yotube.svg'
 import Cards from '../../assets/img/footer/payment_cards.svg'
 
 
-export default class Footer extends React.Component{
+class Footer extends React.Component{
+
+    constructor(props){
+        super(props)
+
+        this.state = {
+
+        }
+    }
+
+
+    componentDidMount(){
+        let url = this.props.location.pathname.split('/')
+
+        if( url[1] !== 'am' && url[1] !== 'en' || url[1] === undefined ){
+            this.props.history.push('/am')
+        }
+    }
 
 
     render(){
@@ -51,26 +68,26 @@ export default class Footer extends React.Component{
 
                             <div className='right'>
                                 <ul>
-                                    <li><NavLink to='/'>Ապրանքներ</NavLink></li>
-                                    <li><NavLink to='/'>Ծառայություններ</NavLink></li>
+                                    <li><NavLink to='/am/goods'>Ապրանքներ</NavLink></li>
+                                    <li><NavLink to='/am/services'>Ծառայություններ</NavLink></li>
                                 </ul>
 
                                 <ul className='desktop'>
-                                    <li><NavLink to='/about'>Մեր մասին</NavLink></li>
-                                    <li><NavLink to='/terms'>Պայմաններ</NavLink></li>
-                                    <li><NavLink to='/contact-us'>Հետադարձ կապ</NavLink></li>
+                                    <li><NavLink to='/am/about'>Մեր մասին</NavLink></li>
+                                    <li><NavLink to='/am/terms'>Պայմաններ</NavLink></li>
+                                    <li><NavLink to='/am/contact-us'>Հետադարձ կապ</NavLink></li>
                                 </ul>
 
                                 <ul className='mob'>
                                     <ul>                                    
-                                        <li><NavLink to='/portfolio'>Պորտֆոլիո</NavLink></li>
-                                        <li><NavLink to='/festivals'>Փառատոններ</NavLink></li>
-                                        <li><NavLink to='/charity-events'>Բարեգործական միջոցառումներ</NavLink></li>
+                                        <li><NavLink to='/am/portfolio'>Պորտֆոլիո</NavLink></li>
+                                        <li><NavLink to='/am/festivals'>Փառատոններ</NavLink></li>
+                                        <li><NavLink to='/am/charity-events'>Բարեգործական միջոցառումներ</NavLink></li>
                                     </ul>
                                     <ul>
-                                        <li><NavLink to='/about'>Մեր մասին</NavLink></li>
-                                        <li><NavLink to='/terms'>Պայմաններ</NavLink></li>
-                                        <li><NavLink to='/contact-us'>Հետադարձ կապ</NavLink></li>
+                                        <li><NavLink to='/am/about'>Մեր մասին</NavLink></li>
+                                        <li><NavLink to='/am/terms'>Պայմաններ</NavLink></li>
+                                        <li><NavLink to='/am/contact-us'>Հետադարձ կապ</NavLink></li>
                                     </ul>
                                 </ul>
 
@@ -89,9 +106,6 @@ export default class Footer extends React.Component{
                         </div>
                     </div>
                 </div>
-
-
-
 
                 <div className='social-wrapper'>
                     <a href='https://www.messenger.com/' target='_blank' rel="noopener noreferrer">
@@ -116,3 +130,5 @@ export default class Footer extends React.Component{
         )
     }
 }
+
+export default withRouter(Footer)

@@ -124,7 +124,7 @@ class Category extends React.Component{
             }
 
             if(option.length !== 0){
-                this.props.history.push(option)
+                this.props.history.push(`/am${option}`)
             }
         }
 
@@ -260,7 +260,11 @@ class Category extends React.Component{
 
         // all paths without '/'
         let all_pats = pathname.split('/')
-        all_pats.splice(0, 2)
+        all_pats.splice(0, 3)
+        // all_pats.splice(1, 1)
+
+
+        console.log( all_pats )
 
         if(all_pats[0] === "services"){
             this.setState({
@@ -360,7 +364,7 @@ class Category extends React.Component{
 
     componentWillReceiveProps(newPr){   // во время клика
         let url = newPr.location.pathname.split('/')
-        url.splice(0, 1)
+        url.splice(0, 2)
 
         if(url[1] === "services"){
             this.setState({
@@ -585,8 +589,8 @@ class Category extends React.Component{
                             <div className='clear_div'>
                                 <NavLink to={
                                     this.state.history === undefined ?
-                                    `/filter/goods` :
-                                    `/filter/${this.state.history}`
+                                    `/am/filter/goods` :
+                                    `/am/filter/${this.state.history}`
                                 }>Մաքրել ֆիլտրը</NavLink>
                             </div>
                         </div>
@@ -612,7 +616,7 @@ class Category extends React.Component{
                                                 }
                                             </div>
                                             <div className='content'>
-                                                <NavLink to='/' className='type'>{card.type}</NavLink>
+                                                <NavLink to='/am' className='type'>{card.type}</NavLink>
                                                 <h1 className={card.title_en.length > 21 ? 'name long' : 'name'}>{card.title_en}</h1>
 
                                                 <ul className={card.title_en.length > 21 ? 'info long' : 'info'}>
@@ -630,12 +634,12 @@ class Category extends React.Component{
                                                     ?
                                                     <div className='prise-wrapper'>
                                                         <div className='prise'>{card.price} <span>դր/օր</span></div>
-                                                        <div className='rent'><NavLink to='/'>Վարձել</NavLink></div>
+                                                        <div className='rent'><NavLink to='/am'>Վարձել</NavLink></div>
                                                     </div>
                                                     :
                                                     <div className='prise-wrapper'>
                                                         <div className='prise'><span>սկսած </span>{card.price} <span>դր</span></div>
-                                                        <div className='rent'><NavLink to='/'>Վարձել</NavLink></div>
+                                                        <div className='rent'><NavLink to='/am'>Վարձել</NavLink></div>
                                                     </div>
                                                 }
 
@@ -660,7 +664,7 @@ class Category extends React.Component{
                                             <img src={card.img} alt='img'/>
                                         </div>
                                         <div className='content'>
-                                            <NavLink to='/' className='type'>{card.type}</NavLink>
+                                            <NavLink to='/am' className='type'>{card.type}</NavLink>
                                             <h1 className={card.name.length > 21 ? 'name long' : 'name'}>{card.name}</h1>
 
                                             <ul className={card.name.length > 21 ? 'info long' : 'info'}>
@@ -675,7 +679,7 @@ class Category extends React.Component{
                                             <div className='line'></div>
                                             <div className='prise-wrapper'>
                                                 <div className='prise'>{card.prise} <span>դր/օր</span></div>
-                                                <div className='rent'><NavLink to='/'>Վարձել</NavLink></div>
+                                                <div className='rent'><NavLink to='/am'>Վարձել</NavLink></div>
                                             </div>
                                         </div>
                                     </div>

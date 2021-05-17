@@ -1,5 +1,5 @@
 import React from 'react';
-import {NavLink} from 'react-router-dom'
+import {NavLink, withRouter} from 'react-router-dom'
 
 // images
 import Logo from '../../assets/img/header/ProkatAm Logo.png'
@@ -10,21 +10,29 @@ import axios from 'axios';
 // Componets
 
 
-
-export default class Header extends React.Component{
+class Header extends React.Component{
     constructor(props){
         super(props)
 
         this.state = {
+            lang_classes:['allLangBlock'],
             modal_classes:['modal'],
             goods:[],
             services:[],
             transport:[],
-            empty: true
+            empty: true,
+            // ////////////////////// lang
+            lang_Am: {
+                menu: 'Մենյու'
+            },
+            lang_En: {
+                menu: 'Menu'
+            }
         }
 
         this.hide_menu = React.createRef()
-        this.page_ref = React.createRef()
+        this.page_ref = React.createRef()        
+        this.lang_ref = React.createRef()
 
         this.menu_flag = false
     }
@@ -71,7 +79,16 @@ export default class Header extends React.Component{
         })
     }
 
+    change_lang = (event) =>{
+        let lang = event.target.innerHTML
+
+        this.lang_ref.current.innerHTML = lang
+
+        this.open_lang()
+    }
+
     componentDidMount(){
+        let url = this.props.location.pathname.split('/')
         let storage_prods = JSON.parse(window.localStorage.getItem('products'))
         let config = {
             headers: {
@@ -96,7 +113,6 @@ export default class Header extends React.Component{
             })
         }
         
-
         axios.post('https://prokat.weflex.am/api/categories/section/products', {  }, config.headers)
             .then((response) => {
 
@@ -120,6 +136,14 @@ export default class Header extends React.Component{
             })
 
 
+
+        console.log( url[1] !== 'am' )
+        
+        if( url[1] !== 'am' && url[1] !== 'en' || url[1] === undefined ){
+
+            this.props.history.push('/am')
+        }
+
     }
 
     render(){
@@ -135,24 +159,24 @@ export default class Header extends React.Component{
                         <ul>
                             <li onClick={this.open_lis.bind(null, 1)}>Ապրանքներ</li>
                             {this.state.goods.map((li, idx)=>{
-                                return <li key={idx}><NavLink to={`/filter/goods/${li.url}`}>{li.title_am}</NavLink></li>
+                                return <li key={idx}><NavLink to={`/am/filter/goods/${li.url}`}>{li.title_am}</NavLink></li>
                             })}
                         </ul>
 
                         <ul>
                             <li onClick={this.open_lis.bind(null, 2)}>Ծառայություններ</li>
                             {this.state.services.map((li, idx)=>{
-                                return <li key={idx}><NavLink to={`/filter/services/${li.url}`}>{li.title_am}</NavLink></li>
+                                return <li key={idx}><NavLink to={`/am/filter/services/${li.url}`}>{li.title_am}</NavLink></li>
                             })}
                         </ul>
 
                         <div className='other_links'>
-                            <NavLink to='/portfolio'>Պարտֆոլիո</NavLink>
-                            <NavLink to='/festivals'>Փառատոններ</NavLink>
-                            <NavLink to='/charity-events'>Բարեգործական միջոցառումներ</NavLink>
-                            <NavLink to='/about'>Մեր մասին</NavLink>
-                            <NavLink to='/terms'>Պայմաններ</NavLink>
-                            <NavLink to='/contact-us'>Հետադարձ կապ</NavLink>
+                            <NavLink to='/am/portfolio'>Պարտֆոլիո</NavLink>
+                            <NavLink to='/am/festivals'>Փառատոններ</NavLink>
+                            <NavLink to='/am/charity-events'>Բարեգործական միջոցառումներ</NavLink>
+                            <NavLink to='/am/about'>Մեր մասին</NavLink>
+                            <NavLink to='/am/terms'>Պայմաններ</NavLink>
+                            <NavLink to='/am/contact-us'>Հետադարձ կապ</NavLink>
                         </div>
 
                         <div className='phones'>
@@ -171,7 +195,7 @@ export default class Header extends React.Component{
                 <div className='container160'>
                     <div className='header-wrapper'>
                         <div className='block'>
-                            <NavLink to='/'>
+                            <NavLink to='/am'>
                                 <img src={Logo} alt='logo'/>
                             </NavLink>
                             <a href='tel:+37499772528'>(+374 99) 77 25 28</a>
@@ -191,7 +215,7 @@ export default class Header extends React.Component{
                                     </button>
                                 </li>
                                 <li className='busket'>
-                                    <NavLink to='/shopping-cart'>
+                                    <NavLink to='/am/shopping-cart'>
                                         <img src={Basket} alt='basket'/>
                                         {
                                             this.state.empty === true ? null :
@@ -199,7 +223,7 @@ export default class Header extends React.Component{
                                         }
                                     </NavLink>
                                 </li>
-                                <li>En</li>
+                                <li ref={this.lang_ref} onClick={this.change_lang}>En</li>
                             </ul>
                         </div>
                     </div>
@@ -208,3 +232,5 @@ export default class Header extends React.Component{
         )
     }
 }
+
+export default withRouter(Header)

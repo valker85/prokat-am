@@ -15,82 +15,82 @@ import ContactUs from './components/contactUs'
 
 export default [
     {
-        path: '/',
+        path: '/:lang',
         component: Home,
         exact: true
     },
-    {
-        path: '/about',
+    {  
+        path: '/:lang/about',
         component: About,
         exact: false
     },
     {
-        path: '/terms',
+        path: '/:lang/terms',
         component: Terms,
         exact: false
     },
     {
-        path: '/shopping-cart',
+        path: '/:lang/shopping-cart',
         component: ShoppingCart,
         exact: false
     },
     {
-        path: '/portfolio',
+        path: '/:lang/portfolio',
         component: Portfolio,
         exact: true
     },
     {
-        path: '/portfolio/:post',
+        path: '/:lang/portfolio/:post',
         component: PortfolioPost,
         exact: true
     },
     {
-        path: '/filter/:url',
+        path: '/:lang/filter/:url',
         component: Category,
         exact: true
     },
     {
-        path: '/filter/:url/:category',
+        path: '/:lang/filter/:url/:category',
         component: Category,
         exact: true
     },
     {
-        path: '/filter/goods/:category/:type',
+        path: '/:lang/filter/goods/:category/:type',
         component: Category,
         exact: true
     },
     {
-        path: '/filter/goods/:category/:type/:id',
+        path: '/:lang/filter/goods/:category/:type/:id',
         component: ProductPage,
         exact: true
     },
     {
-        path: '/filter/services/:category/:id',
+        path: '/:lang/filter/services/:category/:id',
         component: ProductPage,
         exact: true
     },
     {
-        path: '/festivals',
+        path: '/:lang/festivals',
         component: Festivals,
         exact: true
     },
     {
-        path: '/festivals/:fest',
+        path: '/:lang/festivals/:fest',
         component: FestivalPage,
         exact: true
     },
     {
-        path: '/charity-events',
+        path: '/:lang/charity-events',
         component: CharityEvents,
         exact: true
     },
     {
-        path: '/charity-events/:event',
+        path: '/:lang/charity-events/:event',
         component: CharEvent,
         exact: false
     },
     {
-        path: '/contact-us',
+        path: '/:lang/contact-us',
         component: ContactUs,
         exact: false
     }

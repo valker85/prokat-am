@@ -36,9 +36,6 @@ import Search from '../assets/img/home/search.svg'
 // import topProd5 from '../assets/img/home/top-prods/prod5.png'
 
 
-
-
-
 export default class Home extends React.Component{
     constructor(props){
         super(props)
@@ -176,7 +173,7 @@ export default class Home extends React.Component{
                                     </NavLink> 
                                     */}
                                     
-                                    <h1 onClick={()=>{this.props.history.push(card.prod_url)}} 
+                                    <h1 onClick={()=>{this.props.history.push( `/am/${card.prod_url}` )}} 
                                         className={card.title_en ? card.title_en.length > 21 ? 'name long' : 'name' : null}
                                         >
                                         {card.title_en}
@@ -268,7 +265,7 @@ export default class Home extends React.Component{
                             <button>Որոնել</button>
                         </div>
                         <div className='some_info'>
-                            <p>Երբեմն որոնում են <NavLink to='/'>նոութբուք</NavLink> կամ <NavLink to='/'>սկաներ</NavLink>:</p>
+                            <p>Երբեմն որոնում են <NavLink to='/am'>նոութբուք</NavLink> կամ <NavLink to='/am'>սկաներ</NavLink>:</p>
                         </div>
 
                         <button className='mob_btn'>Որոնել</button>

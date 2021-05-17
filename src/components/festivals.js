@@ -48,7 +48,7 @@ export default class Festival extends React.Component{
     }
 
     gofest = (url) =>{
-        this.props.history.push(`/festivals${url}`)
+        this.props.history.push(`/am/festivals${url}`)
     }
 
 

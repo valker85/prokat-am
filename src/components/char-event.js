@@ -38,10 +38,10 @@ class CharEvent extends React.Component{
                 // text3: 'Հայաստանի ազգագրական յուրաքանչյուր շրջան ունեցել է իրեն հատուկ հարսանեկան ծիսակարգ, որի մեջ առանձնացել են գրեթե բոլոր շրջանների համար ընդհանուր շատ արարողություններ։ Հարսանիքները կատարվել են հիմնականում աշնանը՝ գյուղատնտեսական աշխատանքներից հետո և տևել են 3-7 օր։ Գերադասել են սկսել հինգշաբթի կամ ուրբաթ և ավարտել կիրակի։',
             },
             comparableProducts:[
-                {prod_url: '/filter/goods/computer-equipment/monitor1/toshiba-Satellite-c50', img: topProd1, type: 'Տեխնիկա',                       type_url: '/filter/goods/computer-equipment',    name: 'Պրոյեկտոր Benq',                 info: ['2700 Lumens', 'SVGA resolution', 'USB'], prise: 10000},
-                {prod_url: '/filter/goods/computer-equipment/monitor1/toshiba-Satellite-c50', img: topProd2, type: 'Ամեն ինչ միջոցառումների համար', type_url: '/filter/goods/everything-for-events', name: 'Սպիտակ ծածկ',                    info: ['3x3 մ', 'ջրակայուն', 'թեթև '],           prise: 24000},
-                {prod_url: '/filter/goods/computer-equipment/monitor1/toshiba-Satellite-c50', img: topProd3, type: 'Ամեն ինչ միջոցառումների համար', type_url: '/filter/goods/everything-for-events', name: 'Ջուր եռացնելու էլեկտրական սարք', info: ['15 լիտր'],                               prise: 3000},
-                {prod_url: '/filter/goods/computer-equipment/monitor1/toshiba-Satellite-c50', img: topProd4, type: 'Տեխնիկա',                       type_url: '/filter/goods/computer-equipment',    name: 'Գրասենյակային աթոռ',             info: ['մետաղ', 'գործվածք', 'սև'],               prise: 1000}
+                {prod_url: '/am/filter/goods/computer-equipment/monitor1/toshiba-Satellite-c50', img: topProd1, type: 'Տեխնիկա',                       type_url: '/filter/goods/computer-equipment',    name: 'Պրոյեկտոր Benq',                 info: ['2700 Lumens', 'SVGA resolution', 'USB'], prise: 10000},
+                {prod_url: '/am/filter/goods/computer-equipment/monitor1/toshiba-Satellite-c50', img: topProd2, type: 'Ամեն ինչ միջոցառումների համար', type_url: '/filter/goods/everything-for-events', name: 'Սպիտակ ծածկ',                    info: ['3x3 մ', 'ջրակայուն', 'թեթև '],           prise: 24000},
+                {prod_url: '/am/filter/goods/computer-equipment/monitor1/toshiba-Satellite-c50', img: topProd3, type: 'Ամեն ինչ միջոցառումների համար', type_url: '/filter/goods/everything-for-events', name: 'Ջուր եռացնելու էլեկտրական սարք', info: ['15 լիտր'],                               prise: 3000},
+                {prod_url: '/am/filter/goods/computer-equipment/monitor1/toshiba-Satellite-c50', img: topProd4, type: 'Տեխնիկա',                       type_url: '/filter/goods/computer-equipment',    name: 'Գրասենյակային աթոռ',             info: ['մետաղ', 'գործվածք', 'սև'],               prise: 1000}
             ]
         }
     }
@@ -149,7 +149,7 @@ class CharEvent extends React.Component{
                                             <div className='card-content'>
                                                 <NavLink to={card.type_url} className='type'>{card.type}</NavLink>
                                                 
-                                                <h1 onClick={()=>{this.props.history.push(card.prod_url)}} 
+                                                <h1 onClick={()=>{this.props.history.push( `/am/${card.prod_url}` )}} 
                                                     className={card.name.length > 21 ? 'name long' : 'name'}>
                                                     {card.name}
                                                 </h1>

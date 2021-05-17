@@ -21,7 +21,7 @@ class Path extends React.Component{
 
         // if path === 'Home' redirect to home page
         if(path === 'Home'){
-            this.props.history.push('/')
+            this.props.history.push('/am')
         }
 
         // find path start and end

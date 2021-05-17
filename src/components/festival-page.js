@@ -212,7 +212,7 @@ class FestivalPage extends React.Component{
 
 
         this.props.history.push({
-            pathname:'/shopping-cart',
+            pathname:'/am/shopping-cart',
             state: { 
                 have: needed_products.length === 0 ? false : true,
                 from: 'fest-page'
@@ -426,7 +426,7 @@ class FestivalPage extends React.Component{
                                         <div className='card-content'>
                                             <NavLink to={card.type_url} className='type'>{card.type}</NavLink>
                                             
-                                            <h1 onClick={()=>{this.props.history.push(card.prod_url)}} 
+                                            <h1 onClick={()=>{this.props.history.push( `/am/${card.prod_url}` )}} 
                                                 className={card.name.length > 21 ? 'name long' : 'name'}>
                                                 {card.name}
                                             </h1>

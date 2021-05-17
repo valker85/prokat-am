@@ -236,7 +236,7 @@ class PortfolioPost extends React.Component{
                                         <div className='content'>
                                             <NavLink to={card.type_url} className='type'>{card.type}</NavLink>
                                             
-                                            <h1 onClick={()=>{this.props.history.push(card.prod_url)}} 
+                                            <h1 onClick={()=>{this.props.history.push( `/am/${card.prod_url}` )}} 
                                                 className={card.name.length > 21 ? 'name long' : 'name'}>
                                                 {card.name}
                                             </h1>

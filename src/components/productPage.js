@@ -280,7 +280,7 @@ export default class ProductPage extends React.Component{
             }
 
             if(redirect === true){
-                this.props.history.push('/shopping-cart')
+                this.props.history.push('/am/shopping-cart')
             }
 
         }
@@ -527,7 +527,7 @@ export default class ProductPage extends React.Component{
                                                 <img src={card.img} alt='img'/>
                                             </div>
                                             <div className='content'>
-                                                <NavLink to='/' className='type'>{card.type}</NavLink>
+                                                <NavLink to='/am' className='type'>{card.type}</NavLink>
                                                 <h1 className={card.name.length > 20 ? 'name long' : 'name'}>{card.name}</h1>
 
                                                 <ul className={card.name.length > 20 ? 'info long' : 'info'}>
@@ -542,7 +542,7 @@ export default class ProductPage extends React.Component{
                                                 <div className='line'></div>
                                                 <div className='prise-wrapper'>
                                                     <div className='prise'>{card.prise} <span>դր/օր</span></div>
-                                                    <div className='rent'><NavLink to='/'>Վարձել</NavLink></div>
+                                                    <div className='rent'><NavLink to='/am'>Վարձել</NavLink></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -563,7 +563,7 @@ export default class ProductPage extends React.Component{
                                                 <img src={card.img} alt='img'/>
                                             </div>
                                             <div className='content'>
-                                                <NavLink to='/' className='type'>{card.type}</NavLink>
+                                                <NavLink to='/am' className='type'>{card.type}</NavLink>
                                                 <h1 className={card.name.length > 20 ? 'name long' : 'name'}>{card.name}</h1>
 
                                                 <ul className={card.name.length > 20 ? 'info long' : 'info'}>
@@ -578,7 +578,7 @@ export default class ProductPage extends React.Component{
                                                 <div className='line'></div>
                                                 <div className='prise-wrapper'>
                                                     <div className='prise'>{card.prise} <span>դր/օր</span></div>
-                                                    <div className='rent'><NavLink to='/'>Վարձել</NavLink></div>
+                                                    <div className='rent'><NavLink to='/am'>Վարձել</NavLink></div>
                                                 </div>
                                             </div>
                                         </div>
