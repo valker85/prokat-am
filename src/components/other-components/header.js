@@ -84,7 +84,7 @@ class Header extends React.Component{
 
         this.lang_ref.current.innerHTML = lang
 
-        this.open_lang()
+        // this.open_lang()
     }
 
     componentDidMount(){

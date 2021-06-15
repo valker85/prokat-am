@@ -39,26 +39,42 @@ class PortfolioPost extends React.Component{
         this.state = {
             data:{
                 rows: [
-                    [
-                        [{src: Img1, type: 'img'}, {src: Img2, type: 'img'}],
-                        [{src: Img3, type: 'img'},{src: Img4, type: 'img'}]
-                    ],
-                    [
-                        [{src: Video, type: 'video', poster: VideoImg}],
-                        
-                        [{src: Img5, type: 'img'}, {src: Img6, type: 'img'}, 
-                        {src: Img7, type: 'img'}, {src: Img8, type: 'img'}]
-                    ],
-                    [
-                        [{src: Img1, type: 'img'}, {src: Img2, type: 'img'}],
-                        [{src: Img3, type: 'img'}, {src: Img4, type: 'img'}]
-                    ],
-                    [
-                        [{src: Img5, type: 'img'}, {src: Img6, type: 'img'},
-                        {src: Img7, type: 'img'}, {src: Img8, type: 'img'}],
-                        [{src: Video, type: 'video', poster: VideoImg}]
-                    ]
+                    {src: Img1, type: 'img'},
+                    {src: Img2, type: 'img'},
+                    {src: Img3, type: 'img'},
+                    {src: Img4, type: 'img'},
+
+                    {src: Video, type: 'video', poster: VideoImg},
+                    {src: Img5, type: 'img'},
+                    {src: Img6, type: 'img'},
+                    {src: Img7, type: 'img'},
+
+                    {src: Img8, type: 'img'},
+                    {src: Video, type: 'video', poster: VideoImg},
+                    {src: Img1, type: 'img'},
+                    {src: Img2, type: 'img'}
                 ]
+                // rows: [
+                //     [
+                //         [{src: Img1, type: 'img'}, {src: Img2, type: 'img'}],
+                //         [{src: Img3, type: 'img'},{src: Img4, type: 'img'}]
+                //     ],
+                //     [
+                //         [{src: Video, type: 'video', poster: VideoImg}],
+                        
+                //         [{src: Img5, type: 'img'}, {src: Img6, type: 'img'}, 
+                //         {src: Img7, type: 'img'}, {src: Img8, type: 'img'}]
+                //     ],
+                //     [
+                //         [{src: Img1, type: 'img'}, {src: Img2, type: 'img'}],
+                //         [{src: Img3, type: 'img'}, {src: Img4, type: 'img'}]
+                //     ],
+                //     [
+                //         [{src: Img5, type: 'img'}, {src: Img6, type: 'img'},
+                //         {src: Img7, type: 'img'}, {src: Img8, type: 'img'}],
+                //         [{src: Video, type: 'video', poster: VideoImg}]
+                //     ]
+                // ]
             },
             postname: 'Վարդուշի հարսանիքի նկարներ',
             comparable_products:[
@@ -179,7 +195,23 @@ class PortfolioPost extends React.Component{
 
 
                     <div className='content-wrapper'>
-                    {
+                        {
+                            this.state.data.rows.map((pic, idx)=>{
+                                return(
+                                    // <div className={pic.type === 'video'?'picture video':'picture'} key={idx}>
+                                    <div key={idx}>
+                                        {
+                                            pic.type === 'img' ?
+                                            <img onClick={this.modal_fun.bind(null, true)} src={pic.src} alt='img'/> :
+                                            <video poster={pic.poster} controls>
+                                                <source src={pic.src} type="video/mp4"/>
+                                            </video>
+                                        }
+                                    </div>
+                                )
+                            })
+                        }
+                    {/* {
                         this.state.data.rows.map((row, idx)=>{
                             return(
                                 <div className='row' key={idx}>
@@ -220,7 +252,7 @@ class PortfolioPost extends React.Component{
                                 </div>
                             )
                         })
-                    }
+                    } */}
                     </div>
 
                     <div className='section2'>

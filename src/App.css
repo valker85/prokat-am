@@ -1867,6 +1867,11 @@
 .portfolio-post .content-wrapper{
     margin-top: 111px;
     margin-bottom: 138px;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-column-gap: 15px;
+    grid-row-gap: 11px;
 }
 .portfolio-post .content-wrapper .row{
     display: flex;
