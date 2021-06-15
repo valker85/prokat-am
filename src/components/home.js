@@ -113,7 +113,7 @@ export default class Home extends React.Component{
                         this.state.products.goods.map((card, idx)=>{
                             return(
                                 <Link to={{
-                                    pathname:`/filter/goods/${card.url}`,
+                                    pathname:`/am/filter/goods/${card.url}`,
                                     product: card.type
                                 }} className='card' key={idx}>
                                     <div className='img-wrapper'>
@@ -135,7 +135,7 @@ export default class Home extends React.Component{
                         this.state.products.services.map((card, idx)=>{
                             return(
                                 <Link to={{
-                                    pathname:`/filter/services/${card.url}`,
+                                    pathname:`/am/filter/services/${card.url}`,
                                     product: card.type
                                 }} className='card' key={idx}>
                                     <div className='img-wrapper service'>
